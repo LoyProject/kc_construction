@@ -1,0 +1,14 @@
+# Turn on the URL rewriting engine
+RewriteEngine On
+
+# Set the base directory for the rewrite rules
+# Make sure this matches the name of your project folder
+RewriteBase /menluxury-project/
+
+# Prevent direct access to sensitive folders
+RewriteRule ^includes/ - [F,L]
+
+# Rule to remove .php file extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.+)$ $1.php [L]

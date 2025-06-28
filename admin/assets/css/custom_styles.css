@@ -1,0 +1,39 @@
+
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.select2-container .select2-selection--single {
+  height: 41px !important;
+  border-radius: 6px !important;
+  border-color: #cbd5e0;
+  padding-left: 5px !important;
+  font-size: 14px !important;
+  border: 1px solidrgb(255, 255, 255);
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+  line-height: 41px !important;
+  border-radius: 6px !important;
+  padding-left: 5px !important;
+  font-size: 14px !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+  height: 41px !important;
+  border-radius: 6px !important;
+  padding-left: 8px !important;
+  font-size: 14px !important;
+}
+
+.select2-selection__clear {
+    color: #dc2626;
+    font-size: 14px !important;
+    height: 39px !important;
+    padding-right: 10px !important;
+}
