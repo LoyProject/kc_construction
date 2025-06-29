@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
               <img src="${product.image || 'images/no_image.jpg'}" alt="${product.title}" class="w-full h-auto transition-opacity duration-300" />
               <span class="absolute top-0 left-0 bg-brand-gold text-brand-white text-xs font-semibold px-3 py-1 rounded-br-lg z-10">${product.label || 'New'}</span>
               <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <a href="product_detail.php" class="border border-white p-2 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold transition-colors duration-300">
+                <a href="project_detail_page" class="border border-white p-2 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold transition-colors duration-300">
                   <i class="fas fa-link text-white text-xl"></i> 
                 </a>
               </div>

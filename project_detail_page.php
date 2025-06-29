@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php require_once 'header_widget.php'; ?>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/alpinejs" defer></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <title>Projects</title>
-</head>
-
-<body class="bg-brand-black text-white">
+<div class="bg-brand-black text-white">
     <div id="header" class="sticky top-0 z-50"></div>
     <main class="p-4 sm:p-6 md:p-12">
         <div class="flex flex-col lg:flex-row gap-8 lg:gap-10">
@@ -165,10 +155,6 @@
         </div>
     </main>
     <div id="footer"></div>
-</body>
+</div>
 
-
-<script src="js/color_config.js"></script>
-<script src="js/header_footer.js"></script>
-
-</html>
+<?php require_once 'footer_widget.php'; ?>

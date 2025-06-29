@@ -4,18 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="https://unpkg.com/alpinejs" defer></script>
+    <title id="page-title"></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <script src="js/color_config.js"></script>
 </head>
 
-<body">
+<body class="bg-brand-black text-brand-white">
     <header x-data="{ open: false }"
         class="w-full px-4 sm:px-20 py-4 flex items-center justify-between bg-brand-gray text-brand-gold shadow-sm mx-auto">
         <!-- Logo -->
         <div class="flex items-center space-x-2">
-            <img src="images/logo.png" alt="Men Luxury Logo" class="h-10 sm:h-12">
+            <a href="home_page"><img id="company-logo-header" class="h-10 sm:h-12"></a>
         </div>
 
         <!-- Hamburger for mobile -->
@@ -35,13 +37,13 @@
         <!-- Desktop Nav & Right Side -->
         <div class="hidden md:flex items-center justify-end flex-1 ml-8">
             <nav class="flex space-x-6 lg:space-x-8 uppercase font-semibold text-sm">
-                <a href="index.php" class="hover:text-brand-white">Home</a>
-                <a href="about_page.php" class="hover:text-brand-white">About Us</a>
-                <a href="project_page.php" class="hover:text-brand-white">Projects</a>
-                <a href="contact_page.php" class="hover:text-brand-white">Contact</a>
+                <a href="home_page" class="hover:text-brand-white">Home</a>
+                <a href="about_page" class="hover:text-brand-white">About Us</a>
+                <a href="project_page" class="hover:text-brand-white">Projects</a>
+                <a href="contact_page" class="hover:text-brand-white">Contact</a>
             </nav>
             <div class="flex items-center space-x-3 lg:space-x-4 ml-8">
-                <a href="quote_request_page.php">
+                <a href="quote_request_page">
                     <button
                         class="border border-brand-gold px-3 py-2 lg:px-4 uppercase font-semibold text-sm hover:bg-brand-gold hover:text-white transition-colors">
                         Quote Request
@@ -83,10 +85,10 @@
                     </button>
                 </div>
                 <nav class="flex flex-col space-y-4 uppercase font-semibold text-base">
-                    <a href="index.php" class="hover:text-brand-white">Home</a>
-                    <a href="about_page.php" class="hover:text-brand-white">About Us</a>
-                    <a href="project_page.php" class="hover:text-brand-white">Projects</a>
-                    <a href="contact_page.php" class="hover:text-brand-white">Contact</a>
+                    <a href="index" class="hover:text-brand-white">Home</a>
+                    <a href="about_page" class="hover:text-brand-white">About Us</a>
+                    <a href="project_page" class="hover:text-brand-white">Projects</a>
+                    <a href="contact_page" class="hover:text-brand-white">Contact</a>
                 </nav>
                 <!-- Language Switcher Mobile -->
                 <div x-data="{ lang: 'kh' }" class="flex items-center space-x-1 ml-2">
@@ -97,7 +99,7 @@
                             :alt="lang === 'en' ? 'English' : 'Khmer'" class="w-6 h-4 rounded shadow">
                     </button>
                 </div>
-                <a href="quote_request_page.php">
+                <a href="quote_request_page">
                     <button
                         class="border border-brand-gold px-3 py-2 lg:px-4 uppercase font-semibold text-sm hover:bg-brand-gold hover:text-white transition-colors">
                         Quote Request
@@ -107,8 +109,3 @@
             <div class="flex-1" @click="open = false"></div>
         </div>
     </header>
-
-    <script src="js/color_config.js"></script>
-    </body>
-
-</html>

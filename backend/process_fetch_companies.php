@@ -17,7 +17,7 @@
                 'email' => $row['email'],
                 'address' => $row['address'],
                 'map' => $row['map'],
-                'tell' => $row['tell'],
+                'tel' => $row['tell'],
                 'schedule' => $row['schedule'],
                 'facebook' => $row['facebook'],
                 'telegram' => $row['telegram'],
