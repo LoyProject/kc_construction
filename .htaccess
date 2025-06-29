@@ -3,7 +3,7 @@ RewriteEngine On
 
 # Set the base directory for the rewrite rules
 # Make sure this matches the name of your project folder
-RewriteBase /menluxury-project/
+RewriteBase /kc_construction/
 
 # Prevent direct access to sensitive folders
 RewriteRule ^includes/ - [F,L]

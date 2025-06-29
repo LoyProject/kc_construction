@@ -1,6 +1,6 @@
 <?php
     $host = 'localhost';
-    $dbname = 'menluxury_db';
+    $dbname = 'kc_construction';
     $username = 'root';
     $password = '';
     $charset = 'utf8mb4';

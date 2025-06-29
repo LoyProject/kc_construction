@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" x-data="slider()" x-init="start()">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
@@ -8,44 +8,40 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://unpkg.com/alpinejs" defer></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style/slide.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </head>
 
+<div id="header" class="bg-brand-gray sticky top-0 z-50"></div>
+
 <body class="bg-brand-black text-white">
 
-  <div id="header" class="bg-brand-gray sticky top-0 z-50"></div>
-
-  <div class="w-full overflow-hidden relative px-2 sm:px-0">
+  <div class="w-full overflow-hidden relative">
     <div class="relative w-full">
-      <template x-for="(slide, index) in slides" :key="index">
-        <div x-show="currentIndex === index" x-transition:enter="transition transform duration-700"
-          x-transition:enter-start="opacity-0 -translate-x-10" x-transition:enter-end="opacity-100 translate-x-0"
-          x-transition:leave="transition transform duration-700 absolute inset-0"
-          x-transition:leave-start="opacity-100 translate-x-0" x-transition:leave-end="opacity-0 translate-x-10"
-          class="w-full mx-auto aspect-[28/10] bg-cover bg-center transition-all duration-700 ease-in-out flex items-center justify-center"
-          :style="`background-image: url(${slide.image})`">
-          <!-- Overlay Content (optional) -->
-        </div>
-      </template>
-
-      <!-- Navigation Arrows -->
-      <button @click="prev()"
+      <div class="relative w-full mx-auto overflow-hidden aspect-[16/6] max-h-[600px]" id="carousel-images">
+      </div>
+      <button type="button" id="carousel-prev"
         class="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 text-white text-xl sm:text-3xl bg-black/40 rounded-full p-1 sm:p-2 hover:bg-black/70 transition z-10">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24"
           stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
         </svg>
+        <span class="sr-only">Previous</span>
       </button>
-      <button @click="next()"
+      <button type="button" id="carousel-next"
         class="absolute right-1 sm:right-4 top-1/2 -translate-y-1/2 text-xl text-brand-green sm:text-3xl bg-black/40 rounded-full p-1 sm:p-2 hover:bg-black/70 transition z-10">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24"
           stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
         </svg>
+        <span class="sr-only">Next</span>
       </button>
+      <div
+        class="absolute z-30 flex -translate-x-1/2 bottom-3 sm:bottom-5 left-1/2 space-x-2 sm:space-x-3 rtl:space-x-reverse"
+        id="carousel-indicators"></div>
     </div>
   </div>
+
 
   <section class="py-16 bg-brand-gray text-center">
     <!-- Heading -->
@@ -105,7 +101,8 @@
         </div>
         <h3 class="text-lg font-semibold text-brand-gold">Finishing Materials for the House testing</h3>
         <div class="h-[2px] w-10 bg-gray-200 my-2 mx-auto"></div>
-        <p class="text-brand-white/60">We will advise and provide customers with the best finishing materials and reasonable
+        <p class="text-brand-white/60">We will advise and provide customers with the best finishing materials and
+          reasonable
           prices.</p>
       </div>
     </div>
@@ -122,13 +119,15 @@
 
   <div class="flex justify-center mt-8 mb-18">
     <nav class="relative w-full">
-      <ul class="flex flex-wrap justify-center items-center space-x-2 sm:space-x-4 md:space-x-8 text-sm sm:text-base lg:text-lg font-semibold text-brand-white bg-brand-black rounded-full p-2 sm:p-4 shadow-md transition-all duration-300"
+      <ul
+        class="flex flex-wrap justify-center items-center space-x-2 sm:space-x-4 md:space-x-8 text-sm sm:text-base lg:text-lg font-semibold text-brand-white bg-brand-black rounded-full p-2 sm:p-4 shadow-md transition-all duration-300"
         id="navList">
         <li><a href="#" class="nav-link text-brand-gold font-bold" data-target="all">All</a></li>
         <li><a href="#" class="nav-link text-brand-white hover:text-brand-gold" data-target="villa">Villa</a></li>
         <li><a href="#" class="nav-link text-brand-white hover:text-brand-gold" data-target="castle-mansion">Castle
             Mansion</a></li>
-        <li><a href="#" class="nav-link text-brand-white hover:text-brand-gold" data-target="townhouse">Townhouse</a></li>
+        <li><a href="#" class="nav-link text-brand-white hover:text-brand-gold" data-target="townhouse">Townhouse</a>
+        </li>
         <li><a href="#" class="nav-link text-brand-white hover:text-brand-gold"
             data-target="boutique-hotel">Boutique-Hotel</a></li>
         <li><a href="#" class="nav-link text-brand-white hover:text-brand-gold"
@@ -155,8 +154,7 @@
     <!-- Fixed Buttons: Call & Scroll to Top, side by side on desktop, stacked on mobile -->
     <div class="flex items-end sm:items-center space-y-3 space-x-3 sm:space-y-0">
       <!-- Call Button -->
-      <a href="https://t.me/sovongdy"
-        target="_blank"
+      <a href="https://t.me/sovongdy" target="_blank"
         class="bg-brand-gold text-white font-bold flex items-center p-4 shadow-md hover:bg-white hover:text-brand-gold transition">
         <i class="fab fa-telegram-plane text-sm mr-2"></i>
         Telegram Chat
@@ -171,9 +169,9 @@
   </div>
 
   <div id="footer"></div>
-
+  <script src="js/slideshow.js"></script>
+  <script src="js/companies_info.js"></script>
   <script src="js/color_config.js"></script>
-  <script src="js/slide_img.js"></script>
   <script src="js/product_list.js"></script>
   <script src="js/scrollTop_btn.js"></script>
   <script src="js/header_footer.js"></script>
