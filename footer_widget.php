@@ -1,12 +1,11 @@
-<script src="https://unpkg.com/alpinejs" defer></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <footer class="bg-brand-gray">
     <!-- Top Footer Section -->
     <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
 
         <!-- Logo + Address -->
+
         <div>
-            <img src="images/logo.png" alt="Logo" class="h-14 mb-4">
+            <img id="company-logo" class="h-14 mb-4">
             <ul class="space-y-3 text-sm">
                 <li class="flex items-center">
                     <span class="flex items-center justify-center w-8 h-8 p-1 text-brand-gold mr-2">
@@ -28,6 +27,8 @@
                 </li>
             </ul>
         </div>
+
+
 
         <!-- Quick Links -->
         <div>
@@ -92,3 +93,12 @@
         </div>
     </div>
 </footer>
+<script scr="js/companies_info.js"></script>
+<script src="js/slideshow.js"></script>
+  <script src="js/color_config.js"></script>
+  <script src="js/product_list.js"></script>
+  <script src="js/scrollTop_btn.js"></script>
+  <script src="js/header_footer.js"></script>
+</body>
+
+</html>
