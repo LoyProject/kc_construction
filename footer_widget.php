@@ -91,9 +91,11 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
-    <script src="js/companies_info.js"></script>
     <script src="js/slideshow.js"></script>
+    <script src="js/companies_info.js"></script>
     <script src="js/achievements_info.js"></script>
-    <script src="js/types.js"></script>
+    <script src="js/types_info.js"></script>
+    <script src="js/projects_info.js"></script>
+    <script src="js/projects_detail_info.js"></script>
 </body>
 </html>

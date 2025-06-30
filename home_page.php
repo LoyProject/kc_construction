@@ -27,7 +27,6 @@
         </div>
     </div>
 
-
     <section class="py-16 bg-brand-gray text-center">
         <!-- Heading -->
         <div class="mb-8 text-center">
@@ -65,8 +64,10 @@
         <!-- Types items will be injected here -->
     </div>
 
-    <!-- product_list -->
-    <div class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8" id="products-list"></div>
+    <!-- Projects_list -->
+    <div id="projects-list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <!-- Project items will be injected here -->
+    </div>
 
     <div class="flex justify-center mt-8 mb-12">
         <a href="about_page.php"
