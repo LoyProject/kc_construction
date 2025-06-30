@@ -1,6 +1,6 @@
 <?php require_once 'header_widget.php'; ?>
 
-<div class="container">
+<div class="w-full overflow-hidden relative">
     <div id="project-detail">
         <!-- Project details will be populated here -->
     </div>

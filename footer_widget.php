@@ -61,19 +61,19 @@
                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                             <i class="fab fa-instagram mr-2"></i>
                         </span>
-                        <a href="#" class="hover:text-brand-gold">Instagram</a>
+                        <a id="instagram-link" target="_blank" class="hover:text-brand-gold">Instagram</a>
                     </li>
                     <li class="flex items-center">
                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                             <i class="fab fa-youtube mr-2"></i>
                         </span>
-                        <a href="#" class="hover:text-brand-gold">YouTube</a>
+                        <a id="youtube-link" target="_blank" class="hover:text-brand-gold">YouTube</a>
                     </li>
                     <li class="flex items-center">
                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                             <i class="fab fa-linkedin mr-2"></i>
                         </span>
-                        <a href="#" class="hover:text-brand-gold">LinkedIn</a>
+                        <a id="linkedin-link" target="_blank" class="hover:text-brand-gold">LinkedIn</a>
                     </li>
                 </ul>
             </div>
@@ -82,9 +82,7 @@
         <!-- Bottom Bar -->
         <div class="bg-brand-gray py-4">
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6">
-                <p class="text-sm text-gray-400">&copy; Menluxury.com Developed by
-                    <span class="text-brand-gold font-medium">Loy Team</span>
-                </p>
+                <p id="company-name" class="text-sm text-gray-400"></p>
             </div>
         </div>
     </footer>

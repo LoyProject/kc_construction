@@ -11,6 +11,11 @@ $(document).ready(function () {
             var $companySchedule = $('#company-schedule');
             var $facebookLink = $('#facebook-link');
             var $telegramLink = $('#telegram-link');
+            var $instagramLink = $('#instagram-link');
+            var $youtubeLink = $('#youtube-link');
+            var $linkedInLink = $('#linkedin-link');
+            var $telegramlinkButton = $('#telegram-link-button');
+            var $companyName = $('#company-name');
 
             if (data.success) {
                 var page = window.location.pathname.split('/').pop();
@@ -34,6 +39,12 @@ $(document).ready(function () {
                 $companySchedule.text(data.company.schedule);
                 $facebookLink.attr('href', data.company.facebook).text('Facebook');
                 $telegramLink.attr('href', data.company.telegram).text('Telegram');
+                $instagramLink.attr('href', data.company.instagram).text('Instagram');
+                $youtubeLink.attr('href', data.company.youtube).text('YouTube');
+                $linkedInLink.attr('href', data.company.linkedin).text('LinkedIn');
+                $telegramlinkButton.attr('href', data.company.telegram)
+                    .html('<i class="fab fa-telegram-plane mr-2"></i> Telegram Chat');
+                $companyName.text(data.company.name).html('&copy; ' + data.company.name + ' POWER by <span class="text-brand-gold font-medium">Loy Team</span>');
             } else {
                 $companyLogo.attr('src', 'admin/assets/companies/default_logo.png');
                 $companyLogo.attr('alt', 'K.C Construction & Design');

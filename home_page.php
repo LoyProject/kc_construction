@@ -28,66 +28,46 @@
     </div>
 
     <section class="py-16 bg-brand-gray text-center">
-        <!-- Heading -->
         <div class="mb-8 text-center">
             <h2 id="achievements-title" class="text-3xl md:text-4xl font-extrabold text-brand-white"></h2>
 
-            <!-- Center Icon with Lines -->
             <div class="flex items-center justify-center my-6">
                 <span class="w-16 h-px bg-gray-300"></span>
                 <span class="mx-4 text-yellow-500 text-xl">
-                    <i class="fa-solid fa-book-open-reader"></i> <!-- or use your house plan icon -->
+                    <i class="fa-solid fa-book-open-reader"></i>
                 </span>
                 <span class="w-16 h-px bg-gray-300"></span>
             </div>
 
-            <!-- Subheading -->
             <p id="achievements-subtitle" class="text-brand-white/60 max-w-2xl mx-auto text-sm md:text-base"></p>
         </div>
 
-        <!-- Features -->
-        <div id="achievement-items" class="mt-12 pt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8">
-            <!-- Achievement items will be injected here -->
-        </div>
+        <div id="achievement-items" class="mt-12 pt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8"></div>
 
-        <!-- Button -->
         <div class="mt-12">
-            <a href="about_page.php"
+            <a href="about_page"
                 class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow">
                 ABOUT US
             </a>
         </div>
     </section>
 
-    <!-- Types Section -->
-    <div id="types-list" class="flex flex-wrap items-center justify-center my-12">
-        <!-- Types items will be injected here -->
-    </div>
+    <div id="types-list" class="flex flex-wrap items-center justify-center my-12"></div>
 
-    <!-- Projects_list -->
-    <div id="projects-list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-        <!-- Project items will be injected here -->
-    </div>
+    <div id="projects-list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
 
     <div class="flex justify-center mt-8 mb-12">
-        <a href="about_page.php"
+        <a href="project_page"
             class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow transition">
             Load More
         </a>
     </div>
 
-    <!-- Fixed Buttons -->
     <div class="fixed bottom-5 right-5 flex flex-col items-end space-y-3 z-50">
-        <!-- Fixed Buttons: Call & Scroll to Top, side by side on desktop, stacked on mobile -->
         <div class="flex items-end sm:items-center space-y-3 space-x-3 sm:space-y-0">
-            <!-- Call Button -->
-            <a href="https://t.me/sovongdy" target="_blank"
+            <a id="telegram-link-button" target="_blank"
                 class="bg-brand-gold text-white font-bold flex items-center p-4 shadow-md hover:bg-white hover:text-brand-gold transition">
-                <i class="fab fa-telegram-plane text-sm mr-2"></i>
-                Telegram Chat
             </a>
-
-            <!-- Scroll to Top Button -->
             <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
                 class="bg-brand-gold text-white p-4 font-bold hover:bg-white hover:text-brand-gold transition hidden">
                 <i class="fas fa-arrow-up"></i>
