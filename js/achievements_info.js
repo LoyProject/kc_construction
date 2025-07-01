@@ -20,11 +20,7 @@ $(document).ready(function() {
                 data.achievement_items.forEach(item => {
                     const itemElement = $(`
                         <div class="achievement-item-${item.id} flex flex-col items-center justify-center text-center mb-8">
-                            <div class="flex items-center justify-center mb-4">
-                                <div class="bg-brand-black w-16 h-16 rounded-full flex items-center justify-center">
-                                    <i class="fas fa-award text-brand-gold text-2xl"></i>
-                                </div>
-                            </div>
+                            <img src="admin/${item.image}" alt="${item.name}" class="w-16 h-16 p-2 mb-4 bg-gray-600 rounded-full shadow-lg">
                             <h3 class="text-lg font-semibold text-brand-gold">${item.name}</h3>
                             <div class="h-[2px] w-10 bg-gray-200 my-2 mx-auto"></div>
                             <p class="text-brand-white/60">${item.description}</p>

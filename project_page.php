@@ -112,61 +112,7 @@
         <!-- Example project cards -->
     </div>
 
-    <div class="flex justify-center mt-8 mb-12" id="pagination" data-items-per-page="8">
-        <nav class="inline-flex -space-x-px">
-            <button class="px-3 py-2 rounded-l bg-brand-gray text-white border border-brand-gray hover:bg-brand-gold hover:text-brand-white" id="prev-page">
-                <i class="fas fa-chevron-left"></i>
-            </button>
-            <span class="px-4 py-2 bg-brand-black text-white border-t border-b border-brand-gray" id="current-page">1</span>
-            <button class="px-3 py-2 rounded-r bg-brand-gray text-white border border-brand-gray hover:bg-brand-gold hover:text-brand-white" id="next-page">
-                <i class="fas fa-chevron-right"></i>
-            </button>
-        </nav>
-    </div>
-
-    <script>
-        // Example JS for client-side pagination (assumes you render all cards in #projects-list)
-        const itemsPerPage = 8;
-        const projectsList = document.getElementById('projects-list');
-        const pagination = document.getElementById('pagination');
-        const prevBtn = document.getElementById('prev-page');
-        const nextBtn = document.getElementById('next-page');
-        const currentPageSpan = document.getElementById('current-page');
-
-        function showPage(page) {
-            const cards = projectsList.children;
-            const total = cards.length;
-            const totalPages = Math.ceil(total / itemsPerPage);
-            page = Math.max(1, Math.min(page, totalPages));
-            for (let i = 0; i < total; i++) {
-                cards[i].style.display = (i >= (page-1)*itemsPerPage && i < page*itemsPerPage) ? '' : 'none';
-            }
-            currentPageSpan.textContent = page;
-            prevBtn.disabled = page === 1;
-            nextBtn.disabled = page === totalPages;
-        }
-
-        let currentPage = 1;
-        prevBtn.addEventListener('click', () => {
-            if (currentPage > 1) {
-                currentPage--;
-                showPage(currentPage);
-            }
-        });
-        nextBtn.addEventListener('click', () => {
-            const total = projectsList.children.length;
-            const totalPages = Math.ceil(total / itemsPerPage);
-            if (currentPage < totalPages) {
-                currentPage++;
-                showPage(currentPage);
-            }
-        });
-
-        // Initial call (after cards are rendered)
-        document.addEventListener('DOMContentLoaded', () => {
-            showPage(1);
-        });
-    </script>
+    <div id="pagination-container" class="flex flex-wrap justify-start mx-auto px-8 mt-4 mb-12 gap-2 text-base"></div>
 </div>
 
 <?php require_once 'footer_widget.php'; ?>
@@ -209,4 +155,3 @@
         });
     });
 </script>
-
