@@ -1,9 +1,19 @@
 <?php require_once 'header_widget.php'; ?>
 
 <div class="bg-brand-black text-brand-white">
+    
+    <!-- Contact Us Page -->
+    <div class="w-full mx-auto flex flex-row items-center justify-between bg-gray-800 px-32 md:px-20 lg:px-32 py-8 shadow-md">
+        <div class="text-sm text-gray-500 flex items-center">
+            <a href="home_page" class="hover:text-brand-gold font-semibold text-base">Home</a>
+            <span class="mx-2">|</span>
+            <span class="text-brand-gold font-semibold text-xl">Contact</span>
+        </div>
+        <h2 class="text-lg font-bold text-brand-white text-right">Contact us</h2>
+    </div>
+
     <section class="py-12 px-6 md:px-20">
         <div class="flex flex-col lg:flex-row gap-10">
-
             <!-- Contact Form -->
             <div class="lg:w-2/3">
                 <h2 class="text-2xl font-bold mb-2">CONTACT US</h2>
@@ -41,19 +51,19 @@
                             <span class="flex items-center justify-center w-8 h-8 p-1 bg-gray-900 text-brand-gold mr-2">
                                 <i class="fa-solid fa-location-dot"></i>
                             </span>
-                            Sangkat Kbal Koh Khan Chbar Am Pov, Phnom Penh Cambodia
+                            <a id="contact-map" target="_blank"><span id="contact-address"></span></a>
                         </li>
                         <li class="flex items-center">
                             <span class="flex items-center justify-center w-8 h-8 p-1 bg-gray-900 text-brand-gold mr-2">
                                 <i class="fa-solid fa-phone-volume"></i>
                             </span>
-                            CALL US : +85586 916 168
+                            <span>CALL US : <span id="contact-phone"></span></span>
                         </li>
                         <li class="flex items-center">
                             <span class="flex items-center justify-center w-8 h-8 p-1 bg-gray-900 text-brand-gold mr-2">
                                 <i class="fa-solid fa-envelope-open-text"></i>
                             </span>
-                            EMAIL : menluxury.info@gmail.com
+                            <span>EMAIL : <span id="contact-email"></span></span>
                         </li>
                     </ul>
                 </div>

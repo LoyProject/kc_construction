@@ -1,8 +1,6 @@
 <?php require_once 'header_widget.php'; ?>
 
 <div class="bg-brand-black text-white">
-    <div id="header" class="sticky top-0 z-50"></div>
-
     <div class="max-w-4xl mx-auto p-6 mt-8">
         <h2 class="text-2xl font-bold mb-2">SUBMIT A CONSULTATION REQUEST</h2>
         <div class="w-20 h-1 bg-brand-gold mb-8"></div>
@@ -39,10 +37,6 @@
             </button>
         </form>
     </div>
-
-    <div id="footer"></div>
-
-    <script src="js/color_config.js"></script>
 </div>
 
 <?php require_once 'footer_widget.php'; ?>

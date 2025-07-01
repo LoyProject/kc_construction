@@ -95,7 +95,7 @@
                             </ul>
                         </li> 
                     <?php endif; ?>
-                    <li><a href="index" target="_blank" class="block px-4 py-2 rounded hover:bg-gray-700 mt-6 border-t border-gray-700 pt-4">View Public Site</a></li>
+                    <li><a href="../index" target="_blank" class="block px-4 py-2 rounded hover:bg-gray-700 mt-6 border-t border-gray-700 pt-4">View Public Site</a></li>
                     <li><a href="logout" class="block px-4 py-2 rounded hover:bg-red-500">Logout</a></li>
                 </ul>
             </nav>

@@ -10,11 +10,41 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/alpinejs" defer></script>
     <script src="js/color_config.js"></script>
+    <style>
+        [x-cloak] { display: none !important; }
+
+        /* .select2-container .select2-selection--single {
+            height: 45px !important;
+            border-color: #cbd5e0 !important;
+            padding-left: 5px !important;
+            font-size: 14px !important;
+            border: 1px solid rgb(0, 0, 0) !important;
+            background-color: #1f2937 !important;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 45px !important;
+            padding-left: 5px !important;
+            font-size: 14px !important;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+            height: 45px !important;
+            padding-left: 8px !important;
+            font-size: 14px !important;
+        }
+
+        .select2-selection__clear {
+            color: #dc2626;
+            font-size: 14px !important;
+            height: 39px !important;
+            padding-right: 10px !important;
+        } */
+    </style>
 </head>
 
 <body class="bg-brand-black text-brand-white">
-    <header x-data="{ open: false }"
-        class="w-full px-4 sm:px-20 py-4 flex items-center justify-between bg-brand-gray text-brand-gold shadow-sm mx-auto">
+    <header x-data="{ open: false }" class="w-full px-4 sm:px-20 py-4 flex items-center justify-between bg-brand-gray text-brand-gold shadow-sm mx-auto sticky top-0 z-50 shadow-lg">
         <!-- Logo -->
         <div class="flex items-center space-x-2">
             <a href="home_page"><img id="company-logo-header" class="h-10 sm:h-12"></a>

@@ -10,7 +10,7 @@
                         <span class="flex items-center justify-center w-8 h-8 p-1 text-brand-gold mr-2">
                             <i class="fa-solid fa-location-dot"></i>
                         </span>
-                        <span id="company-address"></span>
+                        <a id="company-map" target="_blank"><span id="company-address"></span></a>
                     </li>
                     <li class="flex items-center">
                         <span class="flex items-center justify-center w-8 h-8 p-1 text-brand-gold mr-2">
@@ -93,6 +93,10 @@
     <script src="js/companies_info.js"></script>
     <script src="js/achievements_info.js"></script>
     <script src="js/types_info.js"></script>
+    <script src="js/styles_info.js"></script>
+    <script src="js/floors_info.js"></script>
+    <script src="js/facades_info.js"></script>
+    <script src="js/areas_info.js"></script>
     <script src="js/projects_info.js"></script>
     <script src="js/projects_detail_info.js"></script>
 </body>
