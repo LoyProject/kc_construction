@@ -1,8 +1,6 @@
 
 const translations = {
     en: {
-        "title": "Welcome",
-        "desc": "This is an example in English.",
         "header-home": "Home",
         "header-about": "About Us",
         "header-projects": "Projects",
@@ -17,8 +15,6 @@ const translations = {
         "projects-floor": "Number of floors:"
     },
     kh: {
-        "title": "សូមស្វាគមន៍",
-        "desc": "នេះគឺជាគំរូជាភាសាខ្មែរ។",
         "header-home": "ទំព័រដើម",
         "header-about": "អំពី​ពួក​យើង",
         "header-projects": "គម្រោង",
