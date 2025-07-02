@@ -46,20 +46,82 @@
 
         <div class="mt-12">
             <a href="about"
-                class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow">
-                ABOUT US
+                class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow"
+                x-text="lang === 'en' ? 'ABOUT US' : 'អំពីយើង'">
             </a>
         </div>
     </section>
 
     <div id="types-list" class="flex flex-wrap items-center justify-center my-12"></div>
 
-    <div id="projects-list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+    <div class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div class="project-card bg-brand-gray text-white shadow hover:shadow-lg flex flex-col overflow-hidden">
+            <div class="relative group cursor-pointer">
+                <img id="project-image" alt="${project.name}"
+                    class="w-full h-48 transition-opacity duration-300" />
+                <span
+                    class="absolute top-0 left-0 bg-brand-gold text-brand-white text-xs font-semibold px-3 py-1 rounded-br-lg z-10"
+                    x-text="lang === 'en' ? 'New' : 'ទំព័រដើម'">
+                </span>
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <a href="projects_detail?id=${project.id}"
+                        class="border border-white p-2 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold transition-colors duration-300">
+                        <i class="fas fa-link text-white text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="project-info p-4">
+                <p id="project-title" class="truncate whitespace-nowrap overflow-hidden text-base font-bold text-brand-gold"
+                    ></p>
+                <ul class="mt-2 text-sm text-brand-white">
+                    <li class="flex gap-2 mt-1 items-center">
+                        <span class="flex items-center"><i class="fa-solid fa-eye text-brand-gold w-4 h-4"></i></span>
+                        <span class="flex items-center">
+                            <p class="m-0">View:</p>
+                        </span>
+                        <span></span>
+                    </li>
+                    <li class="flex gap-2 mt-1 items-center">
+                        <span class="flex items-center"><i class="fas fa-user text-brand-gold w-4 h-4"></i></span>
+                        <span class="flex items-center">
+                            <p class="m-0">Investor:</p>
+                        </span>
+                        <span></span>
+                    </li>
+                    <li class="flex gap-2 mt-1 items-center">
+                        <span class="flex items-center"><i
+                                class="fas fa-map-marker-alt text-brand-gold w-4 h-4"></i></span>
+                        <span class="flex items-center">
+                            <p class="m-0">Address:</p>
+                        </span>
+                        <span></span>
+                    </li>
+                    <li class="flex gap-2 mt-1 items-center">
+                        <span class="flex items-center"><i
+                                class="fas fa-ruler-combined text-brand-gold w-4 h-4"></i></span>
+                        <span class="flex items-center">
+                            <p class="m-0">Area:</p>
+                        </span>
+                        <span></span>
+                    </li>
+                    <li class="flex gap-2 mt-1 items-center">
+                        <span class="flex items-center"><i
+                                class="fas fa-layer-group text-brand-gold w-4 h-4"></i></span>
+                        <span class="flex items-center">
+                            <p class="m-0">Number of floors:</p>
+                        </span>
+                        <span></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <div class="flex justify-center mt-8 mb-12">
         <a href="projects"
             class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow transition">
-            Load More
+            <span x-text="lang === 'en' ? 'Load More' : 'មើលបន្ថែម'"></span>
         </a>
     </div>
 
@@ -71,7 +133,7 @@
             <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
                 class="bg-brand-gold text-white p-4 font-bold hover:bg-white hover:text-brand-gold transition hidden">
                 <i class="fas fa-arrow-up"></i>
-            </button>            
+            </button>
         </div>
     </div>
 </div>
@@ -91,7 +153,7 @@
     $(document).on('click', '.type-item', function () {
         const selectedTypeName = $(this).text().trim();
         const selectedTypeId = $(this).attr('data-id');
-        
+
         if (selectedTypeId && selectedTypeId !== 'all') {
             sessionStorage.setItem('selectedTypeId', selectedTypeId);
             sessionStorage.setItem('selectedTypeLabel', selectedTypeName);
