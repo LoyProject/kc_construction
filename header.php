@@ -39,16 +39,16 @@
         <!-- Desktop Nav & Right Side -->
         <div class="hidden md:flex items-center justify-end flex-1 ml-8">
             <nav class="flex space-x-6 lg:space-x-8 uppercase font-semibold text-sm">
-                <a href="home" class="hover:text-brand-white" data-translate="header-home">Home</a>
-                <a href="about" class="hover:text-brand-white" data-translate="header-about">About Us</a>
-                <a href="projects" class="hover:text-brand-white" data-translate="header-projects">Projects</a>
-                <a href="contact" class="hover:text-brand-white" data-translate="header-contact">Contact</a>
+                <a href="home" class="hover:text-brand-white" data-translate="home">Home</a>
+                <a href="about" class="hover:text-brand-white" data-translate="about">About Us</a>
+                <a href="projects" class="hover:text-brand-white" data-translate="projects">Projects</a>
+                <a href="contact" class="hover:text-brand-white" data-translate="contact">Contact</a>
             </nav>
             <div class="flex items-center space-x-3 lg:space-x-4 ml-8">
                 <a href="quote_request">
                     <button
                         class="border border-brand-gold px-3 py-2 lg:px-4 uppercase font-semibold text-sm hover:bg-brand-gold hover:text-white transition-colors"
-                        data-translate="header-quote-request">
+                        data-translate="quote-request">
                         Quote Request
                     </button>
                 </a>

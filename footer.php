@@ -29,20 +29,20 @@
 
             <!-- Quick Links -->
             <div>
-                <h4 class="text-white mb-3" data-translate="header-quick-link">QUICK LINK</h4>
+                <h4 class="text-white mb-3" data-translate="quick-link">QUICK LINK</h4>
                 <div class="h-1 w-10 bg-brand-gold mb-4"></div>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="home" class="hover:text-brand-gold" data-translate="header-home">HOME</a></li>
-                    <li><a href="about" class="hover:text-brand-gold" data-translate="header-about">ABOUT US</a></li>
-                    <li><a href="projects_page" class="hover:text-brand-gold" data-translate="header-projects">PROJECTS</a></li>
-                    <li><a href="contact" class="hover:text-brand-gold" data-translate="header-contact">CONTACT</a></li>
-                    <li><a href="quote_request" class="hover:text-brand-gold" data-translate="header-quote-request">QUOTE REQUEST</a></li>
+                    <li><a href="home" class="hover:text-brand-gold" data-translate="home">HOME</a></li>
+                    <li><a href="about" class="hover:text-brand-gold" data-translate="about">ABOUT US</a></li>
+                    <li><a href="projects_page" class="hover:text-brand-gold" data-translate="projects">PROJECTS</a></li>
+                    <li><a href="contact" class="hover:text-brand-gold" data-translate="contact">CONTACT</a></li>
+                    <li><a href="quote_request" class="hover:text-brand-gold" data-translate="quote-request">QUOTE REQUEST</a></li>
                 </ul>
             </div>
 
             <!-- Social Links -->
             <div>
-                <h4 class="text-white mb-3" data-translate="header-follow-us">FOLLOW US</h4>
+                <h4 class="text-white mb-3" data-translate="follow-us">FOLLOW US</h4>
                 <div class="h-1 w-10 bg-brand-gold mb-4"></div>
                 <ul class="space-y-2 text-sm">
                     <li class="flex items-center">

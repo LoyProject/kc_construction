@@ -5,19 +5,19 @@
     <!-- Contact Us Page -->
     <div class="w-full mx-auto flex flex-row items-center justify-between bg-gray-800 px-32 md:px-20 lg:px-32 py-8 shadow-md">
         <div class="text-sm text-gray-500 flex items-center">
-            <a href="home" class="hover:text-brand-gold font-semibold text-base">Home</a>
+            <a href="home" class="hover:text-brand-gold font-semibold text-base" data-translate="home">Home</a>
             <span class="mx-2">|</span>
-            <span class="text-brand-gold font-semibold text-xl">Contact</span>
+            <span class="text-brand-gold font-semibold text-xl" data-translate="contact">Contact</span>
         </div>
-        <h2 class="text-lg font-bold text-brand-white text-right">Contact us</h2>
+        <h2 class="text-lg font-bold text-brand-white text-right" data-translate="contact">Contact us</h2>
     </div>
 
     <section class="py-12 px-6 md:px-20">
         <div class="flex flex-col lg:flex-row gap-10">
             <!-- Contact Form -->
             <div class="lg:w-2/3">
-                <h2 class="text-2xl font-bold mb-2">CONTACT US</h2>
-                <p class="text-brand-white/80 mb-6">Are you interested in finding out how our Construction Services can make
+                <h2 class="text-2xl font-bold mb-2" data-translate="contact"></h2>
+                <p class="text-brand-white/80 mb-6" data-translate="contact-discription">Are you interested in finding out how our Construction Services can make
                     your project? For more information on our services please contact us.</p>
 
                 <form class="space-y-4">
@@ -36,16 +36,16 @@
                     <textarea placeholder="Message*" rows="6" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold"
                         required></textarea>
 
-                    <button type="submit" class="bg-brand-gold text-white px-6 py-3 hover:bg-brand-white hover:text-brand-gold">SEND
+                    <button type="submit" class="bg-brand-gold text-white px-6 py-3 hover:bg-brand-white hover:text-brand-gold" data-translate="send-us">SEND
                         US</button>
                 </form>
             </div>
 
             <!-- Info Section -->
             <div class="lg:w-1/3">
-                <h2 class="text-2xl font-bold mb-4">INFOMATION</h2>
+                <h2 class="text-2xl font-bold mb-4" data-translate="information">INFOMATION</h2>
                 <div class="bg-brand-gray p-6 shadow-sm">
-                    <h3 class="text-sm font-semibold mb-4 border-b pb-2">HEAD OFFICE</h3>
+                    <h3 class="text-sm font-semibold mb-4 border-b pb-2" data-translate="head-office">HEAD OFFICE</h3>
                     <ul class="space-y-3 text-sm">
                         <li class="flex items-center">
                             <span class="flex items-center justify-center w-8 h-8 p-1 bg-gray-900 text-brand-gold mr-2">

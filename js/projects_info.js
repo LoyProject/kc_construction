@@ -15,7 +15,7 @@ function loadProjects(page = 1) {
             $('#loading-overlay').removeClass('hidden');
         },
         success: function(data) {   
-            const projectsList = $('#projects-list');
+            const projectsList = $('#list');
             const paginationContainer = $('#pagination-container');
             projectsList.empty();
             paginationContainer.empty();
@@ -45,27 +45,27 @@ function loadProjects(page = 1) {
                                 <ul class="mt-2 text-sm text-brand-white">
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fa-solid fa-eye text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><span data-translate="projects-view">View:</span></span>
+                                        <span class="flex items-center"><span data-translate="view">View:</span></span>
                                         <span>${project.view || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-user text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><span data-translate="projects-investor">Investor:</span></span>
+                                        <span class="flex items-center"><span data-translate="investor">Investor:</span></span>
                                         <span>${project.investor || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-map-marker-alt text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><span data-translate="projects-address">Address:</span></span>
+                                        <span class="flex items-center"><span data-translate="address">Address:</span></span>
                                         <span>${project.address.name || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-ruler-combined text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><span data-translate="projects-area">Area:</span></span>
+                                        <span class="flex items-center"><span data-translate="area">Area:</span></span>
                                         <span>${project.area.name || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-layer-group text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><span data-translate="projects-floor">Number of floors:</span></span>
+                                        <span class="flex items-center"><span data-translate="floor">Number of floors:</span></span>
                                         <span>${project.floor.name || ''}</span>
                                     </li>
                                 </ul>

@@ -16,11 +16,11 @@
     <!-- Project Page -->
     <div class="w-full mx-auto flex flex-col md:flex-row items-start md:items-center justify-between bg-gray-800 px-4 sm:px-8 md:px-16 lg:px-32 py-6 md:py-8 shadow-md gap-2 md:gap-0">
         <div class="text-sm text-gray-500 flex items-center mb-2 md:mb-0">
-            <a href="home" class="hover:text-brand-gold font-semibold text-base">Home</a>
+            <a href="home" class="hover:text-brand-gold font-semibold text-base" data-translate="home"></a>
             <span class="mx-2">|</span>
-            <span class="text-brand-gold font-semibold text-xl">Projects</span>
+            <span class="text-brand-gold font-semibold text-xl" data-translate="projects"></span>
         </div>
-        <h2 class="text-base sm:text-lg md:text-xl font-bold text-brand-white text-left md:text-right">All projects</h2>
+        <h2 class="text-base sm:text-lg md:text-xl font-bold text-brand-white text-left md:text-right" data-translate="all-projects"></h2>
     </div>
 
     <div class="container mt-12 mb-2 mx-auto px-2 sm:px-4 md:px-8">
@@ -28,7 +28,7 @@
 
             <!-- Style Dropdown -->
             <div class="relative w-full z-20">
-                <input type="text" placeholder="Style"
+                <input type="text" placeholder="Style" data-translate="style"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'style')" onclick="toggleDropdown('style')" id="dropdownInput-style" />
                 <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center">
@@ -46,7 +46,7 @@
 
             <!-- Type Dropdown -->
             <div class="relative w-full z-20">
-                <input type="text" placeholder="Type"
+                <input type="text" placeholder="Type" data-translate="type"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'type')" onclick="toggleDropdown('type')" id="dropdownInput-type" />
                 <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center">
@@ -64,7 +64,7 @@
 
             <!-- Floor Dropdown -->
             <div class="relative w-full z-20">
-                <input type="text" placeholder="Floor"
+                <input type="text" placeholder="Floor" data-translate="floor"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'floor')" onclick="toggleDropdown('floor')" id="dropdownInput-floor" />
                 <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center">
@@ -82,7 +82,7 @@
 
             <!-- Facade Dropdown -->
             <div class="relative w-full z-20">
-                <input type="text" placeholder="Facade"
+                <input type="text" placeholder="Facade" data-translate="facade"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'facade')" onclick="toggleDropdown('facade')" id="dropdownInput-facade" />
                 <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center">
@@ -100,7 +100,7 @@
 
             <!-- Area Dropdown -->
             <div class="relative w-full z-20">
-                <input type="text" placeholder="Area"
+                <input type="text" placeholder="<?php echo htmlspecialchars($translations['area'] ?? 'Area'); ?>" data-translate="area"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'area')" onclick="toggleDropdown('area')" id="dropdownInput-area" />
                 <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center">
@@ -119,11 +119,11 @@
         </div>
     </div>
 
-    <div id="projects-list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+    <div id="list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
         <!-- Example project cards -->
     </div>
 
-    <div id="pagination-container" class="flex flex-wrap justify-start mx-auto px-8 mt-4 mb-12 gap-2 text-base"></div>
+    <div id="pagination-container" class="flex flex-wrap justify-center mx-auto px-8 mt-4 mb-12 gap-2 text-base"></div>
 </div>
 
 <?php require_once 'footer.php'; ?>

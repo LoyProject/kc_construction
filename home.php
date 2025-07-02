@@ -39,7 +39,7 @@
                 <span class="w-16 h-px bg-gray-300"></span>
             </div>
 
-            <p id="achievements-subtitle" class="text-brand-white/60 max-w-2xl mx-auto text-sm md:text-base"></p>
+            <p id="achievements-subtitle" class="text-brand-white/60 max-w-2xl mx-auto text-sm md:text-base px-8"></p>
         </div>
 
         <div id="achievement-items" class="mt-12 pt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8"></div>
@@ -54,12 +54,12 @@
 
     <div id="types-list" class="flex flex-wrap items-center justify-center my-12"></div>
 
-    <div id="projects-list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+    <div id="list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
 
     <div class="flex justify-center mt-8 mb-12">
         <a href="projects"
             class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow transition">
-            <span>Load More</span>
+            <span data-translate="load-more">Load More</span>
         </a>
     </div>
 

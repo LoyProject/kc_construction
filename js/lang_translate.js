@@ -1,32 +1,58 @@
 
 const translations = {
     en: {
-        "header-home": "Home",
-        "header-about": "About Us",
-        "header-projects": "Projects",
-        "header-contact": "Contact",
-        "header-quote-request": "Quote Request",
-        "header-quick-link": "Quick Link",
-        "header-follow-us": "Follow Us",
-        "projects-view": "View:",
-        "projects-investor": "Investor:",
-        "projects-address": "Address:",
-        "projects-area": "Area:",
-        "projects-floor": "Number of floors:"
+        "home": "Home",
+        "about": "About Us",
+        "projects": "Projects",
+        "contact": "Contact",
+        "quote-request": "Quote Request",
+        "quick-link": "Quick Link",
+        "follow-us": "Follow Us",
+        "view": "View:",
+        "investor": "Investor:",
+        "address": "Address:",
+        "area": "Area:",
+        "floor": "Number of floors:",
+        "all-projects": "All Projects",
+        "style": "Style",
+        "type": "Type",
+        "facade": "Facade",
+        "who-we-are": "Who we are?",
+        "our-companies": "OUR COMPANIES",
+        "vision": "Design Vision",
+        "contact-discription": "Are you interested in finding out how our Construction Services can make your project? For more information on our services please contact us.",
+        "information": "INFORMATION",
+        "head-office": "HEAD OFFICE",
+        "send-us": "SEND US",
+        "sumbit-qoute": "SUBMIT A CONSULTATION REQUEST",
+        "load-more": "Load More",
     },
     kh: {
-        "header-home": "ទំព័រដើម",
-        "header-about": "អំពី​ពួក​យើង",
-        "header-projects": "គម្រោង",
-        "header-contact": "ទំនាក់ទំនង",
-        "header-quote-request": "សំណើសម្រង់",
-        "header-quick-link": "តំណភ្ជាប់ឆាប់",
-        "header-follow-us": "តាមដាន​ពួក​យើង",
-        "projects-view": "មើល:",
-        "projects-investor": "អ្នកវិនិយោគ:",
-        "projects-address": "អាសយដ្ឋាន:",
-        "projects-area": "ផ្ទៃប្រហែល:",
-        "projects-floor": "ចំនួនជាន់:"
+        "home": "ទំព័រដើម",
+        "about": "អំពី​ពួក​យើង",
+        "projects": "គម្រោង",
+        "contact": "ទំនាក់ទំនង",
+        "quote-request": "សំណើសម្រង់",
+        "quick-link": "តំណភ្ជាប់ឆាប់",
+        "follow-us": "តាមដាន​ពួក​យើង",
+        "view": "មើល:",
+        "investor": "អ្នកវិនិយោគ:",
+        "address": "អាសយដ្ឋាន:",
+        "area": "ផ្ទៃក្រឡា:",
+        "floor": "ចំនួនជាន់:",
+        "all-projects": "គម្រោងទាំងអស់",
+        "style": "រចនាបថ",
+        "type": "ប្រភេទ",
+        "facade": "មុខមាត់",
+        "who-we-are": "យើងជាអ្នកណា?",
+        "our-companies": "ក្រុមហ៊ុនរបស់យើង",
+        "vision": "ទស្សនៈ",
+        "contact-discription": "តើអ្នកមានចំណាប់អារម្មណ៍ក្នុងការស្វែងយល់ពីរបៀបដែលសេវាកម្មសំណង់របស់យើងអាចធ្វើឲ្យគម្រោងរបស់អ្នកកាន់តែប្រសើរឡើងទេ? សម្រាប់ព័ត៌មានលម្អិតអំពីសេវាកម្មរបស់យើង សូមទំនាក់ទំនងមកយើង។",
+        "information": "ព័ត៌មាន",
+        "head-office": "ការិយាល័យកណ្តាល",
+        "send-us": "ផ្ញើមកពួកយើង",
+        "sumbit-qoute": "ដាក់សំណើសុំប្រឹក្សា",
+        "load-more": "បង្ហាញបន្ថែម",
     }
 };
 
@@ -47,7 +73,7 @@ function applyLang(lang) {
 }
 
 $(document).ready(function () {
-    let lang = localStorage.getItem('lang') || 'en';
+    let lang = localStorage.getItem('lang') || 'kh';
     applyLang(lang);
 
     $('#langToggleBtn').on('click', function () {

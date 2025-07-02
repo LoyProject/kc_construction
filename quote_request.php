@@ -2,7 +2,7 @@
 
 <div class="bg-brand-black text-white">
     <div class="max-w-4xl mx-auto p-6 mt-8">
-        <h2 class="text-2xl font-bold mb-2">SUBMIT A CONSULTATION REQUEST</h2>
+        <h2 class="text-2xl font-bold mb-2" data-translate="sumbit-qoute"></h2>
         <div class="w-20 h-1 bg-brand-gold mb-8"></div>
 
         <form class="space-y-6">
@@ -32,7 +32,7 @@
 
             <!-- Button -->
             <button type="submit"
-                class="bg-brand-gold text-white font-semibold px-6 py-3 hover:bg-yellow-700 transition">
+                class="bg-brand-gold text-white font-semibold px-6 py-3 hover:bg-yellow-700 transition" data-translate="send-us">
                 SEND US
             </button>
         </form>
