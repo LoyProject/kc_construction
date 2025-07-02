@@ -8,7 +8,9 @@ $(document).ready(function() {
             if (data.success) {
                 $dropdownItemsStyle.empty();
                 $.each(data.styles, function(index, style) {
-                    $dropdownItemsStyle.append('<li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, \'style\')">' + style.name + '</li>');
+                    $dropdownItemsStyle.append(`
+                        <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'style')" data-id="${style.id}">${style.name}</li>
+                    `);
                 });
             }
         },

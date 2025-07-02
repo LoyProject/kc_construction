@@ -1,4 +1,4 @@
-<?php require_once 'header_widget.php'; ?>
+<?php require_once 'header.php'; ?>
 
 <div class="bg-brand-black text-white">
     <div class="max-w-4xl mx-auto p-6 mt-8">
@@ -39,4 +39,4 @@
     </div>
 </div>
 
-<?php require_once 'footer_widget.php'; ?>
+<?php require_once 'footer.php'; ?>

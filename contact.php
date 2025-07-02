@@ -1,11 +1,11 @@
-<?php require_once 'header_widget.php'; ?>
+<?php require_once 'header.php'; ?>
 
 <div class="bg-brand-black text-brand-white">
     
     <!-- Contact Us Page -->
     <div class="w-full mx-auto flex flex-row items-center justify-between bg-gray-800 px-32 md:px-20 lg:px-32 py-8 shadow-md">
         <div class="text-sm text-gray-500 flex items-center">
-            <a href="home_page" class="hover:text-brand-gold font-semibold text-base">Home</a>
+            <a href="home" class="hover:text-brand-gold font-semibold text-base">Home</a>
             <span class="mx-2">|</span>
             <span class="text-brand-gold font-semibold text-xl">Contact</span>
         </div>
@@ -72,4 +72,4 @@
     </section>
 </div>
 
-<?php require_once 'footer_widget.php'; ?>
+<?php require_once 'footer.php'; ?>

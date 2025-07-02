@@ -8,7 +8,9 @@ $(document).ready(function() {
             if (data.success) {
                 $dropdownItemsFloor.empty();
                 $.each(data.floors, function(index, floor) {
-                    $dropdownItemsFloor.append('<li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, \'floor\')">' + floor.name + '</li>');
+                    $dropdownItemsFloor.append(`
+                        <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'floor')" data-id="${floor.id}">${floor.name}</li>
+                    `);
                 });
             }
         },

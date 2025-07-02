@@ -1,8 +1,14 @@
 function loadProjects(page = 1) {
+    const style = $('#dropdownInput-style').attr('data-id') || '';
+    const type = $('#dropdownInput-type').attr('data-id') || '';
+    const floor = $('#dropdownInput-floor').attr('data-id') || '';
+    const area = $('#dropdownInput-area').attr('data-id') || '';
+    const facade = $('#dropdownInput-facade').attr('data-id') || '';
+
     $.ajax({
         url: 'backend/process_fetch_projects.php',
         method: 'GET',
-        data: { page: page, limit: 16 },
+        data: { page: page, limit: 16, style: style, type: type, floor: floor, area: area, facade: facade },
         dataType: 'json',
         success: function(data) {
             const projectsList = $('#projects-list');
@@ -25,7 +31,7 @@ function loadProjects(page = 1) {
                                 <img src="admin/${project.image_path}" alt="${project.name}" class="w-full h-48 transition-opacity duration-300" />
                                 ${isNew ? `<span class="absolute top-0 left-0 bg-brand-gold text-brand-white text-xs font-semibold px-3 py-1 rounded-br-lg z-10">New</span>` : ''}
                                 <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                                    <a href="project_detail_page?id=${project.id}" class="border border-white p-2 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold transition-colors duration-300">
+                                    <a href="projects_detail?id=${project.id}" class="border border-white p-2 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold transition-colors duration-300">
                                         <i class="fas fa-link text-white text-xl"></i> 
                                     </a>
                                 </div>
@@ -111,4 +117,3 @@ function loadProjects(page = 1) {
 $(document).ready(function() {
     loadProjects(1);
 });
-

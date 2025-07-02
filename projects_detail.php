@@ -1,4 +1,4 @@
-<?php require_once 'header_widget.php'; ?>
+<?php require_once 'header.php'; ?>
 
 <div class="w-full overflow-hidden relative">
     <div id="project-detail">
@@ -6,4 +6,4 @@
     </div>
 </div>
 
-<?php require_once 'footer_widget.php'; ?>
+<?php require_once 'footer.php'; ?>

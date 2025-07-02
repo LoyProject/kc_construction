@@ -8,7 +8,9 @@ $(document).ready(function() {
             if (data.success) {
                 $dropdownItemsArea.empty();
                 $.each(data.areas, function(index, area) {
-                    $dropdownItemsArea.append('<li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, \'area\')">' + area.name + '</li>');
+                    $dropdownItemsArea.append(`
+                        <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'area')" data-id="${area.id}">${area.name}</li>
+                    `);
                 });
             }
         },

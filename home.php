@@ -1,4 +1,4 @@
-<?php require_once 'header_widget.php'; ?>
+<?php require_once 'header.php'; ?>
 
 <div class="bg-brand-black text-white">
 
@@ -45,7 +45,7 @@
         <div id="achievement-items" class="mt-12 pt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8"></div>
 
         <div class="mt-12">
-            <a href="about_page"
+            <a href="about"
                 class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow">
                 ABOUT US
             </a>
@@ -57,7 +57,7 @@
     <div id="projects-list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
 
     <div class="flex justify-center mt-8 mb-12">
-        <a href="project_page"
+        <a href="projects"
             class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow transition">
             Load More
         </a>
@@ -76,7 +76,7 @@
     </div>
 </div>
 
-<?php require_once 'footer_widget.php'; ?>
+<?php require_once 'footer.php'; ?>
 
 <script>
     window.addEventListener('scroll', function () {

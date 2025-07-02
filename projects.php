@@ -1,11 +1,11 @@
-<?php require_once 'header_widget.php'; ?>
+<?php require_once 'header.php'; ?>
 
 <div class="bg-brand-black text-white">
 
     <!-- Project Page -->
     <div class="w-full mx-auto flex flex-col md:flex-row items-start md:items-center justify-between bg-gray-800 px-4 sm:px-8 md:px-16 lg:px-32 py-6 md:py-8 shadow-md gap-2 md:gap-0">
         <div class="text-sm text-gray-500 flex items-center mb-2 md:mb-0">
-            <a href="home_page" class="hover:text-brand-gold font-semibold text-base">Home</a>
+            <a href="home" class="hover:text-brand-gold font-semibold text-base">Home</a>
             <span class="mx-2">|</span>
             <span class="text-brand-gold font-semibold text-xl">Projects</span>
         </div>
@@ -115,7 +115,7 @@
     <div id="pagination-container" class="flex flex-wrap justify-start mx-auto px-8 mt-4 mb-12 gap-2 text-base"></div>
 </div>
 
-<?php require_once 'footer_widget.php'; ?>
+<?php require_once 'footer.php'; ?>
 
 <script>
     function toggleDropdown(type) {
@@ -128,13 +128,21 @@
     function selectItem(el, type) {
         const input = document.getElementById('dropdownInput-' + type);
         const menu = document.getElementById('dropdownMenu-' + type);
-        if (!input || !menu) {
-            console.warn(`Element for type '${type}' not found`);
-            return;
+        if (!input || !menu) return;
+
+        const label = el.textContent;
+        const id = el.getAttribute('data-id');
+
+        if (label === 'All') {
+            input.value = '';
+            input.removeAttribute('data-id');
+        } else {
+            input.value = label;
+            input.setAttribute('data-id', id);
         }
 
-        input.value = el.textContent === 'All' ? '' : el.textContent;
         menu.classList.add('hidden');
+        loadProjects(1);    
     }
 
     function filterDropdown(input, type) {

@@ -25,13 +25,13 @@ $(document).ready(function () {
                 var page = window.location.pathname.split('/').pop();
                 if (page === 'index' || page === '' || page === 'index') {
                     $pageTitle.text(data.company.name);
-                } else if (page === 'about_page') {
+                } else if (page === 'about') {
                     $pageTitle.text('About - ' + data.company.name);
-                } else if (page === 'contact_page') {
+                } else if (page === 'contact') {
                     $pageTitle.text('Contact - ' + data.company.name);
-                } else if (page === 'project_page') {
+                } else if (page === 'projects') {
                     $pageTitle.text('Projects - ' + data.company.name);
-                } else if (page === 'project_detail_page') {
+                } else if (page === 'projects_detail') {
                     $pageTitle.text('Project Details - ' + data.company.name);
                 } else {
                     $pageTitle.text(data.company.name);

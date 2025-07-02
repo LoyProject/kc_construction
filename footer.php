@@ -32,11 +32,11 @@
                 <h4 class="text-white mb-3">QUICK LINK</h4>
                 <div class="h-1 w-10 bg-brand-gold mb-4"></div>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="home_page" class="hover:text-brand-gold">HOME</a></li>
-                    <li><a href="about_page" class="hover:text-brand-gold">ABOUT US</a></li>
+                    <li><a href="home" class="hover:text-brand-gold">HOME</a></li>
+                    <li><a href="about" class="hover:text-brand-gold">ABOUT US</a></li>
                     <li><a href="projects_page" class="hover:text-brand-gold">PROJECTS</a></li>
-                    <li><a href="contact_page" class="hover:text-brand-gold">CONTACT</a></li>
-                    <li><a href="quote_request_page" class="hover:text-brand-gold">QUOTE REQUEST</a></li>
+                    <li><a href="contact" class="hover:text-brand-gold">CONTACT</a></li>
+                    <li><a href="quote_request" class="hover:text-brand-gold">QUOTE REQUEST</a></li>
                 </ul>
             </div>
 

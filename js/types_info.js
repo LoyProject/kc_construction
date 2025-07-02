@@ -16,7 +16,9 @@ $(document).ready(function() {
                     $typesList.append('<div class="type-item text-brand-white hover:text-brand-gold cursor-pointer text-sm sm:text-base lg:text-lg font-semibold text-brand-white" data-type="' + type.name + '">' + type.name + '</div>' + (index < data.types.length - 1 ? '<span class="mx-6">|</span>' : ''));
                 });
                 $.each(data.types, function(index, type) {
-                    $dropdownItemsType.append('<li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, \'type\')">' + type.name + '</li>');
+                    $dropdownItemsType.append(`
+                        <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'type')" data-id="${type.id}">${type.name}</li>
+                    `);
                 });
             }
         },

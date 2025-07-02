@@ -1,1 +1,1 @@
-<?php require_once 'home_page.php'; ?>
+<?php require_once 'home.php'; ?>

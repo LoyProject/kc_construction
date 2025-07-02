@@ -8,7 +8,9 @@ $(document).ready(function() {
             if (data.success) {
                 $dropdownItemsFacade.empty();
                 $.each(data.facades, function(index, facade) {
-                    $dropdownItemsFacade.append('<li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, \'facade\')">' + facade.name + '</li>');
+                    $dropdownItemsFacade.append(`
+                        <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'facade')" data-id="${facade.id}">${facade.name}</li>
+                    `);
                 });
             }
         },
