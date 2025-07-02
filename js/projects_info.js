@@ -10,6 +10,10 @@ function loadProjects(page = 1) {
         method: 'GET',
         data: { page: page, limit: 16, style: style, type: type, floor: floor, area: area, facade: facade },
         dataType: 'json',
+        beforeSend: function() {
+            $('html, body').stop().animate({ scrollTop: 0 }, 300);
+            $('#loading-overlay').removeClass('hidden');
+        },
         success: function(data) {
             const projectsList = $('#projects-list');
             const paginationContainer = $('#pagination-container');
@@ -106,10 +110,14 @@ function loadProjects(page = 1) {
                 console.error('Failed to fetch projects:', data.message);
             }
 
-            $('html, body').animate({ scrollTop: 0 }, 'smooth');
+            $('#loading-overlay').addClass('hidden');
+            setTimeout(() => {
+                $('html, body').stop().animate({ scrollTop: 0 }, 300);
+            }, 50);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error fetching projects:', textStatus, errorThrown);
+            $('#loading-overlay').addClass('hidden');
         }
     });
 }
