@@ -46,8 +46,8 @@
 
         <div class="mt-12">
             <a href="about"
-                class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow"
-                x-text="lang === 'en' ? 'ABOUT US' : 'អំពីយើង'">
+                class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow">
+                ABOUT US
             </a>
         </div>
     </section>
@@ -59,7 +59,7 @@
     <div class="flex justify-center mt-8 mb-12">
         <a href="projects"
             class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow transition">
-            <span x-text="lang === 'en' ? 'Load More' : 'មើលបន្ថែម'"></span>
+            <span>Load More</span>
         </a>
     </div>
 

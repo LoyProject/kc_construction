@@ -14,7 +14,7 @@ function loadProjects(page = 1) {
             $('html, body').stop().animate({ scrollTop: 0 }, 300);
             $('#loading-overlay').removeClass('hidden');
         },
-        success: function(data) {
+        success: function(data) {   
             const projectsList = $('#projects-list');
             const paginationContainer = $('#pagination-container');
             projectsList.empty();
@@ -45,27 +45,27 @@ function loadProjects(page = 1) {
                                 <ul class="mt-2 text-sm text-brand-white">
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fa-solid fa-eye text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><p class="m-0">View:</p></span>
+                                        <span class="flex items-center"><span data-translate="projects-view">View:</span></span>
                                         <span>${project.view || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-user text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><p class="m-0">Investor:</p></span>
+                                        <span class="flex items-center"><span data-translate="projects-investor">Investor:</span></span>
                                         <span>${project.investor || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-map-marker-alt text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><p class="m-0">Address:</p></span>
+                                        <span class="flex items-center"><span data-translate="projects-address">Address:</span></span>
                                         <span>${project.address.name || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-ruler-combined text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><p class="m-0">Area:</p></span>
+                                        <span class="flex items-center"><span data-translate="projects-area">Area:</span></span>
                                         <span>${project.area.name || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-layer-group text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><p class="m-0">Number of floors:</p></span>
+                                        <span class="flex items-center"><span data-translate="projects-floor">Number of floors:</span></span>
                                         <span>${project.floor.name || ''}</span>
                                     </li>
                                 </ul>
@@ -110,10 +110,13 @@ function loadProjects(page = 1) {
                 console.error('Failed to fetch projects:', data.message);
             }
 
+            const lang = localStorage.getItem('lang') || 'en';
+            if (typeof applyLang === "function") {
+                applyLang(lang);
+            }
+
             $('#loading-overlay').addClass('hidden');
-            setTimeout(() => {
-                $('html, body').stop().animate({ scrollTop: 0 }, 300);
-            }, 50);
+            setTimeout(() => { $('html, body').stop().animate({ scrollTop: 0 }, 300); }, 50);
         },
         error: function(jqXHR, textStatus, errorThrown) {
             console.error('Error fetching projects:', textStatus, errorThrown);

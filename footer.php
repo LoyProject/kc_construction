@@ -29,20 +29,20 @@
 
             <!-- Quick Links -->
             <div>
-                <h4 class="text-white mb-3">QUICK LINK</h4>
+                <h4 class="text-white mb-3" data-translate="header-quick-link">QUICK LINK</h4>
                 <div class="h-1 w-10 bg-brand-gold mb-4"></div>
                 <ul class="space-y-2 text-sm">
-                    <li><a href="home" class="hover:text-brand-gold">HOME</a></li>
-                    <li><a href="about" class="hover:text-brand-gold">ABOUT US</a></li>
-                    <li><a href="projects_page" class="hover:text-brand-gold">PROJECTS</a></li>
-                    <li><a href="contact" class="hover:text-brand-gold">CONTACT</a></li>
-                    <li><a href="quote_request" class="hover:text-brand-gold">QUOTE REQUEST</a></li>
+                    <li><a href="home" class="hover:text-brand-gold" data-translate="header-home">HOME</a></li>
+                    <li><a href="about" class="hover:text-brand-gold" data-translate="header-about">ABOUT US</a></li>
+                    <li><a href="projects_page" class="hover:text-brand-gold" data-translate="header-projects">PROJECTS</a></li>
+                    <li><a href="contact" class="hover:text-brand-gold" data-translate="header-contact">CONTACT</a></li>
+                    <li><a href="quote_request" class="hover:text-brand-gold" data-translate="header-quote-request">QUOTE REQUEST</a></li>
                 </ul>
             </div>
 
             <!-- Social Links -->
             <div>
-                <h4 class="text-white mb-3">FOLLOW US</h4>
+                <h4 class="text-white mb-3" data-translate="header-follow-us">FOLLOW US</h4>
                 <div class="h-1 w-10 bg-brand-gold mb-4"></div>
                 <ul class="space-y-2 text-sm">
                     <li class="flex items-center">
@@ -89,6 +89,7 @@
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
+    <script src="js/lang_translate.js"></script>
     <script src="js/slideshow.js"></script>
     <script src="js/companies_info.js"></script>
     <script src="js/achievements_info.js"></script>

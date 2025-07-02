@@ -15,7 +15,7 @@
     </style>
 </head>
 
-<body x-data="{lang: 'kh' }" class="bg-brand-black text-brand-white">
+<body class="bg-brand-black text-brand-white">
     <header x-data="{ open: false}" class="w-full px-4 sm:px-20 py-4 flex items-center justify-between bg-brand-gray text-brand-gold shadow-sm mx-auto sticky top-0 z-50 shadow-lg">
         <!-- Logo -->
         <div class="flex items-center space-x-2">
@@ -39,16 +39,17 @@
         <!-- Desktop Nav & Right Side -->
         <div class="hidden md:flex items-center justify-end flex-1 ml-8">
             <nav class="flex space-x-6 lg:space-x-8 uppercase font-semibold text-sm">
-                <a href="home" class="hover:text-brand-white" x-text="lang === 'en' ? 'Home' : 'ទំព័រដើម'"></a>
-                <a href="about" class="hover:text-brand-white" x-text="lang === 'en' ? 'About Us' : 'អំពីយើង'"></a>
-                <a href="projects" class="hover:text-brand-white" x-text="lang === 'en' ? 'Projects' : 'គម្រោង'"></a>
-                <a href="contact" class="hover:text-brand-white" x-text="lang === 'en' ? 'Contact' : 'ទំនាក់ទំនង'"></a>
+                <a href="home" class="hover:text-brand-white" data-translate="header-home">Home</a>
+                <a href="about" class="hover:text-brand-white" data-translate="header-about">About Us</a>
+                <a href="projects" class="hover:text-brand-white" data-translate="header-projects">Projects</a>
+                <a href="contact" class="hover:text-brand-white" data-translate="header-contact">Contact</a>
             </nav>
             <div class="flex items-center space-x-3 lg:space-x-4 ml-8">
                 <a href="quote_request">
                     <button
                         class="border border-brand-gold px-3 py-2 lg:px-4 uppercase font-semibold text-sm hover:bg-brand-gold hover:text-white transition-colors"
-                        x-text="lang === 'en' ? 'Quote Request' : 'ស្នើសុំបំណុល'">
+                        data-translate="header-quote-request">
+                        Quote Request
                     </button>
                 </a>
                 <button>
@@ -59,13 +60,9 @@
                         </path>
                     </svg>
                 </button>
-                <!-- Language Switcher -->
                 <div class="flex items-center space-x-1 ml-2">
-                    <button @click="lang = lang === 'en' ? 'kh' : 'en'"
-                        :aria-label="lang === 'en' ? 'Switch to Khmer' : 'Switch to English'"
-                        class="focus:outline-none">
-                        <img :src="lang === 'en' ? 'https://flagcdn.com/24x18/kh.png' : 'https://flagcdn.com/24x18/gb.png'"
-                            :alt="lang === 'en' ? 'English' : 'Khmer'" class="w-6 h-4 rounded shadow">
+                    <button id="langToggleBtn" class="focus:outline-none" aria-label="Switch to Khmer">
+                        <img id="langFlag" src="https://flagcdn.com/24x18/kh.png" alt="English" class="w-6 h-4 rounded shadow">
                     </button>
                 </div>
             </div>
@@ -75,7 +72,7 @@
         <div x-cloak x-show="open" class="fixed inset-0 z-40 bg-black/40 flex md:hidden" @click.away="open = false">
             <div class="bg-white w-3/4 max-w-xs h-full p-6 flex flex-col space-y-6">
                 <div class="mt-2 flex items-center">
-                    <input type="text" :placeholder="lang === 'en' ? 'Search...' : 'ស្វែងរក...'"
+                    <input type="text" placeholder="Search..."
                         class="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm">
                     <button class="ml-2 p-2 bg-brand-gold text-white hover:bg-brand-gold">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
@@ -87,24 +84,20 @@
                     </button>
                 </div>
                 <nav class="flex flex-col space-y-4 uppercase font-semibold text-base">
-                    <a href="index" class="hover:text-brand-white" x-text="lang === 'en' ? 'Home' : 'ទំព័រដើម'"></a>
-                    <a href="about" class="hover:text-brand-white" x-text="lang === 'en' ? 'About Us' : 'អំពីយើង'"></a>
-                    <a href="projects" class="hover:text-brand-white" x-text="lang === 'en' ? 'Projects' : 'គម្រោង'"></a>
-                    <a href="contact" class="hover:text-brand-white" x-text="lang === 'en' ? 'Contact' : 'ទំនាក់ទំនង'"></a>
+                    <a href="index" class="hover:text-brand-white">Home</a>
+                    <a href="about" class="hover:text-brand-white">About Us</a>
+                    <a href="projects" class="hover:text-brand-white">Projects</a>
+                    <a href="contact" class="hover:text-brand-white">Contact</a>
                 </nav>
-                <!-- Language Switcher Mobile (sync with main lang) -->
                 <div class="flex items-center space-x-1 ml-2">
-                    <button @click="lang = lang === 'en' ? 'kh' : 'en'"
-                        :aria-label="lang === 'en' ? 'Switch to Khmer' : 'Switch to English'"
-                        class="focus:outline-none">
-                        <img :src="lang === 'en' ? 'https://flagcdn.com/24x18/kh.png' : 'https://flagcdn.com/24x18/gb.png'"
-                            :alt="lang === 'en' ? 'English' : 'Khmer'" class="w-6 h-4 rounded shadow">
+                    <button id="langToggleBtn" class="focus:outline-none" aria-label="Switch to Khmer">
+                        <img id="langFlag" src="https://flagcdn.com/24x18/kh.png" alt="English" class="w-6 h-4 rounded shadow">
                     </button>
                 </div>
                 <a href="quote_request">
                     <button
-                        class="border border-brand-gold px-3 py-2 lg:px-4 uppercase font-semibold text-sm hover:bg-brand-gold hover:text-white transition-colors"
-                        x-text="lang === 'en' ? 'Quote Request' : 'ស្នើសុំបំណុល'"></button>
+                        class="border border-brand-gold px-3 py-2 lg:px-4 uppercase font-semibold text-sm hover:bg-brand-gold hover:text-white transition-colors">
+                        Quote Request
                     </button>
                 </a>
             </div>
