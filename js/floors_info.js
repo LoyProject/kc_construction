@@ -12,6 +12,25 @@ $(document).ready(function() {
                         <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'floor')" data-id="${floor.id}">${floor.name}</li>
                     `);
                 });
+
+                const floorId = sessionStorage.getItem('selectedFloorId');
+                const floorLabel = sessionStorage.getItem('selectedFloorLabel');
+
+                if (floorId && floorLabel) {
+                    const $floorInput = $('#dropdownInput-floor');
+
+                    if ($floorInput.length) {
+                        $floorInput.val(floorLabel);
+                        $floorInput.attr('data-id', floorId);
+                    }
+
+                    sessionStorage.removeItem('selectedFloorId');
+                    sessionStorage.removeItem('selectedFloorLabel');
+
+                    setTimeout(() => loadProjects(1), 100);
+                } else {
+                    loadProjects(1);
+                }
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {

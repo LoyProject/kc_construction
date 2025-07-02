@@ -12,6 +12,25 @@ $(document).ready(function() {
                         <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'facade')" data-id="${facade.id}">${facade.name}</li>
                     `);
                 });
+
+                const facadeId = sessionStorage.getItem('selectedFacadeId');
+                const facadeLabel = sessionStorage.getItem('selectedFacadeLabel');
+
+                if (facadeId && facadeLabel) {
+                    const $facadeInput = $('#dropdownInput-facade');
+
+                    if ($facadeInput.length) {
+                        $facadeInput.val(facadeLabel);
+                        $facadeInput.attr('data-id', facadeId);
+                    }
+
+                    sessionStorage.removeItem('selectedFacadeId');
+                    sessionStorage.removeItem('selectedFacadeLabel');
+
+                    setTimeout(() => loadProjects(1), 100);
+                } else {
+                    loadProjects(1);
+                }
             }
         },
         error: function(jqXHR, textStatus, errorThrown) {

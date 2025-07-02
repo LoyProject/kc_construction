@@ -162,4 +162,25 @@
             }
         });
     });
+
+    $(document).ready(function () {
+        const typeId = sessionStorage.getItem('selectedTypeId');
+        const typeLabel = sessionStorage.getItem('selectedTypeLabel');
+
+        if (typeId && typeLabel) {
+            const $typeInput = $('#dropdownInput-type');
+
+            if ($typeInput.length) {
+                $typeInput.val(typeLabel);
+                $typeInput.attr('data-id', typeId);
+            }
+
+            sessionStorage.removeItem('selectedTypeId');
+            sessionStorage.removeItem('selectedTypeLabel');
+
+            loadProjects(1);
+        } else {
+            loadProjects(1);
+        }
+    });
 </script>

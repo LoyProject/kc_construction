@@ -11,9 +11,15 @@ $(document).ready(function() {
                 $dropdownItemsType.empty();
                 $.each(data.types, function(index, type) {
                     if (index === 0) {
-                        $typesList.append('<div class="type-item text-brand-white hover:text-brand-gold cursor-pointer text-sm sm:text-base lg:text-lg font-semibold text-brand-white" data-type="all">All</div><span class="mx-6">|</span>');
+                        $typesList.append('<div class="type-item hover:text-brand-gold cursor-pointer text-sm sm:text-base lg:text-lg font-semibold text-brand-gold" data-type="all">All</div><span class="mx-6">|</span>');
                     }
-                    $typesList.append('<div class="type-item text-brand-white hover:text-brand-gold cursor-pointer text-sm sm:text-base lg:text-lg font-semibold text-brand-white" data-type="' + type.name + '">' + type.name + '</div>' + (index < data.types.length - 1 ? '<span class="mx-6">|</span>' : ''));
+                    $typesList.append(`
+                        <div class="type-item text-brand-white hover:text-brand-gold cursor-pointer text-sm sm:text-base lg:text-lg font-semibold"
+                            data-id="${type.id}" data-type="${type.name}">
+                            ${type.name}
+                        </div>
+                        ${index < data.types.length - 1 ? '<span class="mx-6">|</span>' : ''}
+                    `);
                 });
                 $.each(data.types, function(index, type) {
                     $dropdownItemsType.append(`

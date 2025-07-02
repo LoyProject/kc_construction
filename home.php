@@ -87,4 +87,15 @@
             btn.classList.add('hidden');
         }
     });
+
+    $(document).on('click', '.type-item', function () {
+        const selectedTypeName = $(this).text().trim();
+        const selectedTypeId = $(this).attr('data-id');
+        
+        if (selectedTypeId && selectedTypeId !== 'all') {
+            sessionStorage.setItem('selectedTypeId', selectedTypeId);
+            sessionStorage.setItem('selectedTypeLabel', selectedTypeName);
+            window.location.href = 'projects';
+        }
+    });
 </script>

@@ -1,5 +1,73 @@
+async function loadData() {
+    try {
+        const fetchFloors = new Promise((resolve, reject) => {
+            $.ajax({
+                url: 'backend/process_fetch_floors.php',
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    const $floorsList = $('#floors-list');
+                    if (data.success) {
+                        $floorsList.empty();
+                        $.each(data.floors, function(index, floor) {
+                            $floorsList.append(`
+                                <button class="floor-item bg-brand-gray px-3 py-2 hover:bg-brand-gold hover:text-white text-xs sm:text-sm" 
+                                    data-id="${floor.id}" data-type="${floor.name}">${floor.name}
+                                </button>
+                            `);
+                        });
+                        resolve();
+                    } else {
+                        reject(new Error('Floors data fetch unsuccessful'));
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    reject(new Error(`Error fetching floors: ${textStatus} ${errorThrown}`));
+                }
+            });
+        });
+
+        const fetchFacades = new Promise((resolve, reject) => {
+            $.ajax({
+                url: 'backend/process_fetch_facades.php',
+                method: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    const $facadeList = $('#facade-list');
+                    if (data.success) {
+                        $facadeList.empty();
+                        $.each(data.facades, function(index, facade) {
+                            $facadeList.append(`
+                                <button class="facade-item bg-brand-gray px-3 py-2 hover:bg-brand-gold hover:text-white text-xs sm:text-sm" 
+                                    data-id="${facade.id}" data-type="${facade.name}">${facade.name}
+                                </button>
+                            `);
+                        });
+                        resolve();
+                    } else {
+                        reject(new Error('Facades data fetch unsuccessful'));
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    reject(new Error(`Error fetching facades: ${textStatus} ${errorThrown}`));
+                }
+            });
+        });
+
+        await Promise.all([fetchFloors, fetchFacades]);
+    } catch (error) {
+        console.error('Error in loadData:', error.message);
+    }
+}
+
 $(document).ready(function() {
     const projectId = new URLSearchParams(window.location.search).get('id');
+
+    $('#dropdownInput-style').attr('data-id', '').val('');
+    $('#dropdownInput-type').attr('data-id', '').val('');
+    $('#dropdownInput-floor').attr('data-id', '').val('');
+    $('#dropdownInput-area').attr('data-id', '').val('');
+    $('#dropdownInput-facade').attr('data-id', '').val('');
 
     if (projectId) {
         $.ajax({
@@ -9,6 +77,8 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(data) {
                 if (data.success) {
+                    loadData();
+
                     const project = data.project;
                     $('#project-detail').html(`
                         <div class="bg-brand-black text-white">
@@ -41,28 +111,16 @@ $(document).ready(function() {
                                             <h2 class="text-base sm:text-lg font-semibold mb-2 border-b pb-1 border-yellow-500 inline-block">
                                                 FLOOR NUMBER
                                             </h2>
-                                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                                                <button class="bg-brand-gray px-3 py-2 hover:bg-yellow-500 hover:text-white text-xs sm:text-sm">1 floor</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">2 floors</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">3 floors</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">4 floors</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">11 floors</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">18 floors</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">19 floors</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">21 floors</button>
+                                            <div id="floors-list" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                                <!-- The floors will be dynamically populated here -->
                                             </div>
                                         </div>
 
                                         <div>
                                             <h2 class="text-base sm:text-lg font-semibold mb-2 border-b pb-1 border-yellow-500 inline-block">
                                                 FACADE</h2>
-                                            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                                            <div id="facade-list" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                                 <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">7m - 8m</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">9m - 10m</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">11m - 12m</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">12m - 13m</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">13m - 14m</button>
-                                                <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">Over 15m</button>
                                             </div>
                                         </div>
                                     </div>
