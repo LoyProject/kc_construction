@@ -46,8 +46,8 @@
 
         <div class="mt-12">
             <a href="about"
-                class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow">
-                ABOUT US
+                class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow"
+                x-text="lang === 'en' ? 'ABOUT US' : 'អំពីយើង'">
             </a>
         </div>
     </section>
@@ -59,7 +59,7 @@
     <div class="flex justify-center mt-8 mb-12">
         <a href="projects"
             class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow transition">
-            Load More
+            <span x-text="lang === 'en' ? 'Load More' : 'មើលបន្ថែម'"></span>
         </a>
     </div>
 
@@ -71,7 +71,7 @@
             <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
                 class="bg-brand-gold text-white p-4 font-bold hover:bg-white hover:text-brand-gold transition hidden">
                 <i class="fas fa-arrow-up"></i>
-            </button>            
+            </button>
         </div>
     </div>
 </div>
@@ -91,7 +91,7 @@
     $(document).on('click', '.type-item', function () {
         const selectedTypeName = $(this).text().trim();
         const selectedTypeId = $(this).attr('data-id');
-        
+
         if (selectedTypeId && selectedTypeId !== 'all') {
             sessionStorage.setItem('selectedTypeId', selectedTypeId);
             sessionStorage.setItem('selectedTypeLabel', selectedTypeName);

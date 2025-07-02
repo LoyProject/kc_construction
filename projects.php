@@ -27,7 +27,7 @@
         <div class="grid grid-cols-1 gap-4 sm:gap-4 md:gap-4 lg:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
             <!-- Style Dropdown -->
-            <div class="relative w-full z-50">
+            <div class="relative w-full z-20">
                 <input type="text" placeholder="Style"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'style')" onclick="toggleDropdown('style')" id="dropdownInput-style" />
@@ -45,7 +45,7 @@
             </div>
 
             <!-- Type Dropdown -->
-            <div class="relative w-full z-50">
+            <div class="relative w-full z-20">
                 <input type="text" placeholder="Type"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'type')" onclick="toggleDropdown('type')" id="dropdownInput-type" />
@@ -63,7 +63,7 @@
             </div>
 
             <!-- Floor Dropdown -->
-            <div class="relative w-full z-50">
+            <div class="relative w-full z-20">
                 <input type="text" placeholder="Floor"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'floor')" onclick="toggleDropdown('floor')" id="dropdownInput-floor" />
@@ -81,7 +81,7 @@
             </div>
 
             <!-- Facade Dropdown -->
-            <div class="relative w-full z-50">
+            <div class="relative w-full z-20">
                 <input type="text" placeholder="Facade"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'facade')" onclick="toggleDropdown('facade')" id="dropdownInput-facade" />
@@ -99,7 +99,7 @@
             </div>
 
             <!-- Area Dropdown -->
-            <div class="relative w-full z-50">
+            <div class="relative w-full z-20">
                 <input type="text" placeholder="Area"
                     class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                     oninput="filterDropdown(this, 'area')" onclick="toggleDropdown('area')" id="dropdownInput-area" />
