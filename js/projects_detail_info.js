@@ -151,9 +151,7 @@ $(document).ready(function() {
                                     <!-- Right: Filter Buttons -->
                                     <div class="w-full lg:w-1/3 space-y-6">
                                         <div>
-                                            <h2 class="text-base sm:text-lg font-semibold mb-2 border-b pb-1 border-yellow-500 inline-block">
-                                                FLOOR NUMBER
-                                            </h2>
+                                            <h2 class="text-base sm:text-lg font-semibold mb-2 border-b pb-1 border-yellow-500 inline-block" data-translate="floor-number">/h2>
                                             <div id="floors-list" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                                 <!-- The floors will be dynamically populated here -->
                                             </div>
@@ -176,7 +174,7 @@ $(document).ready(function() {
 
                                 <!-- Info Table -->
                                 <div class="mt-4 sm:mt-6">
-                                    <h2 class="text-base sm:text-lg font-bold border-b border-brand-gold inline-block mb-3 sm:mb-4">GENERAL INFOMATIONS</h2>
+                                    <h2 class="text-base sm:text-lg font-bold border-b border-brand-gold inline-block mb-3 sm:mb-4" data-translate="general-info">GENERAL INFOMATIONS</h2>
                                     <div class="overflow-x-auto">
                                         <table class="min-w-full border border-brand-gray text-xs sm:text-sm">
                                             <tbody class="divide-y divide-brand-gray">

@@ -27,6 +27,9 @@ const translations = {
         "sumbit-qoute": "SUBMIT A CONSULTATION REQUEST",
         "load-more": "Load More",
         "load-all": "All",
+        "search": "Search",
+        "floor-number": "FLOOR NUMBER",
+        "general-info": "GENERAL INFOMATIONS",
     },
     kh: {
         "home": "ទំព័រដើម",
@@ -55,6 +58,9 @@ const translations = {
         "sumbit-qoute": "ដាក់សំណើសុំប្រឹក្សា",
         "load-more": "បង្ហាញបន្ថែម",
         "load-all": "ទាំងអស់",
+        "search": "ស្វែងរក",
+        "floor-number": "ចំនួនជាន់",
+        "general-info": "ព័ត៌មានទូទៅ",
     }
 };
 

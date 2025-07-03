@@ -52,14 +52,67 @@
                         Quote Request
                     </button>
                 </a>
-                <button>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1011 18.5a7.5 7.5 0 005.65-2.85z">
-                        </path>
-                    </svg>
-                </button>
+                <div x-data="{ showSearch: false }" class="relative">
+                    <button @click="showSearch = !showSearch" class="focus:outline-none">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1011 18.5a7.5 7.5 0 005.65-2.85z">
+                            </path>
+                        </svg>
+                    </button>
+                    <div x-show="showSearch" @click.away="showSearch = false" x-cloak
+                        class="absolute right-0 mt-2 w-64 p-2 z-50">
+                        <form id="header-search-form" autocomplete="off">
+                            <input type="text" id="header-search-input" placeholder="Search..." <?php echo htmlspecialchars($translations['search'] ?? 'Search'); ?> data-translate="search"
+                                class="w-full px-3 py-2 border border-brand-gray focus:outline-none focus:ring-2 focus:ring-brand-gold text-sm text-black">
+                        </form>
+                        <div id="header-search-results" class="bg-white text-black mt-2 rounded shadow max-h-60 overflow-y-auto hidden"></div>
+                    </div>
+                </div>
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                <script>
+                $(function() {
+                    $('#header-search-input').on('input', function() {
+                        var keyword = $(this).val().trim();
+                        if (keyword.length < 2) {
+                            $('#header-search-results').hide().empty();
+                            return;
+                        }
+                        $.ajax({
+                            url: 'search.php',
+                            method: 'GET',
+                            data: { q: keyword },
+                            dataType: 'json',
+                            success: function(data) {
+                                var $results = $('#header-search-results');
+                                $results.empty();
+                                if (data.length === 0) {
+                                    $results.append('<div class="p-2 text-gray-500">No results found.</div>');
+                                } else {
+                                    data.forEach(function(item) {
+                                        $results.append(
+                                            '<a href="' + item.url + '" class="block px-3 py-2 hover:bg-brand-gray">' +
+                                            $('<div>').text(item.title).html() +
+                                            '</a>'
+                                        );
+                                    });
+                                }
+                                $results.show();
+                            },
+                            error: function() {
+                                $('#header-search-results').hide().empty();
+                            }
+                        });
+                    });
+                    // Hide results when clicking outside
+                    $(document).on('click', function(e) {
+                        if (!$(e.target).closest('#header-search-form, #header-search-results').length) {
+                            $('#header-search-results').hide().empty();
+                        }
+                    });
+                });
+                </script>
                 <div class="flex items-center space-x-1 ml-2">
                     <button id="langToggleBtn" class="focus:outline-none" aria-label="Switch to Khmer">
                         <img id="langFlag" src="https://flagcdn.com/24x18/kh.png" alt="English" class="w-6 h-4 rounded shadow">
@@ -73,7 +126,7 @@
             <div class="bg-white w-3/4 max-w-xs h-full p-6 flex flex-col space-y-6">
                 <div class="mt-2 flex items-center">
                     <input type="text" placeholder="Search..."
-                        class="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 text-sm">
+                        class="w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-brand-gray text-sm">
                     <button class="ml-2 p-2 bg-brand-gold text-white hover:bg-brand-gold">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"
                             xmlns="http://www.w3.org/2000/svg">
