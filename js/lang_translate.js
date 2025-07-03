@@ -67,7 +67,13 @@ function applyLang(lang) {
     $("[data-translate]").each(function () {
         const key = $(this).data("translate");
         if (translations[lang] && translations[lang][key]) {
-            $(this).text(translations[lang][key]);
+            const translation = translations[lang][key];
+
+            if ($(this).is('[placeholder]')) {
+                $(this).attr("placeholder", translation);
+            } else {
+                $(this).text(translation);
+            }
         }
     });
 }
