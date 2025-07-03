@@ -26,6 +26,7 @@ const translations = {
         "send-us": "SEND US",
         "sumbit-qoute": "SUBMIT A CONSULTATION REQUEST",
         "load-more": "Load More",
+        "load-all": "All",
     },
     kh: {
         "home": "ទំព័រដើម",
@@ -53,6 +54,7 @@ const translations = {
         "send-us": "ផ្ញើមកពួកយើង",
         "sumbit-qoute": "ដាក់សំណើសុំប្រឹក្សា",
         "load-more": "បង្ហាញបន្ថែម",
+        "load-all": "ទាំងអស់",
     }
 };
 

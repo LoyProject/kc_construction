@@ -80,6 +80,49 @@ $(document).ready(function() {
                     loadData();
 
                     const project = data.project;
+                    let detailFloorHtml = '';
+                    let detailAreaHtml = '';
+                    let vedioHtml = '';
+                    if (project.detail_floor) {
+                        detailFloorHtml = `
+                            <div class="mt-6 sm:mt-8 md:mt-10">
+                                <h3 class="text-lg font-semibold my-4">Details about floors</h3>
+                                <span class="text-sm text-brand-white">${project.detail_floor}</span>
+                            </div>
+                        `;
+                    }
+
+                    if (project.detail_area) {
+                        detailAreaHtml = `
+                            <div class="mt-6 sm:mt-8 md:mt-10">
+                                <h3 class="text-lg font-semibold my-4">Details of area</h3>
+                                <span class="text-sm text-brand-white">${project.detail_area}</span>
+                            </div>
+                        `;
+                    }
+
+                    if (project.video) {
+                        let youtubeId = '';
+                        const url = project.video;
+                        const match = url.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i);
+                        if (match && match[1]) youtubeId = match[1];
+                        if (youtubeId) {
+                            vedioHtml = `
+                                <div class="mt-6 sm:mt-8 md:mt-10">
+                                    <h3 class="text-lg font-semibold my-4">Video of project</h3>
+                                    <div>
+                                        <iframe 
+                                            src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" 
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                            allowfullscreen
+                                            class="w-[600px] h-[300px] shadow bg-brand-gray"
+                                        ></iframe>
+                                    </div>
+                                </div>
+                            `;
+                        }
+                    }
+
                     $('#project-detail').html(`
                         <div class="bg-brand-black text-white">
                             <main class="p-4 sm:p-6 md:p-12">
@@ -221,6 +264,10 @@ $(document).ready(function() {
                                         </table>
                                     </div>
                                 </div>
+
+                                ${detailFloorHtml}
+                                ${detailAreaHtml}
+                                ${vedioHtml}
                             </main>
                         </div>
                     `);

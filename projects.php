@@ -39,7 +39,7 @@
 
                 <ul id="dropdownMenu-style"
                     class="absolute w-full bg-brand-black border border-gray-300 mt-1 max-h-48 overflow-y-auto hidden z-10">
-                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'style')">All</li>
+                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'style')" data-translate="load-all">All</li>
                     <li id="dropdown-items-style"></li>
                 </ul>
             </div>
@@ -57,7 +57,7 @@
 
                 <ul id="dropdownMenu-type"
                     class="absolute w-full bg-brand-black border border-gray-300 mt-1 max-h-48 overflow-y-auto hidden z-10">
-                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'type')">All</li>
+                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'type')" data-translate="load-all">All</li>
                     <li id="dropdown-items-type"></li>
                 </ul>
             </div>
@@ -75,7 +75,7 @@
 
                 <ul id="dropdownMenu-floor"
                     class="absolute w-full bg-brand-black border border-gray-300 mt-1 max-h-48 overflow-y-auto hidden z-10">
-                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'floor')">All</li>
+                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'floor')" data-translate="load-all">All</li>
                     <li id="dropdown-items-floor"></li>
                 </ul>
             </div>
@@ -93,7 +93,7 @@
 
                 <ul id="dropdownMenu-facade"
                     class="absolute w-full bg-brand-black border border-gray-300 mt-1 max-h-48 overflow-y-auto hidden z-10">
-                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'facade')">All</li>
+                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'facade')" data-translate="load-all">All</li>
                     <li id="dropdown-items-facade"></li>
                 </ul>
             </div>
@@ -111,7 +111,7 @@
 
                 <ul id="dropdownMenu-area"
                     class="absolute w-full bg-brand-black border border-gray-300 mt-1 max-h-48 overflow-y-auto hidden z-10">
-                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'area')">All</li>
+                    <li class="px-3 py-2 hover:bg-gray-700 cursor-pointer" onclick="selectItem(this, 'area')" data-translate="load-all">All</li>
                     <li id="dropdown-items-area"></li>
                 </ul>
             </div>

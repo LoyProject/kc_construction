@@ -46,7 +46,8 @@
 
         <div class="mt-12">
             <a href="about"
-                class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow">
+                class="bg-brand-gold hover:bg-brand-white text-brand-white hover:text-brand-gold px-6 py-3 font-semibold shadow"
+                data-translate="about">
                 ABOUT US
             </a>
         </div>
