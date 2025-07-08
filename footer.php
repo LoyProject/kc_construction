@@ -94,5 +94,6 @@
     <script src="js/areas_info.js"></script>
     <script src="js/projects_info.js"></script>
     <script src="js/projects_detail_info.js"></script>
+    <script src="js/request_info.js"></script>
 </body>
 </html>

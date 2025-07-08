@@ -66,7 +66,7 @@
         </div>
 
         <div class="relative w-full z-20">
-            <input type="text" placeholder="Floor" data-translate="floor"
+            <input type="text" placeholder="Floor" data-translate="floor-dropdown"
                 class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                 oninput="filterDropdown(this, 'floor')" onclick="toggleDropdown('floor')" id="dropdownInput-floor" />
             <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center">
@@ -105,7 +105,7 @@
 
         <div class="relative w-full z-20">
             <input type="text" placeholder="<?php echo htmlspecialchars($translations['area'] ?? 'Area'); ?>"
-                data-translate="area"
+                data-translate="area-dropdown"
                 class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
                 oninput="filterDropdown(this, 'area')" onclick="toggleDropdown('area')" id="dropdownInput-area" />
             <div class="pointer-events-none absolute inset-y-0 right-2 flex items-center">
@@ -149,7 +149,7 @@
         const label = el.textContent;
         const id = el.getAttribute('data-id');
 
-        if (label === 'All') {
+        if (label === 'All' || label === 'ទាំងអស់') {
             input.value = '';
             input.removeAttribute('data-id');
         } else {
