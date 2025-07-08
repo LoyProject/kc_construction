@@ -144,7 +144,7 @@
         const label = el.textContent;
         const id = el.getAttribute('data-id');
 
-        if (label === 'All') {
+        if (label === 'All' || label === 'ទាំងអស់') {
             input.value = '';
             input.removeAttribute('data-id');
         } else {

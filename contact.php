@@ -19,26 +19,23 @@
                 <h2 class="text-2xl font-bold mb-2" data-translate="contact"></h2>
                 <p class="text-brand-white/80 mb-6" data-translate="contact-discription">Are you interested in finding out how our Construction Services can make
                     your project? For more information on our services please contact us.</p>
-
-                <form class="space-y-4">
+                <form id="requestForm" class="space-y-4">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="text" placeholder="Name*" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold"
-                            required />
-                        <input type="text" placeholder="Phone" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold" />
+                        <input type="text" name="name" placeholder="Name*" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold" required />
+                        <input type="text" name="tell" placeholder="Phone" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold" />
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="email" placeholder="Your Email*" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold"
-                            required />
-                        <input type="text" placeholder="Subject" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold" />
+                        <input type="email" name="email" placeholder="Your Email*" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold" required />
+                        <input type="text" name="subject" placeholder="Subject" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold" />
                     </div>
 
-                    <textarea placeholder="Message*" rows="6" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold"
-                        required></textarea>
+                    <textarea name="message" placeholder="Message*" rows="6" class="w-full p-3 bg-brand-gray border border-gray-300 hover:border-2 hover:border-brand-gold" required></textarea>
 
-                    <button type="submit" class="bg-brand-gold text-white px-6 py-3 hover:bg-brand-white hover:text-brand-gold" data-translate="send-us">SEND
-                        US</button>
+                    <button type="submit" class="bg-brand-gold text-white px-6 py-3 hover:bg-brand-white hover:text-brand-gold" data-translate="send-us">SEND US</button>
                 </form>
+
+                <div id="form-message" class="text-green-600 mt-2"></div>
             </div>
 
             <!-- Info Section -->
