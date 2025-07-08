@@ -3,14 +3,14 @@
 <div class="bg-brand-black text-brand-white">
 
     <!-- About Us Page -->
-    <div class="w-full mx-auto flex flex-row items-center justify-between bg-gray-800 px-32 md:px-20 lg:px-32 py-8 shadow-md">
+    <!-- <div class="w-full mx-auto flex flex-row items-center justify-between bg-gray-800 px-32 md:px-20 lg:px-32 py-8 shadow-md">
         <div class="text-sm text-gray-500 flex items-center">
             <a href="home" class="hover:text-brand-gold font-semibold text-base" data-translate="home"></a>
             <span class="mx-2">|</span>
             <span class="text-brand-gold font-semibold text-xl" data-translate="about"></span>
         </div>
         <h2 class="text-lg font-bold text-brand-white text-right" data-translate="who-we-are">Who we are?</h2>
-    </div>
+    </div> -->
     
     <section class="px-6 md:px-20 lg:px-32 py-16">
         <!-- Our Companies -->
