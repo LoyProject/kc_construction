@@ -15,7 +15,7 @@ async function loadData() {
                                     data-id="${floor.id}" data-type="${floor.name}">${floor.name}
                                 </button>
                             `);
-                        });
+                        }); 
                         resolve();
                     } else {
                         reject(new Error('Floors data fetch unsuccessful'));
@@ -86,7 +86,7 @@ $(document).ready(function() {
                     if (project.detail_floor) {
                         detailFloorHtml = `
                             <div class="mt-6 sm:mt-8 md:mt-10">
-                                <h3 class="text-lg font-semibold my-4">Details about floors</h3>
+                                <h3 class="text-lg font-semibold my-4" data-translate="details-about-floors"></h3>
                                 <span class="text-sm text-brand-white">${project.detail_floor}</span>
                             </div>
                         `;
@@ -95,7 +95,7 @@ $(document).ready(function() {
                     if (project.detail_area) {
                         detailAreaHtml = `
                             <div class="mt-6 sm:mt-8 md:mt-10">
-                                <h3 class="text-lg font-semibold my-4">Details of area</h3>
+                                <h3 class="text-lg font-semibold my-4" data-translate="Details-of-area"></h3>
                                 <span class="text-sm text-brand-white">${project.detail_area}</span>
                             </div>
                         `;
@@ -109,13 +109,13 @@ $(document).ready(function() {
                         if (youtubeId) {
                             vedioHtml = `
                                 <div class="mt-6 sm:mt-8 md:mt-10">
-                                    <h3 class="text-lg font-semibold my-4">Video of project</h3>
-                                    <div>
+                                    <h3 class="text-lg font-semibold my-4" data-translate="video-of-project"></h3>
+                                    <div class="w-full max-w-2xl aspect-video bg-brand-gray shadow rounded overflow-hidden">
                                         <iframe 
                                             src="https://www.youtube.com/embed/${youtubeId}" frameborder="0" 
                                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                                             allowfullscreen
-                                            class="w-[600px] h-[300px] shadow bg-brand-gray"
+                                            class="w-full h-full"
                                         ></iframe>
                                     </div>
                                 </div>
@@ -151,15 +151,12 @@ $(document).ready(function() {
                                     <!-- Right: Filter Buttons -->
                                     <div class="w-full lg:w-1/3 space-y-6">
                                         <div>
-                                            <h2 class="text-base sm:text-lg font-semibold mb-2 border-b pb-1 border-yellow-500 inline-block" data-translate="floor-number">/h2>
-                                            <div id="floors-list" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
-                                                <!-- The floors will be dynamically populated here -->
-                                            </div>
+                                            <h2 class="text-base sm:text-lg font-semibold mb-2 border-b pb-1 border-yellow-500 inline-block" data-translate="floor-number">FLOOR NUMBER</h2>
+                                            <div id="floors-list" class="grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
                                         </div>
 
                                         <div>
-                                            <h2 class="text-base sm:text-lg font-semibold mb-2 border-b pb-1 border-yellow-500 inline-block">
-                                                FACADE</h2>
+                                            <h2 class="text-base sm:text-lg font-semibold mb-2 border-b pb-1 border-yellow-500 inline-block" data-translate="facade">FACADE</h2>
                                             <div id="facade-list" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                                 <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">7m - 8m</button>
                                             </div>
@@ -183,80 +180,80 @@ $(document).ready(function() {
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-eye text-brand-gold"></i>
                                                         </span>
-                                                        View
+                                                        <span data-translate="view"></span>
                                                     </td>
                                                     <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.view || 0}</td>
                                                     <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-user text-brand-gold"></i>
                                                         </span>
-                                                        Investor
+                                                        <span data-translate="investor"></span>
                                                     </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.investor || ''}</td>
+                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.investor || '--'}</td>
                                                 </tr>
                                                 <tr class="border-b border-brand-gray">
                                                     <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-bullseye text-brand-gold"></i>
                                                         </span>
-                                                        Style
+                                                        <span data-translate="style"></span>
                                                     </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.style.name || ''}</td>
+                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.style.name || '--'}</td>
                                                     <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-cogs text-brand-gold"></i>
                                                         </span>
-                                                        Total Area
+                                                        <span data-translate="total-area"></span>
                                                     </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.area.name || ''}</td>
+                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.area.name || '--'}</td>
                                                 </tr>
                                                 <tr class="border-b border-brand-gray">
                                                     <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-chart-bar text-brand-gold"></i>
                                                         </span>
-                                                        Number of floor
+                                                        <span data-translate="floor-number"></span>
                                                     </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.floor.name || ''}</td>
+                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.floor.name || '--'}</td>
                                                     <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-calculator text-brand-gold"></i>
                                                         </span>
-                                                        Implementing unit
+                                                        <span data-translate="implementing-unit"></span>
                                                     </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.implement_unit || ''}</td>
+                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.implement_unit || '--'}</td>
                                                 </tr>
                                                 <tr class="border-b border-brand-gray">
                                                     <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-calendar-alt text-brand-gold"></i>
                                                         </span>
-                                                        Implement at
+                                                        <span data-translate="implement-at"></span>
                                                     </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.implement_at || ''}</td>
+                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.implement_at || '--'}</td>
                                                     <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-bullseye text-brand-gold"></i>
                                                         </span>
-                                                        Facade
+                                                        <span data-translate="facade"></span>
                                                     </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.facade.name || ''}</td>
+                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.facade.name || '--'}</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-home text-brand-gold"></i>
                                                         </span>
-                                                        Types
+                                                        <span data-translate="types"></span>
                                                     </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.type.name || ''}</td>
+                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.type.name || '--'}</td>
                                                     <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
                                                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                                                             <i class="fas fa-chart-area text-brand-gold"></i>
                                                         </span>
-                                                        Size
+                                                        <span data-translate="size"></span>
                                                     </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.size.name || ''}</td>
+                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.size.name || '--'}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

@@ -59,21 +59,15 @@
                     </li>
                     <li class="flex items-center">
                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                            <i class="fab fa-instagram mr-2"></i>
+                            <i class="fab fa-tiktok mr-2"></i>
                         </span>
-                        <a id="instagram-link" target="_blank" class="hover:text-brand-gold">Instagram</a>
+                        <a id="tiktok-link" target="_blank" class="hover:text-brand-gold">TikTok</a>
                     </li>
                     <li class="flex items-center">
                         <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
                             <i class="fab fa-youtube mr-2"></i>
                         </span>
                         <a id="youtube-link" target="_blank" class="hover:text-brand-gold">YouTube</a>
-                    </li>
-                    <li class="flex items-center">
-                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                            <i class="fab fa-linkedin mr-2"></i>
-                        </span>
-                        <a id="linkedin-link" target="_blank" class="hover:text-brand-gold">LinkedIn</a>
                     </li>
                 </ul>
             </div>
