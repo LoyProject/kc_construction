@@ -75,14 +75,13 @@ $(document).ready(function() {
             type: 'POST',
             data: { id: projectId },
             dataType: 'json',
-            success: function(data) {
+            success: async function(data) {
                 if (data.success) {
-                    loadData();
-
                     const project = data.project;
                     let detailFloorHtml = '';
                     let detailAreaHtml = '';
                     let vedioHtml = '';
+
                     if (project.detail_floor) {
                         detailFloorHtml = `
                             <div class="mt-6 sm:mt-8 md:mt-10">
@@ -123,26 +122,48 @@ $(document).ready(function() {
                         }
                     }
 
+                    // Merge main image and images array into one list
+                    let allImages = [];
+                    if (project.image_path) {
+                        allImages.push({ image_path: project.image_path });
+                    }
+                    if (Array.isArray(project.images)) {
+                        allImages = allImages.concat(project.images);
+                    } else if (typeof project.images === 'string' && project.images.trim() !== '') {
+                        try {
+                            const parsed = JSON.parse(project.images);
+                            if (Array.isArray(parsed)) {
+                                allImages = allImages.concat(parsed);
+                            }
+                        } catch (e) {
+                            // ignore parse error
+                        }
+                    }
+
+                    // Render main image viewer with arrows and thumbnails
                     $('#project-detail').html(`
                         <div class="bg-brand-black text-white">
                             <main class="p-4 sm:p-6 md:p-12">
                                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-10">
 
-                                    <!-- Left: Main image and thumbnails -->
+                                    <!-- Left: Main image and thumbnails with arrows -->
                                     <div class="w-full lg:w-2/3">
-                                        <img src="admin/${project.image_path}" class="shadow mb-4 w-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] fit-cover"/>
-
-                                        <div class="flex gap-2 overflow-x-auto pb-2">
+                                        <div class="relative">
+                                            <button id="img-prev-btn" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center" style="display:${allImages.length > 1 ? 'block' : 'none'}">
+                                                <i class="fas fa-chevron-left"></i>
+                                            </button>
+                                            <img id="main-project-img" src="admin/${allImages[0]?.image_path || ''}" class="shadow mb-4 w-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] fit-cover"/>
+                                            <button id="img-next-btn" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center" style="display:${allImages.length > 1 ? 'block' : 'none'}">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </button>
+                                        </div>
+                                        <div class="flex gap-2 overflow-x-auto pb-2 mt-2">
                                             ${
-                                                (
-                                                    Array.isArray(project.images)
-                                                        ? project.images
-                                                        : (typeof project.images === 'string' && project.images.trim() !== '')
-                                                            ? JSON.parse(project.images)
-                                                            : []
-                                                ).map((item, i) => `
+                                                allImages.map((item, i) => `
                                                     <img src="admin/${item.image_path}" alt="Thumb ${i+1}"
-                                                        class="w-20 h-14 sm:w-24 sm:h-16 md:w-28 md:h-20 fit-cover shadow"/>
+                                                        class="project-thumb w-20 h-14 sm:w-24 sm:h-16 md:w-28 md:h-20 fit-cover shadow cursor-pointer border-2 ${i === 0 ? 'border-brand-gold' : 'border-transparent'}"
+                                                        data-index="${i}"
+                                                    />
                                                 `).join('')
                                             }
                                         </div>
@@ -266,6 +287,37 @@ $(document).ready(function() {
                             </main>
                         </div>
                     `);
+
+                    // Add image viewer logic
+                    (function() {
+                        let currentIndex = 0;
+                        const total = allImages.length;
+
+                        function showImage(idx) {
+                            if (idx < 0 || idx >= total) return;
+                            $('#main-project-img').attr('src', 'admin/' + allImages[idx].image_path);
+                            $('.project-thumb').removeClass('border-brand-gold').addClass('border-transparent');
+                            $('.project-thumb[data-index="' + idx + '"]').removeClass('border-transparent').addClass('border-brand-gold');
+                            currentIndex = idx;
+                        }
+
+                        $('#img-prev-btn').off('click').on('click', function() {
+                            let idx = (currentIndex - 1 + total) % total;
+                            showImage(idx);
+                        });
+
+                        $('#img-next-btn').off('click').on('click', function() {
+                            let idx = (currentIndex + 1) % total;
+                            showImage(idx);
+                        });
+
+                        $('.project-thumb').off('click').on('click', function() {
+                            let idx = parseInt($(this).attr('data-index'), 10);
+                            showImage(idx);
+                        });
+                    })();
+
+                    await loadData();
                 } else {
                     $('#project-detail').html('<p class="text-red-500">Project not found.</p>');
                 }
