@@ -37,9 +37,17 @@ const translations = {
         "email": "Email*",
         "subject": "Subject*",
         "message": "Message*",
-        "contact-phone": "CALL US :",
-        "contact-email": "EMAIL :",
-        "contact-address": "ADDRESS :",
+        "contact-phone": "CALL US : ",
+        "contact-email": "EMAIL : ",
+        "contact-address": "ADDRESS : ",
+        "implementing-unit": "Implementing Unit",
+        "implement-at": "Implement At",
+        "types": "Types",
+        "size": "Size",
+        "total-area": "Total Area",
+        "details-about-floors": "Details about floors",
+        "Details-of-area": "Details of area",
+        "video-of-project": "Video of project",
     },
     kh: {
         "home": "ទំព័រដើម",
@@ -59,7 +67,7 @@ const translations = {
         "all-projects": "គម្រោងទាំងអស់",
         "style": "រចនាបថ",
         "type": "ប្រភេទ",
-        "facade": "មុខមាត់",
+        "facade": "ទិដ្ឋភាព",
         "who-we-are": "យើងជាអ្នកណា?",
         "our-companies": "ក្រុមហ៊ុនរបស់យើង",
         "vision": "ទស្សនៈ",
@@ -78,9 +86,17 @@ const translations = {
         "email": "អ៊ីមែល*",
         "subject": "ប្រធានបទ*",
         "message": "សារ*",
-        "contact-phone": "ទំនាក់ទំនង :",
-        "contact-email": "អ៊ីមែល :",
-        "contact-address": "អាសយដ្ឋាន :",
+        "contact-phone": "ទំនាក់ទំនង:" +" ",
+        "contact-email": "អ៊ីមែល:"+" ",
+        "contact-address": "អាសយដ្ឋាន:"+" ",
+        "implementing-unit": "អង្គភាពអនុវត្ត",
+        "implement-at": "អនុវត្តនៅ",
+        "types": "ប្រភេទ",
+        "size": "ទំហំ",
+        "total-area": "ផ្ទៃក្រឡា",
+        "details-about-floors": "ព័ត៌មានលម្អិតអំពីជាន់",
+        "Details-of-area": "ព័ត៌មានលម្អិតអំពីផ្ទៃក្រឡា",
+        "video-of-project": "វីដេអូនៃគម្រោង",
     }
 };
 
@@ -91,6 +107,13 @@ function applyLang(lang) {
 
     $('#langFlag').attr('alt', lang === 'en' ? 'English' : 'Khmer');
     $('#langToggleBtn').attr('aria-label', lang === 'en' ? 'Switch to Khmer' : 'Switch to English');
+
+    // Set font-family based on language
+    if (lang === 'kh') {
+        $('body').css('font-family', '"Hanuman", Arial, sans-serif');
+    } else {
+        $('body').css('font-family', '"Hanuman", Arial, sans-serif');
+    }
 
     $("[data-translate]").each(function () {
         const key = $(this).data("translate");
