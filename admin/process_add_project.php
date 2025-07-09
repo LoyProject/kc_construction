@@ -50,6 +50,7 @@
         $address_id = filter_input(INPUT_POST, 'address_id', FILTER_VALIDATE_INT) ?: null;
         $implement_at = filter_input(INPUT_POST, 'implement_at', FILTER_VALIDATE_INT) ?: null;
         $implement_unit = trim($_POST['implement_unit']) ?: null;
+        $video = trim($_POST['video']) ?: null;
         $detail_floor = trim($_POST['detail_floor']) ?: null;
         $detail_area = trim($_POST['detail_area']) ?: null;
 
@@ -123,7 +124,7 @@
             $stmt_insert_project->bindParam(':implement_unit', $implement_unit);
             $stmt_insert_project->bindParam(':detail_floor', $detail_floor);
             $stmt_insert_project->bindParam(':detail_area', $detail_area);
-            $stmt_insert_project->bindParam(':video', $_POST['video'] ?? null);
+            $stmt_insert_project->bindParam(':video', $video);
 
             if ($stmt_insert_project->execute()) {
                 $new_project_id = $pdo->lastInsertId();
