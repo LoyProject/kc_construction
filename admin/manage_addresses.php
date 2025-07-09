@@ -63,7 +63,7 @@
 
 <form action="manage_addresses" method="GET" class="grid grid-cols-1 md:grid-cols-3 gap-4 items-end mb-4">
     <div>
-        <input type="text" name="search" id="search" value="<?php echo htmlspecialchars($search_term); ?>" placeholder="Search by name..."
+        <input type="text" name="search" id="search" value="<?php echo htmlspecialchars($search_term ?? ''); ?>" placeholder="Search by name..."
                 class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
     </div>
     <div class="flex items-center space-x-4">
@@ -88,14 +88,14 @@
             <?php else: ?>
                 <?php foreach ($addresses as $address): ?>
                     <tr id="address-row-<?php echo $address['id']; ?>">
-                        <td class="px-5 py-3 border-b border-gray-200 font-semibold" title="<?php echo htmlspecialchars($address['name']); ?>">
-                            <?php echo htmlspecialchars($address['name']); ?>
+                        <td class="px-5 py-3 border-b border-gray-200 font-semibold" title="<?php echo htmlspecialchars($address['name'] ?? ''); ?>">
+                            <?php echo htmlspecialchars($address['name'] ?? ''); ?>
                         </td>
-                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($address['description']); ?>">
-                            <?php echo htmlspecialchars($address['description']); ?>
+                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($address['description'] ?? ''); ?>">
+                            <?php echo htmlspecialchars($address['description'] ?? ''); ?>
                         </td>
-                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($address['created_at']); ?>">
-                            <?php echo htmlspecialchars($address['created_at']); ?>
+                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($address['created_at'] ?? ''); ?>">
+                            <?php echo htmlspecialchars($address['created_at'] ?? ''); ?>
                         </td>
                         <td class="px-5 py-3 border-b border-gray-200">
                             <?php if (isset($_SESSION['role']) && $_SESSION['role'] !== 'View'): ?>

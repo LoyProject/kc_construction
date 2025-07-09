@@ -84,7 +84,7 @@
 
 <form action="manage_users" method="GET" class="grid grid-cols-1 md:grid-cols-5 gap-4 items-end mb-4">
     <div>
-        <input type="text" name="search" id="search" value="<?php echo htmlspecialchars($search_term); ?>" placeholder="Search by username or email..."
+        <input type="text" name="search" id="search" value="<?php echo htmlspecialchars($search_term ?? ''); ?>" placeholder="Search by username or email..."
                 class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
     </div>
     <div>
@@ -128,19 +128,19 @@
                     <?php if ($user['username'] === 'chheanghok') continue; ?>
 
                     <tr id="user-row-<?php echo $user['id']; ?>">
-                        <td class="px-5 py-3 border-b border-gray-200 font-semibold" title="<?php echo htmlspecialchars($user['username']); ?>">
-                            <?php echo htmlspecialchars($user['username']); ?>
+                        <td class="px-5 py-3 border-b border-gray-200 font-semibold" title="<?php echo htmlspecialchars($user['username'] ?? ''); ?>">
+                            <?php echo htmlspecialchars($user['username'] ?? ''); ?>
                         </td>
-                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($user['email']); ?>">
-                            <?php echo htmlspecialchars($user['email']); ?>
+                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($user['email'] ?? ''); ?>">
+                            <?php echo htmlspecialchars($user['email'] ?? ''); ?>
                         </td>
-                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($user['role']); ?>">
+                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($user['role'] ?? ''); ?>">
                             <span class="font-medium <?php echo ($user['role'] === 'Admin') ? 'text-red-600' : 'text-slate-600'; ?>">
-                                <?php echo sanitize_output($user['role']); ?>
+                                <?php echo sanitize_output($user['role'] ?? ''); ?>
                             </span>
                         </td>
-                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($user['created_at']); ?>">
-                            <?php echo htmlspecialchars($user['created_at']); ?>
+                        <td class="px-5 py-3 border-b border-gray-200" title="<?php echo htmlspecialchars($user['created_at'] ?? ''); ?>">
+                            <?php echo htmlspecialchars($user['created_at'] ?? ''); ?>
                         </td>
                         <td class="px-5 py-3 border-b border-gray-200">
                             <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin') {
@@ -148,7 +148,7 @@
                                     $button_hover_color = ($user['status'] === 'Active') ? 'hover:bg-green-200' : 'hover:bg-slate-300';
                                     echo '<button 
                                             class="status-toggle-btn px-3 py-1 font-semibold leading-tight rounded-full text-xs transition-colors ' . $status_color . ' ' . $button_hover_color . '"
-                                            data-user-id="' . htmlspecialchars($user['id']) . '">'
+                                            data-user-id="' . htmlspecialchars($user['id'] ?? '') . '">'
                                             . sanitize_output($user['status']) .
                                         '</button>';
                                 } else {

@@ -24,6 +24,19 @@
             $errors[] = "Please select a valid facade.";
         if (empty($_POST['area_id']) || !filter_var($_POST['area_id'], FILTER_VALIDATE_INT))
             $errors[] = "Please select a valid area.";
+        if (isset($_FILES['images']) && !empty($_FILES['images']['name'][0])) {
+            $uploaded_files_check = $_FILES['images'];
+            $max_file_size = 3 * 1024 * 1024; // 3MB
+            for ($i = 0; $i < count($uploaded_files_check['name']); $i++) {
+                if (empty($uploaded_files_check['name'][$i])) { continue; }
+                if ($uploaded_files_check['error'][$i] == UPLOAD_ERR_OK) {
+                    $file_size_check = $uploaded_files_check['size'][$i];
+                    if ($file_size_check > $max_file_size) {
+                        $errors[] = "File '".sanitize_output(basename($uploaded_files_check['name'][$i]))."': Too large (max 3MB).";
+                    }
+                }
+            }
+        }
 
         $name = trim($_POST['name']);
         $style_id = filter_input(INPUT_POST, 'style_id', FILTER_VALIDATE_INT) ?: null;
@@ -52,7 +65,7 @@
                     $file_size_check = $uploaded_files_check['size'][$i];
                     $image_file_type_check = strtolower(pathinfo($original_name_check, PATHINFO_EXTENSION));
                     $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
-                    $max_file_size = 20 * 1024 * 1024;
+                    $max_file_size = 3 * 1024 * 1024;
                     if (!in_array($image_file_type_check, $allowed_types)) {
                         $image_validation_errors[] = "File '".sanitize_output($original_name_check)."': Invalid type (JPG, JPEG, PNG, GIF only)."; continue;
                     }
@@ -60,7 +73,7 @@
                         $image_validation_errors[] = "File '".sanitize_output($original_name_check)."': File is empty."; continue;
                     }
                     if ($file_size_check > $max_file_size) {
-                        $image_validation_errors[] = "File '".sanitize_output($original_name_check)."': Too large (max 20MB)."; continue;
+                        $image_validation_errors[] = "File '".sanitize_output($original_name_check)."': Too large (max 3MB)."; continue;
                     }
                     $at_least_one_valid_image_provided = true;
                     break; 
@@ -148,7 +161,7 @@
                     $target_file_path = $target_dir . $new_file_name;
 
                     $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
-                    $max_file_size = 20 * 1024 * 1024;
+                    $max_file_size = 3 * 1024 * 1024;
 
                     if (!in_array($image_file_type, $allowed_types)) {
                         $image_processing_messages[] = "File '".sanitize_output($original_name)."': Invalid type (skipped).";

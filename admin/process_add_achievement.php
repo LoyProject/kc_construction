@@ -17,6 +17,23 @@
         $errors = [];
         if (empty($title)) $errors[] = "Title is required.";
 
+        for ($i = 1; $i <= 3; $i++) {
+            if (!empty($_FILES["achievement_image_$i"]["name"])) {
+                $size = $_FILES["achievement_image_$i"]["size"];
+                if ($size > 3 * 1024 * 1024) {
+                    $errors[] = "Achievement image $i must be smaller than 3MB.";
+                }
+            }
+        }
+        
+        if (!empty($_FILES['slideshow_images']['name'][0])) {
+            foreach ($_FILES['slideshow_images']['size'] as $index => $size) {
+                if ($size > 3 * 1024 * 1024) {
+                    $errors[] = "Slideshow image " . ($index + 1) . " must be smaller than 3MB.";
+                }
+            }
+        }
+
         if (!empty($errors)) {
             $_SESSION['form_errors'] = $errors;
             $_SESSION['form_data'] = $_POST;
@@ -40,9 +57,13 @@
                     $tmp = $_FILES["achievement_image_$i"]["tmp_name"];
                     $ext = strtolower(pathinfo($_FILES["achievement_image_$i"]["name"], PATHINFO_EXTENSION));
                     $allowed = ['jpg', 'jpeg', 'png', 'gif'];
-                    $max_size = 20 * 1024 * 1024;
+                    $max_size = 3 * 1024 * 1024; // 3MB
 
-                    if (in_array($ext, $allowed) && $_FILES["achievement_image_$i"]["size"] <= $max_size) {
+                    if (!in_array($ext, $allowed)) {
+                        $errors[] = "Achievement image $i must be JPG, PNG, or GIF.";
+                    } elseif ($size > $max_size) {
+                        $errors[] = "Achievement image $i must be smaller than 3MB.";
+                    } else {
                         $target_dir = "assets/images/achievements/";
                         $file_name = uniqid("achv_$achievement_id"."_", true) . ".$ext";
                         $file_path = $target_dir . $file_name;
@@ -71,7 +92,7 @@
                     $ext = strtolower(pathinfo($original, PATHINFO_EXTENSION));
                     $size = $_FILES['slideshow_images']['size'][$index];
 
-                    if (!in_array($ext, ['jpg', 'jpeg', 'png', 'gif']) || $size > 20 * 1024 * 1024) {
+                    if (!in_array($ext, ['jpg', 'jpeg', 'png', 'gif']) || $size > 3 * 1024 * 1024) {
                         continue;
                     }
 

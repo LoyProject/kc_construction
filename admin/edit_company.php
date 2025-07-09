@@ -40,6 +40,17 @@
 <div class="md:col-span-1">
     <h2 class="text-xl font-bold mb-4">Edit Company</h2>
 
+    <?php
+        if (isset($_SESSION['form_errors']) && is_array($_SESSION['form_errors'])) {
+            $form_errors = $_SESSION['form_errors'];
+            unset($_SESSION['form_errors']);
+        }
+        if (isset($_SESSION['form_data']) && is_array($_SESSION['form_data'])) {
+            $form_data = $_SESSION['form_data'];
+            unset($_SESSION['form_data']);
+        }
+    ?>
+
     <?php if (!empty($form_errors)): ?>
         <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md" role="alert">
             <p class="font-bold">Please correct the following errors:</p>
@@ -96,14 +107,14 @@
                 <input type="url" name="telegram" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['telegram'] ?? '', ENT_QUOTES); ?>">
             </div>
             <div>
-                <label for="instagram" class="block text-sm font-medium text-gray-700">Instagram</label>
+                <label for="instagram" class="block text-sm font-medium text-gray-700">TikTok</label>
                 <input type="url" name="instagram" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['instagram'] ?? '', ENT_QUOTES); ?>">
             </div>
             <div>
                 <label for="youtube" class="block text-sm font-medium text-gray-700">YouTube</label>
                 <input type="url" name="youtube" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['youtube'] ?? '', ENT_QUOTES); ?>">
             </div>
-            <div>
+            <div class="hidden">
                 <label for="linkedin" class="block text-sm font-medium text-gray-700">LinkedIn</label>
                 <input type="url" name="linkedin" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['linkedin'] ?? '', ENT_QUOTES); ?>">
             </div>
@@ -117,7 +128,7 @@
                     <p class="text-xs text-slate-500">Current logo. Upload to replace.</p>
                 </div>
             <?php endif; ?>
-            <p class="mt-1 text-xs text-slate-500">Upload a company logo image (PNG, JPG, JPEG up to 20MB).</p>
+            <p class="mt-1 text-xs text-slate-500">Upload a company logo image (PNG, JPG, JPEG up to 3MB).</p>
         </div>
 
         <div class="flex items-center justify-end space-x-3 pt-4 border-t border-slate-200">

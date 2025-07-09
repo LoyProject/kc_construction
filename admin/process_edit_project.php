@@ -34,6 +34,15 @@
             $core_errors[] = "Please select a valid facade.";
         if (empty($_POST['area_id']) || !filter_var($_POST['area_id'], FILTER_VALIDATE_INT))
             $core_errors[] = "Please select a valid area.";
+        if (isset($_FILES['images']) && !empty($_FILES['images']['name'][0])) {
+            $max_file_size = 3 * 1024 * 1024; // 3MB
+            foreach ($_FILES['images']['size'] as $idx => $size) {
+                if ($size > $max_file_size) {
+                    $core_errors[] = "Each image must be less than or equal to 3MB.";
+                    break;
+                }
+            }
+        }
 
         $name = trim($_POST['name']);
         $style_id = filter_input(INPUT_POST, 'style_id', FILTER_VALIDATE_INT) ?: null;
@@ -194,7 +203,7 @@
                     $target_file_path = $target_dir . $new_file_name;
 
                     $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
-                    $max_file_size = 20 * 1024 * 1024; 
+                    $max_file_size = 3 * 1024 * 1024; // 3MB
 
                     if (!in_array($image_file_type, $allowed_types)) {
                         $image_upload_messages[] = "File '".sanitize_output($original_name)."': Invalid type."; continue;

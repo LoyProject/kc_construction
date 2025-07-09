@@ -75,7 +75,7 @@
                 <option value="View" <?php echo (isset($form_data['role']) && $form_data['role'] === 'View') ? 'selected' : ''; ?>>View</option>
             </select>
             <?php if (!empty($form_errors['role'])): ?>
-                <p class="text-red-500 text-xs mt-1"><?php echo htmlspecialchars($form_errors['role']); ?></p>
+                <p class="text-red-500 text-xs mt-1"><?php echo htmlspecialchars($form_errors['role'] ?? ''); ?></p>
             <?php endif; ?>
         </div>
         <div class="hidden">

@@ -6,9 +6,9 @@
     try {
         $stmt = $pdo->query("SELECT logo, name FROM companies ORDER BY id DESC LIMIT 1");
         if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            $companyName = htmlspecialchars($row['name']);
+            $companyName = htmlspecialchars($row['name'] ?? '');
             if (!empty($row['logo'])) {
-                $companyLogo = htmlspecialchars($row['logo']);
+                $companyLogo = htmlspecialchars($row['logo'] ?? '');
             }
         }
     } catch (Exception $e) {
@@ -22,7 +22,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($page_title) ? htmlspecialchars($page_title) . ' - ' . $companyName : 'Loy Team'; ?></title>
+    <title><?php echo isset($page_title) ? htmlspecialchars($page_title ?? '') . ' - ' . $companyName : 'Loy Team'; ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -61,10 +61,10 @@
     <?php if (isset($_SESSION['user_id']) && isset($_SESSION['username'])): ?>
         <aside class="w-64 bg-black text-white min-h-screen px-4 pb-4 pt-2">
             <div class="mb-2 flex items-center space-x-3">
-                <a href="index"><img src="<?php echo htmlspecialchars($companyLogo); ?>" alt="KC Construction & Design Logo" class="w-16 h-16 bg-gray-800 rounded-full object-cover"></a>
+                <a href="index"><img src="<?php echo htmlspecialchars($companyLogo ?? ''); ?>" alt="KC Construction & Design Logo" class="w-16 h-16 bg-gray-800 rounded-full object-cover"></a>
                 <div class="flex-1">
-                    <h2 class="text-base text-brand-gold font-semibold truncate"><?php echo htmlspecialchars($_SESSION['username']); ?></h2>
-                    <p class="text-xs text-gray-400 truncate"><?php echo htmlspecialchars($_SESSION['role']); ?></p>
+                    <h2 class="text-base text-brand-gold font-semibold truncate"><?php echo htmlspecialchars($_SESSION['username'] ?? ''); ?></h2>
+                    <p class="text-xs text-gray-400 truncate"><?php echo htmlspecialchars($_SESSION['role'] ?? ''); ?></p>
                 </div>
             </div>
             <nav>

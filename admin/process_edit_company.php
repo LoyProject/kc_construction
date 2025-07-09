@@ -40,14 +40,14 @@
             $target_file_path = $target_dir . $new_file_name;
 
             $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
-            $max_file_size = 20 * 1024 * 1024; // 20MB
+            $max_file_size = 3 * 1024 * 1024; // 3MB
 
             if (!in_array($image_file_type, $allowed_types)) {
                 $image_processing_messages[] = "Invalid image type. Only JPG, PNG, GIF allowed.";
             } elseif ($file_size == 0) {
                 $image_processing_messages[] = "Image file is empty.";
             } elseif ($file_size > $max_file_size) {
-                $image_processing_messages[] = "Image too large. Max allowed is 20MB.";
+                $image_processing_messages[] = "Image too large. Max allowed is 3MB.";
             } else {
                 if (move_uploaded_file($tmp_name, $target_file_path)) {
                     $logo = $target_file_path;

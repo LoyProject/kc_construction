@@ -19,6 +19,22 @@
         if (!$title) $errors[] = "Title is required.";
         if (!$subtitle) $errors[] = "Subtitle is required.";
 
+        foreach ($_FILES as $key => $file) {
+            if (strpos($key, 'achievement_image_') === 0 && $file['error'] === UPLOAD_ERR_OK) {
+                if ($file['size'] > 3 * 1024 * 1024) {
+                    $errors[] = "Each achievement image must be less than 3MB.";
+                }
+            }
+        }
+        
+        if (!empty($_FILES['slideshow_images']['name'][0])) {
+            foreach ($_FILES['slideshow_images']['size'] as $size) {
+                if ($size > 3 * 1024 * 1024) {
+                    $errors[] = "Each slideshow image must be less than 3MB.";
+                }
+            }
+        }
+
         if ($errors) {
             $_SESSION['form_errors'] = $errors;
             $_SESSION['form_data'] = $_POST;

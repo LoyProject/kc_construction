@@ -61,6 +61,17 @@
 <div class="md:col-span-1">
     <h2 class="text-xl font-bold mb-4 truncate">Edit Achievement: <?php echo sanitize_output($achievement['title']); ?></h2>
     
+    <?php
+        if (isset($_SESSION['form_errors']) && is_array($_SESSION['form_errors'])) {
+            $form_errors = $_SESSION['form_errors'];
+            unset($_SESSION['form_errors']);
+        }
+        if (isset($_SESSION['form_data']) && is_array($_SESSION['form_data'])) {
+            $form_data = $_SESSION['form_data'];
+            unset($_SESSION['form_data']);
+        }
+    ?>
+
     <?php if (!empty($form_errors)): ?>
         <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md" role="alert">
             <p class="font-bold">Please correct the following errors:</p>
@@ -128,7 +139,7 @@
         <div>
             <label class="block text-sm font-medium text-gray-700">Upload New Slideshow(s)</label>
             <input type="file" name="slideshow_images[]" multiple accept="image/*" class="mt-1 block w-full">
-            <p class="mt-1 text-xs text-slate-500">You can select multiple images. PNG, JPG, JPEG up to 20MB each.</p>
+            <p class="mt-1 text-xs text-slate-500">You can select multiple images. PNG, JPG, JPEG up to 3MB each.</p>
         </div>
 
         <div class="flex items-center justify-end space-x-3 pt-4 border-t border-slate-200">

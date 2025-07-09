@@ -122,9 +122,9 @@
                 if (!empty($video_url)) {
                     if (preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/i', $video_url, $matches)) {
                         $youtube_id = $matches[1];
-                        echo '<div class="aspect-w-16 aspect-h-9"><iframe width="560" height="315" src="https://www.youtube.com/embed/' . htmlspecialchars($youtube_id) . '" frameborder="0" allowfullscreen></iframe></div>';
+                        echo '<div class="aspect-w-16 aspect-h-9"><iframe width="560" height="315" src="https://www.youtube.com/embed/' . htmlspecialchars($youtube_id ?? '') . '" frameborder="0" allowfullscreen></iframe></div>';
                     } else {
-                        echo '<a href="' . htmlspecialchars($video_url) . '" target="_blank">' . htmlspecialchars($video_url) . '</a>';
+                        echo '<a href="' . htmlspecialchars($video_url ?? '') . '" target="_blank">' . htmlspecialchars($video_url ?? '') . '</a>';
                     }
                 } else {
                     echo '<span class="text-slate-500">No video link provided.</span>';

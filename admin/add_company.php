@@ -21,6 +21,17 @@
 <div class="md:col-span-1">
     <h2 class="text-xl font-bold mb-4">Add New Company</h2>
 
+    <?php
+        if (isset($_SESSION['form_errors']) && is_array($_SESSION['form_errors'])) {
+            $form_errors = $_SESSION['form_errors'];
+            unset($_SESSION['form_errors']);
+        }
+        if (isset($_SESSION['form_data']) && is_array($_SESSION['form_data'])) {
+            $form_data = $_SESSION['form_data'];
+            unset($_SESSION['form_data']);
+        }
+    ?>
+
     <?php if (!empty($form_errors)): ?>
         <div class="mb-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-md" role="alert">
             <p class="font-bold">Please correct the following errors:</p>
@@ -75,14 +86,14 @@
                 <input type="url" name="telegram" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
             <div>
-                <label for="instagram" class="block text-sm font-medium text-gray-700">Instagram</label>
+                <label for="instagram" class="block text-sm font-medium text-gray-700">TikTok</label>
                 <input type="url" name="instagram" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
             <div>
                 <label for="youtube" class="block text-sm font-medium text-gray-700">YouTube</label>
                 <input type="url" name="youtube" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
-            <div>
+            <div class="hidden">
                 <label for="linkedin" class="block text-sm font-medium text-gray-700">LinkedIn</label>
                 <input type="url" name="linkedin" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>

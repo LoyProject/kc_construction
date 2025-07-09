@@ -43,7 +43,7 @@
             <a href="export_requests" class="inline-flex items-center justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-brand-green hover:bg-green-700">
                 Export Requests
             </a>
-            <a href="add_request" class="inline-flex items-center justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-brand-blue hover:bg-blue-700">
+            <a href="add_request" class="hidden inline-flex items-center justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-brand-blue hover:bg-blue-700">
                 <svg class="w-5 h-5 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" /></svg>
                 Add New Request
             </a>
@@ -53,7 +53,7 @@
 
 <form action="manage_requests" method="GET" class="grid grid-cols-1 md:grid-cols-4 gap-4 items-end mb-4">
     <div>
-        <input type="text" name="search" id="search" value="<?php echo htmlspecialchars($search_term); ?>" placeholder="Search by name, email, subject..."
+        <input type="text" name="search" id="search" value="<?php echo htmlspecialchars($search_term ?? ''); ?>" placeholder="Search by name, email, subject..."
                 class="mt-1 block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
     </div>
     <div class="flex items-center space-x-4">
@@ -81,15 +81,15 @@
                     echo '<tr><td colspan="10" class="px-3 py-2 border-b text-center text-gray-500">No requests found.</td></tr>';
                 } else { 
                     foreach ($requests as $request) {
-                        echo '<tr id="request-row-' . htmlspecialchars($request['id']) . '" class="text-xs text-left text-gray-700 hover:bg-gray-50 transition-colors">';
-                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['name']) . '">' . htmlspecialchars($request['name']) . '</td>';
-                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['tell']) . '">' . htmlspecialchars($request['tell']) . '</td>';
-                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['email']) . '">' . htmlspecialchars($request['email']) . '</td>';
-                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['subject']) . '">' . htmlspecialchars($request['subject']) . '</td>';
-                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['message']) . '">' . htmlspecialchars($request['message']) . '</td>';
-                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['created_at']) . '">' . htmlspecialchars($request['created_at']) . '</td>';
+                        echo '<tr id="request-row-' . htmlspecialchars($request['id'] ?? '') . '" class="text-xs text-left text-gray-700 hover:bg-gray-50 transition-colors">';
+                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['name'] ?? '') . '">' . htmlspecialchars($request['name'] ?? '') . '</td>';
+                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['tell'] ?? '') . '">' . htmlspecialchars($request['tell'] ?? '') . '</td>';
+                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['email'] ?? '') . '">' . htmlspecialchars($request['email'] ?? '') . '</td>';
+                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['subject'] ?? '') . '">' . htmlspecialchars($request['subject'] ?? '') . '</td>';
+                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['message'] ?? '') . '">' . htmlspecialchars($request['message'] ?? '') . '</td>';
+                            echo '<td class="px-3 py-2 border-b border-gray-200 max-w-sm truncate" title="' . htmlspecialchars($request['created_at'] ?? '') . '">' . htmlspecialchars($request['created_at'] ?? '') . '</td>';
                             echo '<td class="w-24 px-3 py-2 border-b border-gray-200 space-x-3 truncate">';
-                                    echo '<a href="view_request?id=' . htmlspecialchars($request['id']) . '" class="text-blue-600 hover:text-blue-800 mr-2" title="View">
+                                    echo '<a href="view_request?id=' . htmlspecialchars($request['id'] ?? '') . '" class="text-blue-600 hover:text-blue-800 mr-2" title="View">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline-block">
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12s3.75-7.5 9.75-7.5 9.75 7.5 9.75 7.5-3.75 7.5-9.75 7.5S2.25 12 2.25 12z" />
                                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -98,7 +98,7 @@
                                 if (isset($_SESSION['role']) && $_SESSION['role'] === 'Admin') {
                                     echo '<button type="button"
                                             class="delete-request-btn text-red-600 hover:text-red-800"
-                                            data-request-id="' . htmlspecialchars($request['id']) . '">
+                                            data-request-id="' . htmlspecialchars($request['id'] ?? '') . '">
                                                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 inline-block"><path stroke-linecap="round" stroke-linejoin="round" d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12.56 0c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0" /></svg>
                                         </button>';
                                 }
