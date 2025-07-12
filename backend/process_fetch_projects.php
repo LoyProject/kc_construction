@@ -123,6 +123,7 @@
                 'investor' => $row['investor'],
                 'implement_at' => $row['implement_at'],
                 'implement_unit' => $row['implement_unit'],
+                'budget' => $row['budget'],
                 'detail_floor' => $row['detail_floor'],
                 'detail_area' => $row['detail_area'],
                 'image_path' => $row['image_path'],

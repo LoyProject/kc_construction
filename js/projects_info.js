@@ -29,6 +29,11 @@ function loadProjects(page = 1) {
                         return diffDays < 30;
                     })();
 
+                    const formatCurrency = (amount) => {
+                        if (!amount) return '';
+                        return Number(amount).toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 });
+                    };
+
                     const projectItem = ` 
                         <div class="project-card bg-brand-gray text-white shadow hover:shadow-lg flex flex-col overflow-hidden">
                             <div class="relative group cursor-pointer">
@@ -49,24 +54,24 @@ function loadProjects(page = 1) {
                                         <span>${project.view || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
-                                        <span class="flex items-center"><i class="fas fa-user text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><span data-translate="investor">Investor:</span></span>
-                                        <span>${project.investor || ''}</span>
-                                    </li>
-                                    <li class="flex gap-2 mt-1 items-center">
-                                        <span class="flex items-center"><i class="fas fa-map-marker-alt text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><span data-translate="address">Address:</span></span>
-                                        <span>${project.address.name || ''}</span>
+                                        <span class="flex items-center"><i class="fas fa-money-bill-wave text-brand-gold w-4 h-4"></i></span>
+                                        <span class="flex items-center"><span data-translate="budget">Budget:</span></span>
+                                        <span>${formatCurrency(project.budget)}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-ruler-combined text-brand-gold w-4 h-4"></i></span>
+                                        <span class="flex items-center"><span data-translate="size-card">Size:</span></span>
+                                        <span>${project.size.name || ''}</span>
+                                    </li>
+                                    <li class="flex gap-2 mt-1 items-center">
+                                        <span class="flex items-center"><i class="fas fa-map text-brand-gold w-4 h-4"></i></span>
                                         <span class="flex items-center"><span data-translate="area">Area:</span></span>
                                         <span>${project.area.name || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
-                                        <span class="flex items-center"><i class="fas fa-layer-group text-brand-gold w-4 h-4"></i></span>
-                                        <span class="flex items-center"><span data-translate="floor">Number of floors:</span></span>
-                                        <span>${project.floor.name || ''}</span>
+                                        <span class="flex items-center"><i class="fas fa-location-dot text-brand-gold w-4 h-4"></i></span>
+                                        <span class="flex items-center"><span data-translate="location-card">Location:</span></span>
+                                        <span>${project.address.name || ''}</span>
                                     </li>
                                 </ul>
                             </div>

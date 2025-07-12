@@ -240,6 +240,11 @@
                 <label id="implement_unit" class="block text-sm font-medium text-gray-700">Implement Unit</label>
                 <input type="text" name="implement_unit" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
+
+            <div>
+                <label id="budget" class="block text-sm font-medium text-gray-700">Budget (USD)</label>
+                <input type="number" name="budget" value="0" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+            </div>
         </div>
 
         <div>

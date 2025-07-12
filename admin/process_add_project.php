@@ -50,6 +50,7 @@
         $address_id = filter_input(INPUT_POST, 'address_id', FILTER_VALIDATE_INT) ?: null;
         $implement_at = filter_input(INPUT_POST, 'implement_at', FILTER_VALIDATE_INT) ?: null;
         $implement_unit = trim($_POST['implement_unit']) ?: null;
+        $budget = filter_input(INPUT_POST, 'budget', FILTER_VALIDATE_INT) ?: 0;
         $video = trim($_POST['video']) ?: null;
         $detail_floor = trim($_POST['detail_floor']) ?: null;
         $detail_area = trim($_POST['detail_area']) ?: null;
@@ -106,8 +107,8 @@
 
         $new_project_id = null;
         try {
-            $sql_insert_project = "INSERT INTO projects (name, style_id, type_id, floor_id, facade_id, area_id, size_id, view, investor, address_id, implement_at, implement_unit, detail_floor, detail_area, video) 
-                                    VALUES (:name, :style_id, :type_id, :floor_id, :facade_id, :area_id, :size_id, :view, :investor, :address_id, :implement_at, :implement_unit, :detail_floor, :detail_area, :video)";
+            $sql_insert_project = "INSERT INTO projects (name, style_id, type_id, floor_id, facade_id, area_id, size_id, view, investor, address_id, implement_at, implement_unit, budget, detail_floor, detail_area, video) 
+                                    VALUES (:name, :style_id, :type_id, :floor_id, :facade_id, :area_id, :size_id, :view, :investor, :address_id, :implement_at, :implement_unit, :budget, :detail_floor, :detail_area, :video)";
 
             $stmt_insert_project = $pdo->prepare($sql_insert_project);
             $stmt_insert_project->bindParam(':name', $name);
@@ -122,6 +123,7 @@
             $stmt_insert_project->bindParam(':address_id', $address_id, PDO::PARAM_INT);
             $stmt_insert_project->bindParam(':implement_at', $implement_at, PDO::PARAM_INT);
             $stmt_insert_project->bindParam(':implement_unit', $implement_unit);
+            $stmt_insert_project->bindParam(':budget', $budget, PDO::PARAM_INT);
             $stmt_insert_project->bindParam(':detail_floor', $detail_floor);
             $stmt_insert_project->bindParam(':detail_area', $detail_area);
             $stmt_insert_project->bindParam(':video', $video);

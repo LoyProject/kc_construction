@@ -11,6 +11,8 @@ const translations = {
         "view": "View:",
         "investor": "Investor:",
         "address": "Address:",
+        "location-card": "Location:",
+        "budget": "Budget:",
         "area": "Area:",
         "area-dropdown": "Floor Area",
         "floor": "Number of floors:",
@@ -44,6 +46,7 @@ const translations = {
         "implement-at": "Implement At",
         "types": "Types",
         "size": "Size",
+        "size-card": "Size:",
         "total-area": "Total Area",
         "details-about-floors": "Details about floors",
         "Details-of-area": "Details of area",
@@ -60,6 +63,8 @@ const translations = {
         "view": "មើល:",
         "investor": "អ្នកវិនិយោគ:",
         "address": "អាសយដ្ឋាន:",
+        "location-card": "ទីតាំង:",
+        "budget": "ថវិកា:",
         "area": "ផ្ទៃក្រឡា:",
         "area-dropdown": "ផ្ទៃក្រឡា",
         "floor": "ចំនួនជាន់:",
@@ -93,6 +98,7 @@ const translations = {
         "implement-at": "អនុវត្តនៅ",
         "types": "ប្រភេទ",
         "size": "ទំហំ",
+        "size-card": "ទំហំ:",
         "total-area": "ផ្ទៃក្រឡា",
         "details-about-floors": "ព័ត៌មានលម្អិតអំពីជាន់",
         "Details-of-area": "ព័ត៌មានលម្អិតអំពីផ្ទៃក្រឡា",
@@ -104,9 +110,15 @@ function applyLang(lang) {
     $('#langFlag').attr('src', lang === 'en'
         ? 'https://flagcdn.com/24x18/kh.png'
         : 'https://flagcdn.com/24x18/gb.png');
-
     $('#langFlag').attr('alt', lang === 'en' ? 'English' : 'Khmer');
     $('#langToggleBtn').attr('aria-label', lang === 'en' ? 'Switch to Khmer' : 'Switch to English');
+
+    $('#langFlagMobile').attr('src', lang === 'en'
+        ? 'https://flagcdn.com/24x18/kh.png'
+        : 'https://flagcdn.com/24x18/gb.png');
+    $('#langFlagMobile').attr('alt', lang === 'en' ? 'English' : 'Khmer');
+    $('#langToggleBtnMobile').attr('aria-label', lang === 'en' ? 'Switch to Khmer' : 'Switch to English');
+    $('#labelFlagMobile').text(lang === 'en' ? 'ខ្មែរ' : 'English');
 
     // Set font-family based on language
     if (lang === 'kh') {
@@ -134,6 +146,12 @@ $(document).ready(function () {
     applyLang(lang);
 
     $('#langToggleBtn').on('click', function () {
+        lang = lang === 'en' ? 'kh' : 'en';
+        localStorage.setItem('lang', lang);
+        applyLang(lang);
+    });
+
+     $('#langToggleBtnMobile').on('click', function () {
         lang = lang === 'en' ? 'kh' : 'en';
         localStorage.setItem('lang', lang);
         applyLang(lang);

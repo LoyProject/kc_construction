@@ -170,6 +170,13 @@
                         </span>
                         <a href="contact" data-translate="contact">Contact</a>
                     </li>
+                    <div id="langToggleBtnMobile" class="flex items-center bg-brand-gray p-2 mb-2 hover:bg-brand-gold hover:text-white cursor-pointer">
+                        <button class="focus:outline-none mr-2" aria-label="Switch to Khmer">
+                            <img id="langFlagMobile" src="https://flagcdn.com/24x18/kh.png" alt="English"
+                                class="w-4 h-4 rounded shadow">
+                        </button>
+                        <span id="labelFlagMobile" class="mt-1">ខ្មែរ</span>
+                    </div>
                 </ul>
                 <a href="quote_request" class="flex justify-center mt-8">
                     <button
