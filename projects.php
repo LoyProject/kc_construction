@@ -13,19 +13,7 @@
         </div>
     </div>
 
-    <!-- Project Page -->
-    <!-- <div
-        class="w-full mx-auto flex flex-col md:flex-row items-start md:items-center justify-between bg-brand-gray px-4 sm:px-8 md:px-16 py-6 md:py-8 shadow-md gap-2 md:gap-0">
-        <div class="text-sm text-gray-500 flex items-center mb-2 md:mb-0">
-            <a href="home" class="hover:text-brand-gold font-semibold text-base" data-translate="home"></a>
-            <span class="mx-2">|</span>
-            <span class="text-brand-gold font-semibold text-xl" data-translate="projects"></span>
-        </div>
-        <h2 class="text-base sm:text-lg md:text-xl font-bold text-brand-white text-left md:text-right"
-            data-translate="all-projects"></h2>
-    </div> -->
-
-    <div class="p-8 grid grid-cols-1 gap-4 sm:gap-4 md:gap-4 lg:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+    <div class="container mx-auto p-4 grid grid-cols-1 gap-4 sm:gap-4 md:gap-4 lg:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
         <div class="relative w-full z-0">
             <input type="text" placeholder="Style" data-translate="style"
@@ -140,7 +128,7 @@
 
     </div>
 
-    <div id="list" class="mx-auto p-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+    <div id="list" class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
 
     <div id="pagination-container" class="flex flex-wrap justify-center mx-auto px-8 mt-4 mb-12 gap-2 text-base"></div>
 

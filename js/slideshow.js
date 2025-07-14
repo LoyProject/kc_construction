@@ -8,37 +8,60 @@ $(document).ready(function () {
             var $indicators = $('#carousel-indicators');
             $carousel.empty();
             $indicators.empty();
+
             var slides = data.slideshow || [];
+            if (slides.length === 0) return;
+
+            // Append slides and indicators
             $.each(slides, function (i, img) {
-                $carousel.append(
-                    `<div class="carousel-item${i === 0 ? '' : ' hidden'} duration-700 ease-in-out" data-carousel-item>
-              <img src="admin/${img.image_path}" class="absolute block w-full h-full object-cover object-center -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="" style="max-width:1680px;">
-            </div>`
-                );
-                $indicators.append(
-                    `<button type="button" class="w-3 h-3 rounded-full${i === 0 ? ' bg-brand-gold' : ' bg-white/50'}" aria-current="${i === 0 ? 'true' : 'false'}" aria-label="Slide ${i + 1}" data-carousel-slide-to="${i}"></button>`
-                );
+                $carousel.append(`
+                    <div class="carousel-item ${i === 0 ? '' : 'hidden'} absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out" data-carousel-item>
+                        <img src="${img.image_path}" alt="Slide ${i + 1}" class="w-full h-full object-cover" />
+                    </div>
+                `);
+
+                $indicators.append(`
+          <button type="button"
+            class="w-3 h-3 rounded-full transition-colors duration-300 ${i === 0 ? 'bg-brand-gold' : 'bg-white/50'}"
+            aria-current="${i === 0 ? 'true' : 'false'}"
+            aria-label="Slide ${i + 1}"
+            data-carousel-slide-to="${i}"></button>
+        `);
             });
 
-            // Carousel logic
+            // Carousel Logic
             var current = 0, total = slides.length;
+
             function showSlide(idx) {
-                $('#carousel-images .carousel-item').addClass('hidden').eq(idx).removeClass('hidden');
-                $('#carousel-indicators button').removeClass('bg-brand-gold').addClass('bg-white/50').attr('aria-current', 'false');
-                $('#carousel-indicators button').eq(idx).removeClass('bg-white/50').addClass('bg-brand-gold').attr('aria-current', 'true');
+                $('#carousel-images .carousel-item')
+                    .addClass('hidden')
+                    .eq(idx).removeClass('hidden');
+
+                $('#carousel-indicators button')
+                    .removeClass('bg-brand-gold').addClass('bg-white/50')
+                    .attr('aria-current', 'false');
+
+                $('#carousel-indicators button')
+                    .eq(idx).removeClass('bg-white/50').addClass('bg-brand-gold')
+                    .attr('aria-current', 'true');
+
                 current = idx;
             }
-            $('#carousel-next').off('click').on('click', function () {
-                showSlide((current + 1) % total);
-            });
+
+            // Prev/Next handlers
             $('#carousel-prev').off('click').on('click', function () {
                 showSlide((current - 1 + total) % total);
             });
+
+            $('#carousel-next').off('click').on('click', function () {
+                showSlide((current + 1) % total);
+            });
+
             $('#carousel-indicators').off('click', 'button').on('click', 'button', function () {
                 showSlide($(this).data('carousel-slide-to'));
             });
 
-            // Optional: Auto-slide every 5 seconds
+            // Auto-slide
             if (total > 1) {
                 setInterval(function () {
                     showSlide((current + 1) % total);

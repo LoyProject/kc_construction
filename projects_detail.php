@@ -1,6 +1,6 @@
 <?php require_once 'header.php'; ?>
 
-<div class="w-full overflow-hidden relative">
+<div class="container mx-auto w-full overflow-hidden relative">
     <div id="project-detail">
         <!-- Project details will be populated here -->
     </div>

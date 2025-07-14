@@ -1,18 +1,8 @@
 <?php require_once 'header.php'; ?>
 
-<div class="bg-brand-black text-brand-white">
-
-    <!-- About Us Page -->
-    <!-- <div class="w-full mx-auto flex flex-row items-center justify-between bg-gray-800 px-32 md:px-20 lg:px-32 py-8 shadow-md">
-        <div class="text-sm text-gray-500 flex items-center">
-            <a href="home" class="hover:text-brand-gold font-semibold text-base" data-translate="home"></a>
-            <span class="mx-2">|</span>
-            <span class="text-brand-gold font-semibold text-xl" data-translate="about"></span>
-        </div>
-        <h2 class="text-lg font-bold text-brand-white text-right" data-translate="who-we-are">Who we are?</h2>
-    </div> -->
+<div class="container mx-auto bg-brand-black text-brand-white">
     
-    <section class="px-6 md:px-20 lg:px-32 py-16">
+    <section class="px-4 py-16">
         <!-- Our Companies -->
         <div class="mb-12">
             <h3 class="text-xl font-bold mb-2 border-l-4 border-brand-white text-brand-gold pl-2" data-translate="our-companies">OUR COMPANIES</h3>

@@ -1,18 +1,7 @@
 <?php require_once 'header.php'; ?>
 
-<div class="bg-brand-black text-brand-white">
-    
-    <!-- Contact Us Page -->
-    <!-- <div class="w-full mx-auto flex flex-col md:flex-row items-center justify-between bg-brand-gray px-4 md:px-20 py-8 shadow-md gap-4">
-        <div class="text-sm text-gray-500 flex items-center">
-            <a href="home" class="hover:text-brand-gold font-semibold text-base" data-translate="home">Home</a>
-            <span class="mx-2">|</span>
-            <span class="text-brand-gold font-semibold text-xl" data-translate="contact">Contact</span>
-        </div>
-        <h2 class="text-lg font-bold text-brand-white text-right" data-translate="contact">Contact us</h2>
-    </div> -->
-
-    <section class="py-12 px-6 md:px-20">
+<div class="container mx-auto bg-brand-black text-white">
+    <section class="py-12 px-4">
         <div class="flex flex-col lg:flex-row gap-10">
             <!-- Contact Form -->
             <div class="lg:w-2/3">
