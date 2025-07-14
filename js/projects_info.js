@@ -37,7 +37,9 @@ function loadProjects(page = 1) {
                     const projectItem = ` 
                         <div class="project-card bg-brand-gray text-white shadow hover:shadow-lg flex flex-col overflow-hidden">
                             <div class="relative group cursor-pointer">
-                                <img src="admin/${project.image_path}" alt="${project.name}" class="w-full h-48 transition-opacity duration-300" />
+                                <div class="w-full aspect-[4/3] overflow-hidden">
+                                    <img src="admin/${project.image_path}" alt="${project.name}" class="w-full h-full object-cover transition-opacity duration-300" />
+                                </div>
                                 ${isNew ? `<span class="absolute top-0 left-0 bg-brand-gold text-brand-white text-xs font-semibold px-3 py-1 rounded-br-lg z-10" data-translate="new">New</span>` : ''}
                                 <div class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                                     <a href="projects_detail?id=${project.id}" class="border border-white p-2 flex items-center justify-center hover:bg-brand-gold hover:border-brand-gold transition-colors duration-300">

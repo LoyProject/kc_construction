@@ -145,14 +145,15 @@ $(document).ready(function() {
                         <div class="bg-brand-black text-white">
                             <main class="p-4 sm:p-6 md:p-12">
                                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-10">
-
                                     <!-- Left: Main image and thumbnails with arrows -->
                                     <div class="w-full lg:w-2/3">
                                         <div class="relative">
                                             <button id="img-prev-btn" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center" style="display:${allImages.length > 1 ? 'block' : 'none'}">
                                                 <i class="fas fa-chevron-left"></i>
                                             </button>
-                                            <img id="main-project-img" src="admin/${allImages[0]?.image_path || ''}" class="shadow mb-4 w-full max-h-[300px] sm:max-h-[400px] md:max-h-[500px] lg:max-h-[600px] fit-cover"/>
+                                            <div class="w-full aspect-[4/3] overflow-hidden shadow-sm">
+                                                <img id="main-project-img" src="admin/${allImages[0]?.image_path || ''}" class="shadow mb-4 w-full h-full object-cover" />
+                                            </div>
                                             <button id="img-next-btn" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center" style="display:${allImages.length > 1 ? 'block' : 'none'}">
                                                 <i class="fas fa-chevron-right"></i>
                                             </button>
