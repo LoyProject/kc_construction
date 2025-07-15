@@ -143,10 +143,9 @@ $(document).ready(function() {
                     // Render main image viewer with arrows and thumbnails
                     $('#project-detail').html(`
                         <div class="bg-brand-black text-white">
-                            <main class="p-4 sm:p-6 md:p-12">
+                            <main>
                                 <div class="flex flex-col lg:flex-row gap-8 lg:gap-10">
-                                    <!-- Left: Main image and thumbnails with arrows -->
-                                    <div class="w-full lg:w-2/3">
+                                    <div class="w-full">
                                         <div class="relative">
                                             <button id="img-prev-btn" class="absolute left-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center" style="display:${allImages.length > 1 ? 'block' : 'none'}">
                                                 <i class="fas fa-chevron-left"></i>
@@ -194,91 +193,76 @@ $(document).ready(function() {
                                 <!-- Info Table -->
                                 <div class="mt-4 sm:mt-6">
                                     <h2 class="text-base sm:text-lg font-bold border-b border-brand-gold inline-block mb-3 sm:mb-4" data-translate="general-info">GENERAL INFOMATIONS</h2>
-                                    <div class="overflow-x-auto">
-                                        <table class="min-w-full border border-brand-gray text-xs sm:text-sm">
-                                            <tbody class="divide-y divide-brand-gray">
-                                                <tr class="border border-brand-gray">
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-eye text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="view"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.view || 0}</td>
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-user text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="investor"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.investor || '--'}</td>
-                                                </tr>
-                                                <tr class="border-b border-brand-gray">
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-bullseye text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="style"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.style.name || '--'}</td>
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-cogs text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="total-area"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.area.name || '--'}</td>
-                                                </tr>
-                                                <tr class="border-b border-brand-gray">
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-chart-bar text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="floor-number"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.floor.name || '--'}</td>
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-calculator text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="implementing-unit"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.implement_unit || '--'}</td>
-                                                </tr>
-                                                <tr class="border-b border-brand-gray">
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-calendar-alt text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="implement-at"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.implement_at || '--'}</td>
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-bullseye text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="facade"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.facade.name || '--'}</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-home text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="types"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.type.name || '--'}</td>
-                                                    <td class="flex items-center gap-2 p-2 sm:p-3 min-w-[100px]">
-                                                        <span class="flex items-center justify-center w-4 h-4 p-1 text-brand-gold mr-2">
-                                                            <i class="fas fa-chart-area text-brand-gold"></i>
-                                                        </span>
-                                                        <span data-translate="size"></span>
-                                                    </td>
-                                                    <td class="p-2 sm:p-3 min-w-[80px] border border-brand-gray">${project.size.name || '--'}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                    <div class="grid grid-cols-2 sm:grid-cols-4 border border-brand-gray text-xs sm:text-sm">
+                                        <!-- View -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-eye text-brand-gold w-4"></i>
+                                        <span data-translate="view"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.view || 0}</div>
+
+                                        <!-- Investor -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-user text-brand-gold w-4"></i>
+                                        <span data-translate="investor"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.investor || '--'}</div>
+
+                                        <!-- Style -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-bullseye text-brand-gold w-4"></i>
+                                        <span data-translate="style"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.style.name || '--'}</div>
+                                            
+                                        <!-- Total Area -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-cogs text-brand-gold w-4"></i>
+                                        <span data-translate="total-area"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.area.name || '--'}</div>
+
+                                        <!-- Floor Number -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-chart-bar text-brand-gold w-4"></i>
+                                        <span data-translate="floor-number"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.floor.name || '--'}</div>
+
+                                        <!-- Implementing Unit -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-calculator text-brand-gold w-4"></i>
+                                        <span data-translate="implementing-unit"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.implement_unit || '--'}</div>
+
+                                        <!-- Implement At -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-calendar-alt text-brand-gold w-4"></i>
+                                        <span data-translate="implement-at"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.implement_at || '--'}</div>
+
+                                        <!-- Facade -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-bullseye text-brand-gold w-4"></i>
+                                        <span data-translate="facade"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.facade.name || '--'}</div>
+
+                                        <!-- Type -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-home text-brand-gold w-4"></i>
+                                        <span data-translate="types"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.type.name || '--'}</div>
+
+                                        <!-- Size -->
+                                        <div class="flex items-center gap-2 p-2 border border-brand-gray">
+                                        <i class="fas fa-chart-area text-brand-gold w-4"></i>
+                                        <span data-translate="size"></span>
+                                        </div>
+                                        <div class="p-2 border border-brand-gray">${project.size.name || '--'}</div>
                                     </div>
                                 </div>
 

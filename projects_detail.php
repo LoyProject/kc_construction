@@ -1,7 +1,7 @@
 <?php require_once 'header.php'; ?>
 
-<div class="container mx-auto w-full overflow-hidden relative">
-    <div id="project-detail">
+<div class="w-full overflow-hidden relative">
+    <div class="container mx-auto p-8 sm:p-0 sm:py-8" id="project-detail">
         <!-- Project details will be populated here -->
     </div>
 </div>

@@ -1,7 +1,7 @@
 <?php require_once 'header.php'; ?>
 
-<div class="container mx-auto bg-brand-black text-white">
-    <section class="py-12 px-4">
+<div class="container mx-auto p-8 sm:p-4 sm:py-8 bg-brand-black text-white">
+    <section>
         <div class="flex flex-col lg:flex-row gap-10">
             <!-- Contact Form -->
             <div class="lg:w-2/3">

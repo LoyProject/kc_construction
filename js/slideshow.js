@@ -15,8 +15,8 @@ $(document).ready(function () {
             // Append slides and indicators
             $.each(slides, function (i, img) {
                 $carousel.append(`
-                    <div class="carousel-item ${i === 0 ? '' : 'hidden'} absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out" data-carousel-item>
-                        <img src="admin/${img.image_path}" alt="Slide ${i + 1}" class="w-full h-full object-cover" />
+                    <div class="carousel-item ${i === 0 ? '' : 'hidden'} relative w-full transition-opacity duration-700 ease-in-out" data-carousel-item>
+                        <img src="admin/${img.image_path}" alt="Slide ${i + 1}" class="w-auto max-w-full mx-auto" />
                     </div>
                 `);
 
