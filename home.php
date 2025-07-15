@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <section class="py-16 bg-brand-gray text-center">
+    <section class="py-8 bg-brand-gray text-center">
         <div class="mx-auto p-8 sm:p-4 mb-8 text-center">
             <h2 id="achievements-title" class="text-3xl md:text-4xl font-extrabold text-brand-white"></h2>
 
@@ -42,7 +42,7 @@
             <p id="achievements-subtitle" class="text-brand-white/60 max-w-2xl mx-auto text-sm md:text-base px-8"></p>
         </div>
 
-        <div id="achievement-items" class="container mx-auto flex flex-col items-center justify-center text-center mt-12 pt-8 grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        <div id="achievement-items" class="container mx-auto p-8 sm:p-0 flex flex-col items-center justify-center text-center mt-12 pt-8 grid grid-cols-1 md:grid-cols-3 gap-8"></div>
 
 
         <div class="mt-12">
