@@ -22,9 +22,8 @@
         $schedule = trim($_POST['schedule']) ?: null;
         $facebook = trim($_POST['facebook']) ?: null;
         $telegram = trim($_POST['telegram']) ?: null;
-        $instagram = trim($_POST['instagram']) ?: null;
         $youtube = trim($_POST['youtube']) ?: null;
-        $linkedin = trim($_POST['linkedin']) ?: null;
+        $tiktok = trim($_POST['tiktok']) ?: null;
 
         $logo = null;
         $logo_sql = "";
@@ -103,7 +102,7 @@
         try {
             $sql = "UPDATE companies SET 
                 name = :name, description = :description, vision = :vision, email = :email, address = :address, map = :map, tell = :tell,
-                schedule = :schedule, facebook = :facebook, telegram = :telegram, instagram = :instagram, youtube = :youtube, linkedin = :linkedin
+                schedule = :schedule, facebook = :facebook, telegram = :telegram, youtube = :youtube, tiktok = :tiktok
                 $logo_sql
                 WHERE id = :id";
             
@@ -118,9 +117,8 @@
             $stmt->bindParam(':schedule', $schedule);
             $stmt->bindParam(':facebook', $facebook);
             $stmt->bindParam(':telegram', $telegram);
-            $stmt->bindParam(':instagram', $instagram);
             $stmt->bindParam(':youtube', $youtube);
-            $stmt->bindParam(':linkedin', $linkedin);
+            $stmt->bindParam(':tiktok', $tiktok);
             if ($logo) $stmt->bindParam(':logo', $logo);
             $stmt->bindParam(':id', $company_id, PDO::PARAM_INT);
 

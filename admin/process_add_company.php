@@ -21,9 +21,8 @@
         $schedule = trim($_POST['schedule']) ?: null;
         $facebook = trim($_POST['facebook']) ?: null;
         $telegram = trim($_POST['telegram']) ?: null;
-        $instagram = trim($_POST['instagram']) ?: null;
         $youtube = trim($_POST['youtube']) ?: null;
-        $linkedin = trim($_POST['linkedin']) ?: null;
+        $tiktok = trim($_POST['tiktok']) ?: null;
 
         $logo = null;
         $image_processing_messages = [];
@@ -93,9 +92,9 @@
 
         try {
             $sql = "INSERT INTO companies 
-                (name, description, vision, email, address, map, tell, schedule, facebook, telegram, instagram, youtube, linkedin, logo) 
+                (name, description, vision, email, address, map, tell, schedule, facebook, telegram,youtube, tiktok, logo) 
                 VALUES 
-                (:name, :description, :vision, :email, :address, :map, :tell, :schedule, :facebook, :telegram, :instagram, :youtube, :linkedin, :logo)";
+                (:name, :description, :vision, :email, :address, :map, :tell, :schedule, :facebook, :telegram, :youtube, :tiktok, :logo)";
             
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':name', $name);
@@ -108,9 +107,8 @@
             $stmt->bindParam(':schedule', $schedule);
             $stmt->bindParam(':facebook', $facebook);
             $stmt->bindParam(':telegram', $telegram);
-            $stmt->bindParam(':instagram', $instagram);
             $stmt->bindParam(':youtube', $youtube);
-            $stmt->bindParam(':linkedin', $linkedin);
+            $stmt->bindParam(':tiktok', $tiktok);
             $stmt->bindParam(':logo', $target_file_path);
 
             if ($stmt->execute()) {

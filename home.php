@@ -4,9 +4,7 @@
 
     <div class="w-full overflow-hidden relative">
         <div class="relative w-full">
-            <div class="relative w-full mx-auto overflow-hidden aspect-[16/6] max-h-[600px]" id="carousel-images">
-        
-            </div>
+            <div class="relative w-full mx-auto overflow-hidden aspect-[16/6] h-full" id="carousel-images"></div>
             <button type="button" id="carousel-prev"
                 class="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 text-white text-xl sm:text-3xl bg-black/40 rounded-full p-1 sm:p-2 hover:bg-black/70 transition z-10">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24"

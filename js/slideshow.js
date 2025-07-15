@@ -16,7 +16,7 @@ $(document).ready(function () {
             $.each(slides, function (i, img) {
                 $carousel.append(`
                     <div class="carousel-item ${i === 0 ? '' : 'hidden'} absolute inset-0 w-full h-full transition-opacity duration-700 ease-in-out" data-carousel-item>
-                        <img src="${img.image_path}" alt="Slide ${i + 1}" class="w-full h-full object-cover" />
+                        <img src="admin/${img.image_path}" alt="Slide ${i + 1}" class="w-full h-full object-cover" />
                     </div>
                 `);
 
