@@ -4,9 +4,7 @@
 
     <div class="w-full overflow-hidden relative">
         <div class="relative w-full">
-            <div class="relative w-full mx-auto overflow-hidden aspect-[16/6] max-h-[600px]" id="carousel-images">
-        
-            </div>
+            <div class="relative w-full mx-auto overflow-hidden" id="carousel-images"></div>
             <button type="button" id="carousel-prev"
                 class="absolute left-1 sm:left-4 top-1/2 -translate-y-1/2 text-white text-xl sm:text-3xl bg-black/40 rounded-full p-1 sm:p-2 hover:bg-black/70 transition z-10">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 sm:w-8 sm:h-8" fill="none" viewBox="0 0 24 24"
@@ -29,8 +27,8 @@
         </div>
     </div>
 
-    <section class="py-16 bg-brand-gray text-center">
-        <div class="mb-8 text-center">
+    <section class="py-8 bg-brand-gray text-center">
+        <div class="mx-auto p-8 sm:p-4 mb-8 text-center">
             <h2 id="achievements-title" class="text-3xl md:text-4xl font-extrabold text-brand-white"></h2>
 
             <div class="flex items-center justify-center my-6">
@@ -44,7 +42,8 @@
             <p id="achievements-subtitle" class="text-brand-white/60 max-w-2xl mx-auto text-sm md:text-base px-8"></p>
         </div>
 
-        <div id="achievement-items" class="container mx-auto mt-12 pt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-8"></div>
+        <div id="achievement-items" class="container mx-auto p-8 sm:p-0 flex flex-col items-center justify-center text-center mt-12 pt-8 grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+
 
         <div class="mt-12">
             <a href="about"
@@ -55,9 +54,9 @@
         </div>
     </section>
 
-    <div id="types-list" class="flex flex-wrap items-center justify-center my-12"></div>
+    <div id="types-list" class="container mx-auto p-8 sm:p-4 flex flex-wrap items-center justify-center my-12"></div>
 
-    <div id="list" class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+    <div id="list" class="container mx-auto p-8 sm:p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
 
     <div class="flex justify-center mt-8 mb-12">
         <a href="projects"

@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class="container mx-auto p-4 grid grid-cols-1 gap-4 sm:gap-4 md:gap-4 lg:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
+    <div class="container mx-auto p-8 sm:p-4 grid grid-cols-1 gap-4 sm:gap-4 md:gap-4 lg:gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
 
         <div class="relative w-full z-0">
             <input type="text" placeholder="Style" data-translate="style"
@@ -128,7 +128,7 @@
 
     </div>
 
-    <div id="list" class="container mx-auto p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+    <div id="list" class="container mx-auto p-8 sm:p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
 
     <div id="pagination-container" class="flex flex-wrap justify-center mx-auto px-8 mt-4 mb-12 gap-2 text-base"></div>
 

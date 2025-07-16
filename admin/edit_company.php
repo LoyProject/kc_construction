@@ -107,16 +107,12 @@
                 <input type="url" name="telegram" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['telegram'] ?? '', ENT_QUOTES); ?>">
             </div>
             <div>
-                <label for="instagram" class="block text-sm font-medium text-gray-700">TikTok</label>
-                <input type="url" name="instagram" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['instagram'] ?? '', ENT_QUOTES); ?>">
+                <label for="tiktok" class="block text-sm font-medium text-gray-700">TikTok</label>
+                <input type="url" name="tiktok" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['tiktok'] ?? '', ENT_QUOTES); ?>">
             </div>
             <div>
                 <label for="youtube" class="block text-sm font-medium text-gray-700">YouTube</label>
                 <input type="url" name="youtube" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['youtube'] ?? '', ENT_QUOTES); ?>">
-            </div>
-            <div class="hidden">
-                <label for="linkedin" class="block text-sm font-medium text-gray-700">LinkedIn</label>
-                <input type="url" name="linkedin" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['linkedin'] ?? '', ENT_QUOTES); ?>">
             </div>
         </div>
         <div>
