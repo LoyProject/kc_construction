@@ -64,7 +64,7 @@
             LEFT JOIN sizes sz ON p.size_id = sz.id
             LEFT JOIN addresses ad ON p.address_id = ad.id
             $whereSQL
-            ORDER BY p.id ASC
+            ORDER BY p.view DESC
             LIMIT $limit OFFSET $offset
         ";
 
