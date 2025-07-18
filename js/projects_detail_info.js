@@ -197,14 +197,14 @@ $(document).ready(function() {
                                         <!-- View -->
                                         <div class="flex items-center gap-2 p-2 border border-brand-gray">
                                         <i class="fas fa-eye text-brand-gold w-4"></i>
-                                        <span data-translate="view"></span>
+                                        <span data-translate="view-detail"></span>
                                         </div>
                                         <div class="p-2 border border-brand-gray">${project.view || 0}</div>
 
                                         <!-- Investor -->
                                         <div class="flex items-center gap-2 p-2 border border-brand-gray">
                                         <i class="fas fa-user text-brand-gold w-4"></i>
-                                        <span data-translate="investor"></span>
+                                        <span data-translate="investor-detail"></span>
                                         </div>
                                         <div class="p-2 border border-brand-gray">${project.investor || '--'}</div>
 

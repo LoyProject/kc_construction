@@ -97,7 +97,7 @@
         <div>
             <label for="logo" class="block text-sm font-medium text-gray-700">Company Logo <span class="text-red-500">*</span></label>
             <input type="file" name="logo" accept="image/*" class="mt-1 block w-full">
-            <p class="mt-1 text-xs text-slate-500">Upload a company logo image (PNG, JPG, JPEG up to 5MB).</p>
+            <p class="mt-1 text-xs text-slate-500">Upload a company logo image (PNG, JPG, JPEG up to 3MB).</p>
         </div>
 
         <div class="flex items-center justify-end space-x-3 pt-4 border-t border-slate-200">
