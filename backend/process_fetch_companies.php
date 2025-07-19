@@ -24,6 +24,8 @@
                 'youtube' => $row['youtube'],
                 'tiktok' => $row['tiktok'],
                 'logo' => 'admin/' . $row['logo'],
+                'mission_image' => 'admin/' . $row['mission_image'],
+                'vision_image' => 'admin/' . $row['vision_image'],
                 'created_at' => $row['created_at'],
                 'updated_at' => $row['updated_at'],
             ]
