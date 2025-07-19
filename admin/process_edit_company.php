@@ -68,6 +68,92 @@
             }
         }
 
+        $mission_image = null;
+        $mission_image_sql = "";
+        if (isset($_FILES['mission_image']) && $_FILES['mission_image']['error'] === UPLOAD_ERR_OK) {
+            $uploaded_file = $_FILES['mission_image'];
+            $target_dir = "assets/images/companies/";
+            $original_name = basename($uploaded_file['name']);
+            $tmp_name = $uploaded_file['tmp_name'];
+            $file_size = $uploaded_file['size'];
+
+            $image_file_type = strtolower(pathinfo($original_name, PATHINFO_EXTENSION));
+            $new_file_name = uniqid('company_mission_', true) . '.' . $image_file_type;
+            $target_file_path = $target_dir . $new_file_name;
+
+            $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+            $max_file_size = 3 * 1024 * 1024; // 3MB
+
+            if (!in_array($image_file_type, $allowed_types)) {
+            $image_processing_messages[] = "Invalid image type. Only JPG, PNG, GIF allowed.";
+            } elseif ($file_size == 0) {
+            $image_processing_messages[] = "Image file is empty.";
+            } elseif ($file_size > $max_file_size) {
+            $image_processing_messages[] = "Image too large. Max allowed is 3MB.";
+            } else {
+            if (move_uploaded_file($tmp_name, $target_file_path)) {
+                $mission_image = $target_file_path;
+                $mission_image_sql = ", mission_image = :mission_image";
+                $image_processing_messages[] = "Mission image uploaded successfully.";
+
+                $stmt_check = $pdo->prepare("SELECT mission_image FROM companies WHERE id = :id");
+                $stmt_check->bindParam(':id', $company_id, PDO::PARAM_INT);
+                $stmt_check->execute();
+                $old_mission_image = $stmt_check->fetchColumn();
+                if ($old_mission_image && file_exists($old_mission_image)) {
+                unlink($old_mission_image);
+                $image_processing_messages[] = "Old mission image deleted successfully.";
+                }
+            } else {
+                $image_processing_messages[] = "Failed to upload mission image.";
+                error_log("Failed to move uploaded file: " . $original_name . " to " . $target_file_path);
+            }
+            }
+        }
+
+        $vision_image = null;
+        $vision_image_sql = "";
+        if (isset($_FILES['vision_image']) && $_FILES['vision_image']['error'] === UPLOAD_ERR_OK) {
+            $uploaded_file = $_FILES['vision_image'];
+            $target_dir = "assets/images/companies/";
+            $original_name = basename($uploaded_file['name']);
+            $tmp_name = $uploaded_file['tmp_name'];
+            $file_size = $uploaded_file['size'];
+
+            $image_file_type = strtolower(pathinfo($original_name, PATHINFO_EXTENSION));
+            $new_file_name = uniqid('company_vision_', true) . '.' . $image_file_type;
+            $target_file_path = $target_dir . $new_file_name;
+
+            $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+            $max_file_size = 3 * 1024 * 1024; // 3MB
+
+            if (!in_array($image_file_type, $allowed_types)) {
+            $image_processing_messages[] = "Invalid image type. Only JPG, PNG, GIF allowed.";
+            } elseif ($file_size == 0) {
+            $image_processing_messages[] = "Image file is empty.";
+            } elseif ($file_size > $max_file_size) {
+            $image_processing_messages[] = "Image too large. Max allowed is 3MB.";
+            } else {
+            if (move_uploaded_file($tmp_name, $target_file_path)) {
+                $vision_image = $target_file_path;
+                $vision_image_sql = ", vision_image = :vision_image";
+                $image_processing_messages[] = "Vision image uploaded successfully.";
+
+                $stmt_check = $pdo->prepare("SELECT vision_image FROM companies WHERE id = :id");
+                $stmt_check->bindParam(':id', $company_id, PDO::PARAM_INT);
+                $stmt_check->execute();
+                $old_vision_image = $stmt_check->fetchColumn();
+                if ($old_vision_image && file_exists($old_vision_image)) {
+                unlink($old_vision_image);
+                $image_processing_messages[] = "Old vision image deleted successfully.";
+                }
+            } else {
+                $image_processing_messages[] = "Failed to upload vision image.";
+                error_log("Failed to move uploaded file: " . $original_name . " to " . $target_file_path);
+            }
+            }
+        }
+
         $errors = [];
         if (empty($name)) $errors[] = "Company name is required.";
         elseif (strlen($name) > 255) $errors[] = "Company name cannot exceed 255 characters.";
@@ -104,6 +190,8 @@
                 name = :name, description = :description, vision = :vision, email = :email, address = :address, map = :map, tell = :tell,
                 schedule = :schedule, facebook = :facebook, telegram = :telegram, youtube = :youtube, tiktok = :tiktok
                 $logo_sql
+                $mission_image_sql
+                $vision_image_sql
                 WHERE id = :id";
             
             $stmt = $pdo->prepare($sql);
@@ -120,6 +208,8 @@
             $stmt->bindParam(':youtube', $youtube);
             $stmt->bindParam(':tiktok', $tiktok);
             if ($logo) $stmt->bindParam(':logo', $logo);
+            if ($mission_image) $stmt->bindParam(':mission_image', $mission_image);
+            if ($vision_image) $stmt->bindParam(':vision_image', $vision_image);
             $stmt->bindParam(':id', $company_id, PDO::PARAM_INT);
 
             if ($stmt->execute()) {

@@ -115,18 +115,41 @@
                 <input type="url" name="youtube" class="mt-1 block w-full border border-gray-300 rounded-md p-2" value="<?php echo htmlspecialchars($form_data['youtube'] ?? '', ENT_QUOTES); ?>">
             </div>
         </div>
-        <div>
-            <label for="logo" class="block text-sm font-medium text-gray-700">Company Logo <?php if (empty($company['logo'])): ?><span class="text-red-500">*</span><?php endif; ?></label>
-            <input type="file" name="logo" accept="image/*" class="mt-1 block w-full">
-            <?php if (!empty($company['logo'])): ?>
-                <div class="mt-2">
-                    <img src="<?php echo htmlspecialchars($company['logo'], ENT_QUOTES); ?>" alt="Current Logo" class="h-16">
-                    <p class="text-xs text-slate-500">Current logo. Upload to replace.</p>
-                </div>
-            <?php endif; ?>
-            <p class="mt-1 text-xs text-slate-500">Upload a company logo image (PNG, JPG, JPEG up to 3MB).</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div>
+                <label for="logo" class="block text-sm font-medium text-gray-700">Company Logo <?php if (empty($company['logo'])): ?><span class="text-red-500">*</span><?php endif; ?></label>
+                <input type="file" name="logo" accept="image/*" class="mt-1 block w-full">
+                <?php if (!empty($company['logo'])): ?>
+                    <div class="mt-2">
+                        <img src="<?php echo htmlspecialchars($company['logo'], ENT_QUOTES); ?>" alt="Current Logo" class="h-16">
+                        <p class="text-xs text-slate-500">Current logo. Upload to replace.</p>
+                    </div>
+                <?php endif; ?>
+                <p class="mt-1 text-xs text-slate-500">Upload a company logo image (PNG, JPG, JPEG up to 3MB).</p>
+            </div>
+            <div>
+                <label for="mission_image" class="block text-sm font-medium text-gray-700">Mission Image <?php if (empty($company['mission_image'])): ?><span class="text-red-500">*</span><?php endif; ?></label>
+                <input type="file" name="mission_image" accept="image/*" class="mt-1 block w-full">
+                <?php if (!empty($company['mission_image'])): ?>
+                    <div class="mt-2">
+                        <img src="<?php echo htmlspecialchars($company['mission_image'], ENT_QUOTES); ?>" alt="Current Mission Image" class="h-16">
+                        <p class="text-xs text-slate-500">Current mission image. Upload to replace.</p>
+                    </div>
+                <?php endif; ?>
+                <p class="mt-1 text-xs text-slate-500">Upload a mission image (PNG, JPG, JPEG up to 3MB).</p>
+            </div>
+            <div>
+                <label for="vision_image" class="block text-sm font-medium text-gray-700">Vision Image <?php if (empty($company['vision_image'])): ?><span class="text-red-500">*</span><?php endif; ?></label>
+                <input type="file" name="vision_image" accept="image/*" class="mt-1 block w-full">
+                <?php if (!empty($company['vision_image'])): ?>
+                    <div class="mt-2">
+                        <img src="<?php echo htmlspecialchars($company['vision_image'], ENT_QUOTES); ?>" alt="Current Vision Image" class="h-16">
+                        <p class="text-xs text-slate-500">Current vision image. Upload to replace.</p>
+                    </div>
+                <?php endif; ?>
+                <p class="mt-1 text-xs text-slate-500">Upload a vision image (PNG, JPG, JPEG up to 3MB).</p>
+            </div>
         </div>
-
         <div class="flex items-center justify-end space-x-3 pt-4 border-t border-slate-200">
             <a href="manage_companies" class="bg-slate-200 hover:bg-slate-300 text-slate-700 font-medium py-2 px-4 rounded-md shadow-sm">Cancel</a>
             <button type="submit" name="submit_edit_company" class="bg-brand-green hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md shadow-sm">Save Changes</button>

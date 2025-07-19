@@ -94,10 +94,22 @@
                 <input type="url" name="youtube" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
         </div>
-        <div>
-            <label for="logo" class="block text-sm font-medium text-gray-700">Company Logo <span class="text-red-500">*</span></label>
-            <input type="file" name="logo" accept="image/*" class="mt-1 block w-full">
-            <p class="mt-1 text-xs text-slate-500">Upload a company logo image (PNG, JPG, JPEG up to 3MB).</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div>
+                <label for="logo" class="block text-sm font-medium text-gray-700">Company Logo <span class="text-red-500">*</span></label>
+                <input type="file" name="logo" accept="image/*" class="mt-1 block w-full">
+                <p class="mt-1 text-xs text-slate-500">Upload a company logo image (PNG, JPG, JPEG up to 3MB).</p>
+            </div>
+            <div>
+                <label for="mission_image" class="block text-sm font-medium text-gray-700">Mission Image <span class="text-red-500">*</span></label>
+                <input type="file" name="mission_image" accept="image/*" class="mt-1 block w-full">
+                <p class="mt-1 text-xs text-slate-500">Upload a mission image (PNG, JPG, JPEG up to 3MB).</p>
+            </div>
+            <div>
+                <label for="vision_image" class="block text-sm font-medium text-gray-700">Vision Image <span class="text-red-500">*</span></label>
+                <input type="file" name="vision_image" accept="image/*" class="mt-1 block w-full">
+                <p class="mt-1 text-xs text-slate-500">Upload a vision image (PNG, JPG, JPEG up to 3MB).</p>
+            </div>
         </div>
 
         <div class="flex items-center justify-end space-x-3 pt-4 border-t border-slate-200">

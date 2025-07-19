@@ -24,8 +24,10 @@
         $youtube = trim($_POST['youtube']) ?: null;
         $tiktok = trim($_POST['tiktok']) ?: null;
 
-        $logo = null;
         $image_processing_messages = [];
+
+        $logo = null;
+        $logo_target_file_path = '';
         if (isset($_FILES['logo']) && $_FILES['logo']['error'] === UPLOAD_ERR_OK) {
             $uploaded_file = $_FILES['logo'];
             $target_dir = "assets/images/companies/";
@@ -36,6 +38,7 @@
             $image_file_type = strtolower(pathinfo($original_name, PATHINFO_EXTENSION));
             $new_file_name = uniqid('company_logo_', true) . '.' . $image_file_type;
             $target_file_path = $target_dir . $new_file_name;
+            $logo_target_file_path = $target_file_path;
 
             $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
             $max_file_size = 3 * 1024 * 1024; // 3MB
@@ -57,6 +60,78 @@
             }
         } else {
             $image_processing_messages[] = "At least one image must be uploaded.";
+        }
+
+        $mission_image = null;
+        $mission_target_file_path = '';
+        if (isset($_FILES['mission_image']) && $_FILES['mission_image']['error'] === UPLOAD_ERR_OK) {
+            $uploaded_file = $_FILES['mission_image'];
+            $target_dir = "assets/images/companies/";
+            $original_name = basename($uploaded_file['name']);
+            $tmp_name = $uploaded_file['tmp_name'];
+            $file_size = $uploaded_file['size'];
+
+            $image_file_type = strtolower(pathinfo($original_name, PATHINFO_EXTENSION));
+            $new_file_name = uniqid('company_mission_', true) . '.' . $image_file_type;
+            $target_file_path = $target_dir . $new_file_name;
+            $mission_target_file_path = $target_file_path;
+
+            $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+            $max_file_size = 3 * 1024 * 1024; // 3MB
+
+            if (!in_array($image_file_type, $allowed_types)) {
+            $image_processing_messages[] = "Invalid image type. Only JPG, PNG, GIF allowed.";
+            } elseif ($file_size == 0) {
+            $image_processing_messages[] = "Image file is empty.";
+            } elseif ($file_size > $max_file_size) {
+            $image_processing_messages[] = "Image too large. Max allowed is 3MB.";
+            } else {
+            if (move_uploaded_file($tmp_name, $target_file_path)) {
+                $mission_image = $new_file_name;
+                $image_processing_messages[] = "Mission image uploaded successfully.";
+            } else {
+                $image_processing_messages[] = "Failed to upload mission image.";
+                error_log("Failed to move uploaded file: " . $original_name . " to " . $target_file_path);
+            }
+            }
+        } else {
+            $image_processing_messages[] = "At least one mission image must be uploaded.";
+        }
+
+        $vision_image = null;
+        $vision_target_file_path = '';
+        if (isset($_FILES['vision_image']) && $_FILES['vision_image']['error'] === UPLOAD_ERR_OK) {
+            $uploaded_file = $_FILES['vision_image'];
+            $target_dir = "assets/images/companies/";
+            $original_name = basename($uploaded_file['name']);
+            $tmp_name = $uploaded_file['tmp_name'];
+            $file_size = $uploaded_file['size'];
+
+            $image_file_type = strtolower(pathinfo($original_name, PATHINFO_EXTENSION));
+            $new_file_name = uniqid('company_vision_', true) . '.' . $image_file_type;
+            $target_file_path = $target_dir . $new_file_name;
+            $vision_target_file_path = $target_file_path;
+
+            $allowed_types = ['jpg', 'jpeg', 'png', 'gif'];
+            $max_file_size = 3 * 1024 * 1024; // 3MB
+
+            if (!in_array($image_file_type, $allowed_types)) {
+            $image_processing_messages[] = "Invalid image type. Only JPG, PNG, GIF allowed.";
+            } elseif ($file_size == 0) {
+            $image_processing_messages[] = "Image file is empty.";
+            } elseif ($file_size > $max_file_size) {
+            $image_processing_messages[] = "Image too large. Max allowed is 3MB.";
+            } else {
+            if (move_uploaded_file($tmp_name, $target_file_path)) {
+                $vision_image = $new_file_name;
+                $image_processing_messages[] = "Vision image uploaded successfully.";
+            } else {
+                $image_processing_messages[] = "Failed to upload vision image.";
+                error_log("Failed to move uploaded file: " . $original_name . " to " . $target_file_path);
+            }
+            }
+        } else {
+            $image_processing_messages[] = "At least one vision image must be uploaded.";
         }
 
         $errors = [];
@@ -92,9 +167,9 @@
 
         try {
             $sql = "INSERT INTO companies 
-                (name, description, vision, email, address, map, tell, schedule, facebook, telegram,youtube, tiktok, logo) 
+                (name, description, vision, email, address, map, tell, schedule, facebook, telegram,youtube, tiktok, logo, mission_image, vision_image) 
                 VALUES 
-                (:name, :description, :vision, :email, :address, :map, :tell, :schedule, :facebook, :telegram, :youtube, :tiktok, :logo)";
+                (:name, :description, :vision, :email, :address, :map, :tell, :schedule, :facebook, :telegram, :youtube, :tiktok, :logo, :mission_image, :vision_image)";
             
             $stmt = $pdo->prepare($sql);
             $stmt->bindParam(':name', $name);
@@ -109,7 +184,9 @@
             $stmt->bindParam(':telegram', $telegram);
             $stmt->bindParam(':youtube', $youtube);
             $stmt->bindParam(':tiktok', $tiktok);
-            $stmt->bindParam(':logo', $target_file_path);
+            $stmt->bindParam(':logo', $logo_target_file_path);
+            $stmt->bindParam(':mission_image', $mission_target_file_path);
+            $stmt->bindParam(':vision_image', $vision_target_file_path);
 
             if ($stmt->execute()) {
                 $_SESSION['message'] = "Company '<span class=\"font-bold text-slate-700\">" . sanitize_output($name) . "</span>' added successfully!";
