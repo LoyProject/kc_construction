@@ -28,8 +28,8 @@
     </div>
 
     <section class="py-8 bg-brand-gray text-center">
-        <div class="mx-auto p-8 sm:p-4 mb-8 text-center">
-            <h2 id="achievements-title" class="text-3xl md:text-4xl font-extrabold text-brand-white"></h2>
+        <div class="mx-auto px-8 py-4 sm:p-4 mb-8 text-center">
+            <h2 id="achievements-title" class="text-xl sm:text-4xl font-extrabold text-brand-white"></h2>
 
             <div class="flex items-center justify-center my-6">
                 <span class="w-16 h-px bg-gray-300"></span>
@@ -42,7 +42,7 @@
             <p id="achievements-subtitle" class="text-brand-white/60 max-w-2xl mx-auto text-sm md:text-base px-8"></p>
         </div>
 
-        <div id="achievement-items" class="container mx-auto p-8 sm:p-0 flex flex-col items-center justify-center text-center mt-12 pt-8 grid grid-cols-1 md:grid-cols-3 gap-8"></div>
+        <div id="achievement-items" class="container mx-auto px-8 py-4 sm:p-0 flex flex-col items-center justify-center text-center mt-12 pt-8 grid grid-cols-1 md:grid-cols-3 gap-8"></div>
 
 
         <div class="mt-12">
@@ -54,9 +54,9 @@
         </div>
     </section>
 
-    <div id="types-list" class="container mx-auto p-8 sm:p-4 flex flex-wrap items-center justify-center my-12"></div>
+    <div id="types-list" class="container mx-auto px-8 py-4 sm:p-4 flex flex-wrap items-center justify-center my-12"></div>
 
-    <div id="list" class="container mx-auto p-8 sm:p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
+    <div id="list" class="container mx-auto px-8 py-4 sm:p-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8"></div>
 
     <div class="flex justify-center mt-8 mb-12">
         <a href="projects"
@@ -68,10 +68,10 @@
     <div class="fixed bottom-5 right-5 flex flex-col items-end space-y-3 z-50">
         <div class="flex items-end sm:items-center space-y-3 space-x-3 sm:space-y-0">
             <a id="telegram-link-button" target="_blank"
-                class="bg-brand-gold text-white font-bold flex items-center p-4 shadow-md hover:bg-white hover:text-brand-gold transition">
+                class="bg-brand-gold text-white font-bold flex items-center p-2 sm:p-4 shadow-md hover:bg-white hover:text-brand-gold transition">
             </a>
             <button id="scrollTopBtn" onclick="window.scrollTo({ top: 0, behavior: 'smooth' });"
-                class="bg-brand-gold text-white p-4 font-bold hover:bg-white hover:text-brand-gold transition hidden">
+                class="bg-brand-gold text-white p-2 sm:p-4 font-bold hover:bg-white hover:text-brand-gold transition hidden">
                 <i class="fas fa-arrow-up"></i>
             </button>
         </div>

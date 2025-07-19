@@ -68,7 +68,7 @@ const translations = {
         "investor-detail": "អ្នកវិនិយោគ",
         "address": "អាសយដ្ឋាន:",
         "location-card": "ទីតាំង:",
-        "budget": "ថវិកា:",
+        "budget": "តម្លៃសាងសង់:",
         "area": "ផ្ទៃក្រឡា:",
         "area-dropdown": "ផ្ទៃក្រឡា",
         "floor": "ចំនួនជាន់:",

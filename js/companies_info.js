@@ -17,7 +17,9 @@ $(document).ready(function () {
             var $tiktokLink = $('#tiktok-link');
             var $telegramlinkButton = $('#telegram-link-button');
             var $companyName = $('#company-name');
+            var $companyProfileImage = $('#company-profile-image');
             var $companyProfile = $('#company-profile');
+            var $companyVisionImage = $('#company-vision-image');
             var $companyVision = $('#company-vision');
 
             if (data.success) {
@@ -48,7 +50,11 @@ $(document).ready(function () {
                 $tiktokLink.attr('href', data.company.tiktok).text('TikTok');
                 $telegramlinkButton.attr('href', data.company.telegram).html('<i class="fab fa-telegram-plane mr-2"></i> Telegram Chat');
                 $companyName.text(data.company.name).html('&copy; ' + data.company.name + ' POWER by <span class="text-brand-gold font-medium">Loy Team</span>');
+                $companyProfileImage.attr('src', data.company.mission_image);
+                $companyProfileImage.attr('alt', data.company.name);
                 $companyProfile.html(data.company.description);
+                $companyVisionImage.attr('src', data.company.vision_image);
+                $companyVisionImage.attr('alt', data.company.name);
                 $companyVision.html(data.company.vision);
             } else {
                 $companyLogo.attr('src', 'admin/assets/companies/default_logo.png');
