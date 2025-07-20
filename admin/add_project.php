@@ -153,7 +153,7 @@
                 </select>
             </div>
 
-            <div>
+            <!-- <div>
                 <label for="facade_id" class="mb-[4px] block text-sm font-medium text-gray-700">Facades <span class="text-red-500">*</span></label>
                 <select name="facade_id" id="facade_id" class="block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
                     <option></option>
@@ -168,9 +168,14 @@
                         <option value="" disabled>No facades available. Please add one first.</option>
                     <?php endif; ?>
                 </select>
-            </div>
+            </div> -->
 
             <div>
+                <label id="facade" class="block text-sm font-medium text-gray-700">Facades <span class="text-red-500">*</span></label>
+                <input type="text" name="facade" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+            </div>
+
+            <!-- <div>
                 <label for="area_id" class="mb-[4px] block text-sm font-medium text-gray-700">Area (m²) <span class="text-red-500">*</span></label>
                 <select name="area_id" id="area_id" class="block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
                     <option></option>
@@ -185,9 +190,14 @@
                         <option value="" disabled>No areas available. Please add one first.</option>
                     <?php endif; ?>
                 </select>
-            </div>
+            </div> -->
 
             <div>
+                <label id="area" class="block text-sm font-medium text-gray-700">Area (m²) <span class="text-red-500">*</span></label>
+                <input type="text" name="area" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
+            </div>
+
+            <!-- <div>
                 <label for="size_id" class="mb-[4px] block text-sm font-medium text-gray-700">Size</label>
                 <select name="size_id" id="size_id" class="block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
                     <option></option>
@@ -202,6 +212,11 @@
                         <option value="" disabled>No sizes available. Please add one first.</option>
                     <?php endif; ?>
                 </select>
+            </div> -->
+
+            <div>
+                <label id="size" class="block text-sm font-medium text-gray-700">Size</label>
+                <input type="text" name="size" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
 
             <div>
@@ -214,7 +229,7 @@
                 <input type="text" name="investor" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
 
-            <div>
+            <!-- <div>
                 <label for="address_id" class="mb-[4px] block text-sm font-medium text-gray-700">Address</label>
                 <select name="address_id" id="address_id" class="block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
                     <option></option>
@@ -229,6 +244,11 @@
                         <option value="" disabled>No addresses available. Please add one first.</option>
                     <?php endif; ?>
                 </select>
+            </div> -->
+
+            <div>
+                <label id="address" class="block text-sm font-medium text-gray-700">Address</label>
+                <input type="text" name="address" class="mt-1 block w-full border border-gray-300 rounded-md p-2">
             </div>
 
             <div>

@@ -36,37 +36,37 @@
         $floors = [];
     }
 
-    try {
-        $facades_stmt = $pdo->query("SELECT id, name FROM facades ORDER BY id ASC");
-        $facades = $facades_stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        error_log("Error fetching facades for add form: " . $e->getMessage());
-        $facades = [];
-    }
+    // try {
+    //     $facades_stmt = $pdo->query("SELECT id, name FROM facades ORDER BY id ASC");
+    //     $facades = $facades_stmt->fetchAll(PDO::FETCH_ASSOC);
+    // } catch (PDOException $e) {
+    //     error_log("Error fetching facades for add form: " . $e->getMessage());
+    //     $facades = [];
+    // }
 
-    try {
-        $areas_stmt = $pdo->query("SELECT id, name FROM areas ORDER BY id ASC");
-        $areas = $areas_stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        error_log("Error fetching areas for add form: " . $e->getMessage());
-        $areas = [];
-    }
+    // try {
+    //     $areas_stmt = $pdo->query("SELECT id, name FROM areas ORDER BY id ASC");
+    //     $areas = $areas_stmt->fetchAll(PDO::FETCH_ASSOC);
+    // } catch (PDOException $e) {
+    //     error_log("Error fetching areas for add form: " . $e->getMessage());
+    //     $areas = [];
+    // }
 
-    try {
-        $sizes_stmt = $pdo->query("SELECT id, name FROM sizes ORDER BY id ASC");
-        $sizes = $sizes_stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        error_log("Error fetching sizes for add form: " . $e->getMessage());
-        $sizes = [];
-    }
+    // try {
+    //     $sizes_stmt = $pdo->query("SELECT id, name FROM sizes ORDER BY id ASC");
+    //     $sizes = $sizes_stmt->fetchAll(PDO::FETCH_ASSOC);
+    // } catch (PDOException $e) {
+    //     error_log("Error fetching sizes for add form: " . $e->getMessage());
+    //     $sizes = [];
+    // }
 
-    try {
-        $addresses_stmt = $pdo->query("SELECT id, name FROM addresses ORDER BY id ASC");
-        $addresses = $addresses_stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (PDOException $e) {
-        error_log("Error fetching addresses for add form: " . $e->getMessage());
-        $addresses = [];
-    }
+    // try {
+    //     $addresses_stmt = $pdo->query("SELECT id, name FROM addresses ORDER BY id ASC");
+    //     $addresses = $addresses_stmt->fetchAll(PDO::FETCH_ASSOC);
+    // } catch (PDOException $e) {
+    //     error_log("Error fetching addresses for add form: " . $e->getMessage());
+    //     $addresses = [];
+    // }
 
     $project_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
     $project = [];
@@ -173,7 +173,7 @@
                     <?php endforeach; ?>
                 </select>
             </div>
-            <div>
+            <!-- <div>
                 <label for="facade_id" class="mb-[4px] block text-sm font-medium text-gray-700">Facades <span class="text-red-500">*</span></label>
                 <select name="facade_id" id="facade_id" class="block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
                     <option></option>
@@ -184,8 +184,13 @@
                         </option>
                     <?php endforeach; ?>
                 </select>
-            </div>
+            </div> -->
             <div>
+                <label id="facade" class="block text-sm font-medium text-gray-700">Facades <span class="text-red-500">*</span></label>
+                <input type="text" name="facade" class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                    value="<?php echo sanitize_output(field_value('facade')); ?>">
+            </div>
+            <!-- <div>
                 <label for="area_id" class="mb-[4px] block text-sm font-medium text-gray-700">Area (m²) <span class="text-red-500">*</span></label>
                 <select name="area_id" id="area_id" class="block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
                     <option></option>
@@ -196,8 +201,13 @@
                         </option>
                     <?php endforeach; ?>
                 </select>
-            </div>
+            </div> -->
             <div>
+                <label id="area" class="block text-sm font-medium text-gray-700">Area (m²) <span class="text-red-500">*</span></label>
+                <input type="text" name="area" class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                    value="<?php echo sanitize_output(field_value('area')); ?>">
+            </div>
+            <!-- <div>
                 <label for="size_id" class="mb-[4px] block text-sm font-medium text-gray-700">Size</label>
                 <select name="size_id" id="size_id" class="block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
                     <option></option>
@@ -208,6 +218,11 @@
                         </option>
                     <?php endforeach; ?>
                 </select>
+            </div> -->
+            <div>
+                <label id="size" class="block text-sm font-medium text-gray-700">Size</label>
+                <input type="text" name="size" class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                    value="<?php echo sanitize_output(field_value('size')); ?>">
             </div>
             <div>
                 <label id="view" class="block text-sm font-medium text-gray-700">View</label>
@@ -218,7 +233,7 @@
                 <input type="text" name="investor" class="mt-1 block w-full border border-gray-300 rounded-md p-2"
                     value="<?php echo sanitize_output(field_value('investor')); ?>">
             </div>
-            <div>
+            <!-- <div>
                 <label for="address_id" class="mb-[4px] block text-sm font-medium text-gray-700">Address</label>
                 <select name="address_id" id="address_id" class="block w-full px-3 py-2 bg-white border border-slate-300 rounded-md shadow-sm focus:outline-none focus:ring-brand-blue focus:border-brand-blue sm:text-sm">
                     <option></option>
@@ -229,6 +244,11 @@
                         </option>
                     <?php endforeach; ?>
                 </select>
+            </div> -->
+            <div>
+                <label id="address" class="block text-sm font-medium text-gray-700">Address</label>
+                <input type="text" name="address" class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                    value="<?php echo sanitize_output(field_value('address')); ?>">
             </div>
             <div>
                 <label id="implement_at" class="block text-sm font-medium text-gray-700">Implement At</label>

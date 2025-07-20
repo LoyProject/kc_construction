@@ -15,7 +15,8 @@
     $params = [];
 
     if ($search_term !== '') {
-        $where[] = "(p.name LIKE ? OR s.name LIKE ? OR t.name LIKE ? OR f.name LIKE ? OR fa.name LIKE ? OR a.name LIKE ? OR ad.name LIKE ?)";
+        // $where[] = "(p.name LIKE ? OR s.name LIKE ? OR t.name LIKE ? OR f.name LIKE ? OR fa.name LIKE ? OR a.name LIKE ? OR ad.name LIKE ?)";
+        $where[] = "(p.name LIKE ? OR s.name LIKE ? OR t.name LIKE ? OR f.name LIKE ? OR p.facade LIKE ? OR p.area LIKE ? OR p.address LIKE ?)";
         for ($i = 0; $i < 7; $i++) {
             $params[] = '%' . $search_term . '%';
         }
@@ -32,23 +33,24 @@
             LEFT JOIN styles s ON p.style_id = s.id
             LEFT JOIN types t ON p.type_id = t.id
             LEFT JOIN floors f ON p.floor_id = f.id
-            LEFT JOIN facades fa ON p.facade_id = fa.id
-            LEFT JOIN areas a ON p.area_id = a.id
-            LEFT JOIN addresses ad ON p.address_id = ad.id
+            -- LEFT JOIN facades fa ON p.facade_id = fa.id
+            -- LEFT JOIN areas a ON p.area_id = a.id
+            -- LEFT JOIN addresses ad ON p.address_id = ad.id
             $where_sql";
     $stmt = $pdo->prepare($total_sql);
     $stmt->execute($params);
     $total_projects = $stmt->fetchColumn();
     $total_pages = ceil($total_projects / $per_page);
 
-    $sql = "SELECT p.id, p.image_path, p.name, s.name AS style, t.name AS type, f.name AS floor, fa.name AS facade, a.name AS area, ad.name AS address, status
+        // $sql = "SELECT p.id, p.image_path, p.name, s.name AS style, t.name AS type, f.name AS floor, fa.name AS facade, a.name AS area, ad.name AS address, status
+        $sql = "SELECT p.id, p.image_path, p.name, p.facade AS facade, p.area AS area, p.address AS address, s.name AS style, t.name AS type, f.name AS floor, status
             FROM projects p
             LEFT JOIN styles s ON p.style_id = s.id
             LEFT JOIN types t ON p.type_id = t.id
             LEFT JOIN floors f ON p.floor_id = f.id
-            LEFT JOIN facades fa ON p.facade_id = fa.id
-            LEFT JOIN areas a ON p.area_id = a.id
-            LEFT JOIN addresses ad ON p.address_id = ad.id
+            -- LEFT JOIN facades fa ON p.facade_id = fa.id
+            -- LEFT JOIN areas a ON p.area_id = a.id
+            -- LEFT JOIN addresses ad ON p.address_id = ad.id
             $where_sql 
             ORDER BY id DESC
             LIMIT $per_page OFFSET $offset";

@@ -30,10 +30,14 @@
             $core_errors[] = "Please select a valid type.";
         if (empty($_POST['floor_id']) || !filter_var($_POST['floor_id'], FILTER_VALIDATE_INT))
             $core_errors[] = "Please select a valid number of floors.";
-        if (empty($_POST['facade_id']) || !filter_var($_POST['facade_id'], FILTER_VALIDATE_INT))
-            $core_errors[] = "Please select a valid facade.";
-        if (empty($_POST['area_id']) || !filter_var($_POST['area_id'], FILTER_VALIDATE_INT))
-            $core_errors[] = "Please select a valid area.";
+        // if (empty($_POST['facade_id']) || !filter_var($_POST['facade_id'], FILTER_VALIDATE_INT))
+        //     $core_errors[] = "Please select a valid facade.";
+        if (empty($_POST['facade']))
+            $core_errors[] = "Facade is required.";
+        // if (empty($_POST['area_id']) || !filter_var($_POST['area_id'], FILTER_VALIDATE_INT))
+        //     $core_errors[] = "Please select a valid area.";
+        if (empty($_POST['area']))
+            $core_errors[] = "Area is required.";
         if (isset($_FILES['images']) && !empty($_FILES['images']['name'][0])) {
             $max_file_size = 3 * 1024 * 1024; // 3MB
             foreach ($_FILES['images']['size'] as $idx => $size) {
@@ -48,12 +52,16 @@
         $style_id = filter_input(INPUT_POST, 'style_id', FILTER_VALIDATE_INT) ?: null;
         $type_id = filter_input(INPUT_POST, 'type_id', FILTER_VALIDATE_INT) ?: null;
         $floor_id = filter_input(INPUT_POST, 'floor_id', FILTER_VALIDATE_INT) ?: null;
-        $facade_id = filter_input(INPUT_POST, 'facade_id', FILTER_VALIDATE_INT) ?: null;
-        $area_id = filter_input(INPUT_POST, 'area_id', FILTER_VALIDATE_INT) ?: null;
-        $size_id = filter_input(INPUT_POST, 'size_id', FILTER_VALIDATE_INT) ?: null;
+        // $facade_id = filter_input(INPUT_POST, 'facade_id', FILTER_VALIDATE_INT) ?: null;
+        $facade = trim($_POST['facade']) ?: null;
+        // $area_id = filter_input(INPUT_POST, 'area_id', FILTER_VALIDATE_INT) ?: null;
+        $area = trim($_POST['area']) ?: null;
+        // $size_id = filter_input(INPUT_POST, 'size_id', FILTER_VALIDATE_INT) ?: null;
+        $size = trim($_POST['size']) ?: null;
         $view = filter_input(INPUT_POST, 'view', FILTER_VALIDATE_INT) ?: 0;
         $investor = trim($_POST['investor']) ?: null;
-        $address_id = filter_input(INPUT_POST, 'address_id', FILTER_VALIDATE_INT) ?: null;
+        // $address_id = filter_input(INPUT_POST, 'address_id', FILTER_VALIDATE_INT) ?: null;
+        $address = trim($_POST['address']) ?: null;
         $implement_at = filter_input(INPUT_POST, 'implement_at', FILTER_VALIDATE_INT) ?: null;
         $implement_unit = trim($_POST['implement_unit']) ?: null;
         $budget = trim($_POST['budget']) ?: null;
@@ -108,12 +116,16 @@
                 style_id = :style_id,
                 type_id = :type_id,
                 floor_id = :floor_id,
-                facade_id = :facade_id,
-                area_id = :area_id,
-                size_id = :size_id,
+                -- facade_id = :facade_id,
+                facade = :facade,
+                -- area_id = :area_id,
+                area = :area,
+                -- size_id = :size_id,
+                size = :size,
                 view = :view,
                 investor = :investor,
-                address_id = :address_id,
+                -- address_id = :address_id,
+                address = :address,
                 implement_at = :implement_at,
                 implement_unit = :implement_unit,
                 budget = :budget,
@@ -127,12 +139,16 @@
             $stmt_update_project->bindParam(':style_id', $style_id, PDO::PARAM_INT);
             $stmt_update_project->bindParam(':type_id', $type_id, PDO::PARAM_INT);
             $stmt_update_project->bindParam(':floor_id', $floor_id, PDO::PARAM_INT);
-            $stmt_update_project->bindParam(':facade_id', $facade_id, PDO::PARAM_INT);
-            $stmt_update_project->bindParam(':area_id', $area_id, PDO::PARAM_INT);
-            $stmt_update_project->bindParam(':size_id', $size_id, PDO::PARAM_INT);
+            // $stmt_update_project->bindParam(':facade_id', $facade_id, PDO::PARAM_INT);
+            $stmt_update_project->bindParam(':facade', $facade);
+            // $stmt_update_project->bindParam(':area_id', $area_id, PDO::PARAM_INT);
+            $stmt_update_project->bindParam(':area', $area);
+            // $stmt_update_project->bindParam(':size_id', $size_id, PDO::PARAM_INT);
+            $stmt_update_project->bindParam(':size', $size);
             $stmt_update_project->bindParam(':view', $view, PDO::PARAM_INT);
             $stmt_update_project->bindParam(':investor', $investor);
-            $stmt_update_project->bindParam(':address_id', $address_id, PDO::PARAM_INT);
+            // $stmt_update_project->bindParam(':address_id', $address_id, PDO::PARAM_INT);
+            $stmt_update_project->bindParam(':address', $address);
             $stmt_update_project->bindParam(':implement_at', $implement_at, PDO::PARAM_INT);
             $stmt_update_project->bindParam(':implement_unit', $implement_unit);
             $stmt_update_project->bindParam(':budget', $budget);

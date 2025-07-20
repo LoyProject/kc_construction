@@ -88,10 +88,10 @@
                                 <li><a href="manage_styles" class="block px-4 py-2 rounded hover:bg-gray-700">Styles</a></li>
                                 <li><a href="manage_types" class="block px-4 py-2 rounded hover:bg-gray-700">Types</a></li>
                                 <li><a href="manage_floors" class="block px-4 py-2 rounded hover:bg-gray-700">Floors</a></li>
-                                <li><a href="manage_facades" class="block px-4 py-2 rounded hover:bg-gray-700">Facades</a></li>
-                                <li><a href="manage_areas" class="block px-4 py-2 rounded hover:bg-gray-700">Areas</a></li>
-                                <li><a href="manage_sizes" class="block px-4 py-2 rounded hover:bg-gray-700">Sizes</a></li>
-                                <li><a href="manage_addresses" class="block px-4 py-2 rounded hover:bg-gray-700">Address</a></li>
+                                <!-- <li><a href="manage_facades" class="block px-4 py-2 rounded hover:bg-gray-700">Facades</a></li> -->
+                                <!-- <li><a href="manage_areas" class="block px-4 py-2 rounded hover:bg-gray-700">Areas</a></li> -->
+                                <!-- <li><a href="manage_sizes" class="block px-4 py-2 rounded hover:bg-gray-700">Sizes</a></li> -->
+                                <!-- <li><a href="manage_addresses" class="block px-4 py-2 rounded hover:bg-gray-700">Address</a></li> -->
                             </ul>
                         </li> 
                     <?php endif; ?>
