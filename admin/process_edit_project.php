@@ -56,7 +56,7 @@
         $address_id = filter_input(INPUT_POST, 'address_id', FILTER_VALIDATE_INT) ?: null;
         $implement_at = filter_input(INPUT_POST, 'implement_at', FILTER_VALIDATE_INT) ?: null;
         $implement_unit = trim($_POST['implement_unit']) ?: null;
-        $budget = filter_input(INPUT_POST, 'budget', FILTER_VALIDATE_INT) ?: 0;
+        $budget = trim($_POST['budget']) ?: null;
         $detail_floor = trim($_POST['detail_floor']) ?: null;
         $detail_area = trim($_POST['detail_area']) ?: null;
         $video = trim($_POST['video']) ?: null;
@@ -135,7 +135,7 @@
             $stmt_update_project->bindParam(':address_id', $address_id, PDO::PARAM_INT);
             $stmt_update_project->bindParam(':implement_at', $implement_at, PDO::PARAM_INT);
             $stmt_update_project->bindParam(':implement_unit', $implement_unit);
-            $stmt_update_project->bindParam(':budget', $budget, PDO::PARAM_INT);
+            $stmt_update_project->bindParam(':budget', $budget);
             $stmt_update_project->bindParam(':detail_floor', $detail_floor);
             $stmt_update_project->bindParam(':detail_area', $detail_area);
             $stmt_update_project->bindParam(':video', $video);

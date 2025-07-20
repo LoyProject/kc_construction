@@ -243,8 +243,8 @@
                     value="<?php echo sanitize_output(field_value('implement_unit')); ?>">
             </div>
             <div>
-                <label id="budget" class="block text-sm font-medium text-gray-700">Budget (USD)</label>
-                <input type="number" name="budget" class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                <label id="budget" class="block text-sm font-medium text-gray-700">Budget</label>
+                <input type="text" name="budget" class="mt-1 block w-full border border-gray-300 rounded-md p-2"
                     value="<?php echo sanitize_output(field_value('budget')); ?>">
             </div>
         </div>

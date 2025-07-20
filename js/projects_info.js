@@ -29,11 +29,6 @@ function loadProjects(page = 1) {
                         return diffDays < 30;
                     })();
 
-                    const formatCurrency = (amount) => {
-                        if (!amount) return '';
-                        return Number(amount).toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 0 });
-                    };
-
                     const projectItem = ` 
                         <div class="project-card bg-brand-gray text-white shadow hover:shadow-lg flex flex-col overflow-hidden">
                             <div class="relative group cursor-pointer">
@@ -60,7 +55,7 @@ function loadProjects(page = 1) {
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-money-bill-wave text-brand-gold w-4 h-4"></i></span>
                                         <span class="flex items-center"><span data-translate="budget">Budget:</span></span>
-                                        <span>${formatCurrency(project.budget)}</span>
+                                        <span>${project.budget || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-ruler-combined text-brand-gold w-4 h-4"></i></span>
