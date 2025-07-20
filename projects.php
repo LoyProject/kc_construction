@@ -81,7 +81,7 @@
             </ul>
         </div>
 
-        <div class="relative w-full z-0">
+        <!-- <div class="relative w-full z-0">
             <input type="text" placeholder="Facade" data-translate="facade"
             class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
             oninput="filterDropdown(this, 'facade')" 
@@ -101,9 +101,9 @@
             data-translate="load-all">All</li>
             <div id="dropdown-items-facade"></div>
             </ul>
-        </div>
+        </div> -->
 
-        <div class="relative w-full z-0">
+        <!-- <div class="relative w-full z-0">
             <input type="text" placeholder="<?php echo htmlspecialchars($translations['area'] ?? 'Area'); ?>"
             data-translate="area-dropdown"
             class="w-full bg-brand-black border border-gray-300 px-3 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-brand-gold focus:border-brand-gold text-brand-white"
@@ -124,7 +124,7 @@
             data-translate="load-all">All</li>
             <div id="dropdown-items-area"></div>
             </ul>
-        </div>
+        </div> -->
 
     </div>
 

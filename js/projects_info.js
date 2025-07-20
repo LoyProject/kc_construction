@@ -2,13 +2,13 @@ function loadProjects(page = 1) {
     const style = $('#dropdownInput-style').attr('data-id') || '';
     const type = $('#dropdownInput-type').attr('data-id') || '';
     const floor = $('#dropdownInput-floor').attr('data-id') || '';
-    const area = $('#dropdownInput-area').attr('data-id') || '';
-    const facade = $('#dropdownInput-facade').attr('data-id') || '';
+    // const area = $('#dropdownInput-area').attr('data-id') || '';
+    // const facade = $('#dropdownInput-facade').attr('data-id') || '';
 
     $.ajax({
         url: 'backend/process_fetch_projects.php',
         method: 'GET',
-        data: { page: page, limit: 16, style: style, type: type, floor: floor, area: area, facade: facade },
+        data: { page: page, limit: 16, style: style, type: type, floor: floor },
         dataType: 'json',
         beforeSend: function() {
             $('html, body').stop().animate({ scrollTop: 0 }, 300);
@@ -60,17 +60,17 @@ function loadProjects(page = 1) {
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-ruler-combined text-brand-gold w-4 h-4"></i></span>
                                         <span class="flex items-center"><span data-translate="size-card">Size:</span></span>
-                                        <span>${project.size.name || ''}</span>
+                                        <span>${project.size || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-map text-brand-gold w-4 h-4"></i></span>
                                         <span class="flex items-center"><span data-translate="area">Area:</span></span>
-                                        <span>${project.area.name || ''}</span>
+                                        <span>${project.area || ''}</span>
                                     </li>
                                     <li class="flex gap-2 mt-1 items-center">
                                         <span class="flex items-center"><i class="fas fa-location-dot text-brand-gold w-4 h-4"></i></span>
                                         <span class="flex items-center"><span data-translate="location-card">Location:</span></span>
-                                        <span>${project.address.name || ''}</span>
+                                        <span>${project.address || ''}</span>
                                     </li>
                                 </ul>
                             </div>

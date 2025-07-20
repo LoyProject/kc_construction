@@ -27,32 +27,32 @@ async function loadData() {
             });
         });
 
-        const fetchFacades = new Promise((resolve, reject) => {
-            $.ajax({
-                url: 'backend/process_fetch_facades.php',
-                method: 'GET',
-                dataType: 'json',
-                success: function(data) {
-                    const $facadeList = $('#facade-list');
-                    if (data.success) {
-                        $facadeList.empty();
-                        $.each(data.facades, function(index, facade) {
-                            $facadeList.append(`
-                                <button class="facade-item bg-brand-gray px-3 py-2 hover:bg-brand-gold hover:text-white text-xs sm:text-sm" 
-                                    data-id="${facade.id}" data-type="${facade.name}">${facade.name}
-                                </button>
-                            `);
-                        });
-                        resolve();
-                    } else {
-                        reject(new Error('Facades data fetch unsuccessful'));
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    reject(new Error(`Error fetching facades: ${textStatus} ${errorThrown}`));
-                }
-            });
-        });
+        // const fetchFacades = new Promise((resolve, reject) => {
+        //     $.ajax({
+        //         url: 'backend/process_fetch_facades.php',
+        //         method: 'GET',
+        //         dataType: 'json',
+        //         success: function(data) {
+        //             const $facadeList = $('#facade-list');
+        //             if (data.success) {
+        //                 $facadeList.empty();
+        //                 $.each(data.facades, function(index, facade) {
+        //                     $facadeList.append(`
+        //                         <button class="facade-item bg-brand-gray px-3 py-2 hover:bg-brand-gold hover:text-white text-xs sm:text-sm" 
+        //                             data-id="${facade.id}" data-type="${facade.name}">${facade.name}
+        //                         </button>
+        //                     `);
+        //                 });
+        //                 resolve();
+        //             } else {
+        //                 reject(new Error('Facades data fetch unsuccessful'));
+        //             }
+        //         },
+        //         error: function(jqXHR, textStatus, errorThrown) {
+        //             reject(new Error(`Error fetching facades: ${textStatus} ${errorThrown}`));
+        //         }
+        //     });
+        // });
 
         await Promise.all([fetchFloors, fetchFacades]);
     } catch (error) {
@@ -66,8 +66,8 @@ $(document).ready(function() {
     $('#dropdownInput-style').attr('data-id', '').val('');
     $('#dropdownInput-type').attr('data-id', '').val('');
     $('#dropdownInput-floor').attr('data-id', '').val('');
-    $('#dropdownInput-area').attr('data-id', '').val('');
-    $('#dropdownInput-facade').attr('data-id', '').val('');
+    // $('#dropdownInput-area').attr('data-id', '').val('');
+    // $('#dropdownInput-facade').attr('data-id', '').val('');
 
     if (projectId) {
         $.ajax({
@@ -176,12 +176,12 @@ $(document).ready(function() {
                                             <div id="floors-list" class="grid grid-cols-2 sm:grid-cols-3 gap-2"></div>
                                         </div>
 
-                                        <div>
+                                        <!-- <div>
                                             <h2 class="text-base sm:text-lg font-semibold mb-2 border-b pb-1 border-yellow-500 inline-block" data-translate="facade">FACADE</h2>
                                             <div id="facade-list" class="grid grid-cols-2 sm:grid-cols-3 gap-2">
                                                 <button class="bg-brand-gray px-3 py-2 text-xs sm:text-sm">7m - 8m</button>
                                             </div>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
 
@@ -220,7 +220,7 @@ $(document).ready(function() {
                                         <i class="fas fa-cogs text-brand-gold w-4"></i>
                                         <span data-translate="total-area"></span>
                                         </div>
-                                        <div class="p-2 border border-brand-gray">${project.area.name || '--'}</div>
+                                        <div class="p-2 border border-brand-gray">${project.area || '--'}</div>
 
                                         <!-- Floor Number -->
                                         <div class="flex items-center gap-2 p-2 border border-brand-gray">
@@ -248,7 +248,7 @@ $(document).ready(function() {
                                         <i class="fas fa-bullseye text-brand-gold w-4"></i>
                                         <span data-translate="facade"></span>
                                         </div>
-                                        <div class="p-2 border border-brand-gray">${project.facade.name || '--'}</div>
+                                        <div class="p-2 border border-brand-gray">${project.facade || '--'}</div>
 
                                         <!-- Type -->
                                         <div class="flex items-center gap-2 p-2 border border-brand-gray">
@@ -262,7 +262,7 @@ $(document).ready(function() {
                                         <i class="fas fa-chart-area text-brand-gold w-4"></i>
                                         <span data-translate="size"></span>
                                         </div>
-                                        <div class="p-2 border border-brand-gray">${project.size.name || '--'}</div>
+                                        <div class="p-2 border border-brand-gray">${project.size || '--'}</div>
                                     </div>
                                 </div>
 

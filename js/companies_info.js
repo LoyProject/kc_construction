@@ -3,6 +3,10 @@ $(document).ready(function () {
         url: 'backend/process_fetch_companies.php',
         method: 'GET',
         dataType: 'json',
+        beforeSend: function() {
+            $('html, body').stop().animate({ scrollTop: 0 }, 300);
+            $('#loading-overlay-about').removeClass('hidden');
+        },
         success: function (data) {
             var $pageTitle = $('#page-title');
             var $companyLogo = $('#company-logo-header, #company-logo-footer');
@@ -61,6 +65,9 @@ $(document).ready(function () {
                 $companyLogo.attr('alt', 'K.C Construction & Design');
                 console.error('Failed to fetch companies:', data.message);
             }
+
+            $('#loading-overlay-about').addClass('hidden');
+            setTimeout(() => { $('html, body').stop().animate({ scrollTop: 0 }, 300); }, 50);
         },
         error: function (jqXHR, textStatus, errorThrown) {
             console.error('Error fetching companies:', textStatus, errorThrown);

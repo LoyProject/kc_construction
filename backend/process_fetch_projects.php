@@ -5,8 +5,8 @@
     $style = $_GET['style'] ?? '';
     $type = $_GET['type'] ?? '';
     $floor = $_GET['floor'] ?? '';
-    $area = $_GET['area'] ?? '';
-    $facade = $_GET['facade'] ?? '';
+    // $area = $_GET['area'] ?? '';
+    // $facade = $_GET['facade'] ?? '';
 
     $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
     $limit = isset($_GET['limit']) ? (int)$_GET['limit'] : 16;
@@ -27,14 +27,14 @@
         $whereClause[] = "p.floor_id = ?";
         $params[] = $floor;
     }
-    if (!empty($area)) {
-        $whereClause[] = "p.area_id = ?";
-        $params[] = $area;
-    }
-    if (!empty($facade)) {
-        $whereClause[] = "p.facade_id = ?";
-        $params[] = $facade;
-    }
+    // if (!empty($area)) {
+    //     $whereClause[] = "p.area_id = ?";
+    //     $params[] = $area;
+    // }
+    // if (!empty($facade)) {
+    //     $whereClause[] = "p.facade_id = ?";
+    //     $params[] = $facade;
+    // }
 
     $whereClause[] = "p.status = 'Active'";
     $whereSQL = count($whereClause) ? 'WHERE ' . implode(' AND ', $whereClause) : '';
@@ -45,24 +45,39 @@
         $countStmt->execute($params);
         $totalProjects = $countStmt->fetchColumn();
 
+        // $sql = "
+        //     SELECT 
+        //         p.*, 
+        //         s.name AS style_name, s.description AS style_description, s.created_at AS style_created_at,
+        //         t.name AS type_name, t.description AS type_description, t.created_at AS type_created_at,
+        //         f.name AS floor_name, f.description AS floor_description, f.created_at AS floor_created_at,
+        //         fa.name AS facade_name, fa.description AS facade_description, fa.created_at AS facade_created_at,
+        //         a.name AS area_name, a.description AS area_description, a.created_at AS area_created_at,
+        //         sz.name AS size_name, sz.description AS size_description, sz.created_at AS size_created_at,
+        //         ad.name AS address_name, ad.description AS address_description, ad.created_at AS address_created_at
+        //     FROM projects p
+        //     LEFT JOIN styles s ON p.style_id = s.id
+        //     LEFT JOIN types t ON p.type_id = t.id
+        //     LEFT JOIN floors f ON p.floor_id = f.id
+        //     LEFT JOIN facades fa ON p.facade_id = fa.id
+        //     LEFT JOIN areas a ON p.area_id = a.id
+        //     LEFT JOIN sizes sz ON p.size_id = sz.id
+        //     LEFT JOIN addresses ad ON p.address_id = ad.id
+        //     $whereSQL
+        //     ORDER BY p.view DESC
+        //     LIMIT $limit OFFSET $offset
+        // ";
+
         $sql = "
             SELECT 
                 p.*, 
                 s.name AS style_name, s.description AS style_description, s.created_at AS style_created_at,
                 t.name AS type_name, t.description AS type_description, t.created_at AS type_created_at,
-                f.name AS floor_name, f.description AS floor_description, f.created_at AS floor_created_at,
-                fa.name AS facade_name, fa.description AS facade_description, fa.created_at AS facade_created_at,
-                a.name AS area_name, a.description AS area_description, a.created_at AS area_created_at,
-                sz.name AS size_name, sz.description AS size_description, sz.created_at AS size_created_at,
-                ad.name AS address_name, ad.description AS address_description, ad.created_at AS address_created_at
+                f.name AS floor_name, f.description AS floor_description, f.created_at AS floor_created_at
             FROM projects p
             LEFT JOIN styles s ON p.style_id = s.id
             LEFT JOIN types t ON p.type_id = t.id
             LEFT JOIN floors f ON p.floor_id = f.id
-            LEFT JOIN facades fa ON p.facade_id = fa.id
-            LEFT JOIN areas a ON p.area_id = a.id
-            LEFT JOIN sizes sz ON p.size_id = sz.id
-            LEFT JOIN addresses ad ON p.address_id = ad.id
             $whereSQL
             ORDER BY p.view DESC
             LIMIT $limit OFFSET $offset
@@ -95,30 +110,34 @@
                     'description' => $row['floor_description'],
                     'created_at' => $row['floor_created_at'],
                 ],
-                'facade' => [
-                    'id' => $row['facade_id'],
-                    'name' => $row['facade_name'],
-                    'description' => $row['facade_description'],
-                    'created_at' => $row['facade_created_at'],
-                ],
-                'area' => [
-                    'id' => $row['area_id'],
-                    'name' => $row['area_name'],
-                    'description' => $row['area_description'],
-                    'created_at' => $row['area_created_at'],
-                ],
-                'size' => [
-                    'id' => $row['size_id'],
-                    'name' => $row['size_name'],
-                    'description' => $row['size_description'],
-                    'created_at' => $row['size_created_at'],
-                ],
-                'address' => [
-                    'id' => $row['address_id'],
-                    'name' => $row['address_name'],
-                    'description' => $row['address_description'],
-                    'created_at' => $row['address_created_at'],
-                ],
+                // 'facade' => [
+                //     'id' => $row['facade_id'],
+                //     'name' => $row['facade_name'],
+                //     'description' => $row['facade_description'],
+                //     'created_at' => $row['facade_created_at'],
+                // ],
+                'facade' => $row['facade'],
+                // 'area' => [
+                //     'id' => $row['area_id'],
+                //     'name' => $row['area_name'],
+                //     'description' => $row['area_description'],
+                //     'created_at' => $row['area_created_at'],
+                // ],
+                'area' => $row['area'],
+                // 'size' => [
+                //     'id' => $row['size_id'],
+                //     'name' => $row['size_name'],
+                //     'description' => $row['size_description'],
+                //     'created_at' => $row['size_created_at'],
+                // ],
+                'size' => $row['size'],
+                // 'address' => [
+                //     'id' => $row['address_id'],
+                //     'name' => $row['address_name'],
+                //     'description' => $row['address_description'],
+                //     'created_at' => $row['address_created_at'],
+                // ],
+                'address' => $row['address'],
                 'view' => $row['view'],
                 'investor' => $row['investor'],
                 'implement_at' => $row['implement_at'],
