@@ -60,17 +60,17 @@
         <div>
             <label for="facade_id" class="block text-sm font-medium text-gray-700">Facades <span class="text-red-500">*</span></label>
             <input type="text" name="facade_id" id="facade_id" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                value="<?php echo sanitize_output(get_name_by_id($pdo, 'facades', $project['facade_id'])); ?>">
+                value="<?php echo sanitize_output($project['facade']); ?>">
         </div>
         <div>
             <label for="area_id" class="block text-sm font-medium text-gray-700">Area (m²) <span class="text-red-500">*</span></label>
             <input type="text" name="area_id" id="area_id" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                value="<?php echo sanitize_output(get_name_by_id($pdo, 'areas', $project['area_id'])); ?>">
+                value="<?php echo sanitize_output($project['area']); ?>">
         </div>
         <div>
             <label for="size_id" class="block text-sm font-medium text-gray-700">Size</label>
             <input type="text" name="size_id" id="size_id" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                value="<?php echo sanitize_output(get_name_by_id($pdo, 'sizes', $project['size_id'])); ?>">
+                value="<?php echo sanitize_output($project['size']); ?>">
         </div>
         <div>
             <label id="view" class="block text-sm font-medium text-gray-700">View</label>
@@ -80,38 +80,44 @@
         <div>
             <label id="investor" class="block text-sm font-medium text-gray-700">Investor</label>
             <input type="text" name="investor" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                value="<?php echo sanitize_output(get_name_by_id($pdo, 'projects', $project['investor'])); ?>">
+                value="<?php echo sanitize_output($project['investor']); ?>">
         </div>
         <div>
             <label for="address_id" class="mb-[4px] block text-sm font-medium text-gray-700">Address</label>
             <input type="text" name="address_id" id="address_id" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                value="<?php echo sanitize_output(get_name_by_id($pdo, 'addresses', $project['address_id'])); ?>">
+                value="<?php echo sanitize_output($project['address']); ?>">
         </div>
         <div>
             <label id="implement_at" class="block text-sm font-medium text-gray-700">Implement At</label>
             <input type="text" name="implement_at" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                value="<?php echo sanitize_output(get_name_by_id($pdo, 'projects', $project['implement_at'])); ?>">
+                value="<?php echo sanitize_output($project['implement_at']); ?>">
         </div>
         <div>
             <label id="implement_unit" class="block text-sm font-medium text-gray-700">Implement Unit</label>
             <input type="text" name="implement_unit" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                value="<?php echo sanitize_output(get_name_by_id($pdo, 'projects', $project['implement_unit'])); ?>">
+                value="<?php echo sanitize_output($project['implement_unit']); ?>">
         </div>
         <div>
-            <label id="created_at" class="block text-sm font-medium text-gray-700">Created At</label>
-            <input type="text" name="created_at" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
-                value="<?php echo sanitize_output(date('Y-m-d H:i:s', strtotime($project['created_at']))); ?>">
+            <label id="budget" class="block text-sm font-medium text-gray-700">Budget</label>
+            <input type="text" name="budget" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+                value="<?php echo sanitize_output($project['budget']); ?>">
         </div>
+    </div>
+
+    <div>
+        <label id="created_at" class="block text-sm font-medium text-gray-700">Created At</label>
+        <input type="text" name="created_at" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"
+            value="<?php echo sanitize_output(date('Y-m-d H:i:s', strtotime($project['created_at']))); ?>">
     </div>
 
     <div>
         <label id="detail_floor" class="block text-sm font-medium text-gray-700">Detail About Floor</label>
-        <textarea name="detail_floor" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"><?php echo sanitize_output(get_name_by_id($pdo, 'projects', $project['detail_floor'])); ?></textarea>
+        <textarea name="detail_floor" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"><?php echo sanitize_output($project['detail_floor']); ?></textarea>
     </div>
 
     <div>
         <label id="detail_area" class="block text-sm font-medium text-gray-700">Detail of Area</label>
-        <textarea name="detail_area" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"><?php echo sanitize_output(get_name_by_id($pdo, 'projects', $project['detail_area'])); ?></textarea>
+        <textarea name="detail_area" disabled class="mt-1 block w-full border border-gray-300 rounded-md p-2"><?php echo sanitize_output($project['detail_area']); ?></textarea>
     </div>
 
     <div>
