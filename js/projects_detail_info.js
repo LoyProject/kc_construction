@@ -54,7 +54,7 @@ async function loadData() {
         //     });
         // });
 
-        await Promise.all([fetchFloors, fetchFacades]);
+        await Promise.all([fetchFloors]);
     } catch (error) {
         console.error('Error in loadData:', error.message);
     }
@@ -151,7 +151,7 @@ $(document).ready(function() {
                                                 <i class="fas fa-chevron-left"></i>
                                             </button>
                                             <div class="w-full aspect-[4/3] overflow-hidden shadow-sm">
-                                                <img id="main-project-img" src="admin/${allImages[0]?.image_path || ''}" class="shadow mb-4 w-full h-full object-cover" />
+                                                <img id="main-project-img" src="admin/${allImages[0]?.image_path || ''}" class="shadow mb-4 w-full h-full object-cover cursor-pointer" />
                                             </div>
                                             <button id="img-next-btn" class="absolute right-2 top-1/2 -translate-y-1/2 z-10 bg-black/50 hover:bg-black/80 text-white rounded-full w-8 h-8 flex items-center justify-center" style="display:${allImages.length > 1 ? 'block' : 'none'}">
                                                 <i class="fas fa-chevron-right"></i>
@@ -271,7 +271,29 @@ $(document).ready(function() {
                                 ${vedioHtml}
                             </main>
                         </div>
+                        
+                        <!-- Popup Dialog -->
+                        <div id="img-popup-dialog" style="display:none; position:fixed; top:0; left:0; width:95vw; height:100vh; background:rgba(0,0,0,0.8); z-index:9999; align-items:center; justify-content:center;">
+                            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); max-width:90vw; max-height:90vh;">
+                                <button id="img-popup-close" style="position:absolute; top:10px; right:10px; background:#222; color:#fff; border:none; border-radius:50%; width:32px; height:32px; font-size:20px; cursor:pointer; z-index:2;">&times;</button>
+                                <a id="img-popup-download" href="#" download style="position:absolute; top:10px; left:10px; background:#222; color:#fff; border:none; border-radius:50%; width:32px; height:32px; font-size:18px; cursor:pointer; z-index:2; display:flex; align-items:center; justify-content:center;" title="Download">
+                                    <i class="fas fa-download"></i>
+                                </a>
+                                <img id="img-popup-img" src="" style="max-width:90vw; max-height:80vh; display:block; margin:auto; border-radius:8px; box-shadow:0 2px 16px #000;" />
+                            </div>
+                        </div>
                     `);
+
+                    // Popup dialog logic
+                    $('#main-project-img, .project-thumb').off('click.imgpopup').on('click.imgpopup', function() {
+                        let src = $(this).attr('src');
+                        $('#img-popup-img').attr('src', src);
+                        $('#img-popup-download').attr('href', src);
+                        $('#img-popup-dialog').fadeIn(150);
+                    });
+                    $('#img-popup-close, #img-popup-dialog').off('click.imgpopup').on('click.imgpopup', function(e) {
+                        if (e.target === this) $('#img-popup-dialog').fadeOut(150);
+                    });
 
                     // Add image viewer logic
                     (function() {
